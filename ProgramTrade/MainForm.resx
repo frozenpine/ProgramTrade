@@ -1,0 +1,2391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="splitMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="splitMain.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
+  <data name="tabExchange.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <metadata name="contmenuTabExchange.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>118, 14</value>
+  </metadata>
+  <data name="切换显示ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="切换显示ToolStripMenuItem.Text" xml:space="preserve">
+    <value>切换显示</value>
+  </data>
+  <data name="contmenuTabExchange.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 26</value>
+  </data>
+  <data name="&gt;&gt;contmenuTabExchange.Name" xml:space="preserve">
+    <value>contmenuTabExchange</value>
+  </data>
+  <data name="&gt;&gt;contmenuTabExchange.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mdvwDCE.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="mdvwDCE.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="mdvwDCE.Size" type="System.Drawing.Size, System.Drawing">
+    <value>934, 238</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="mdvwDCE.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;mdvwDCE.Name" xml:space="preserve">
+    <value>mdvwDCE</value>
+  </data>
+  <data name="&gt;&gt;mdvwDCE.Type" xml:space="preserve">
+    <value>ProgramTradeModules.MarketViewer, ProgramTradeModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;mdvwDCE.Parent" xml:space="preserve">
+    <value>tabPageDCE</value>
+  </data>
+  <data name="&gt;&gt;mdvwDCE.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageDCE.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="tabPageDCE.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageDCE.Size" type="System.Drawing.Size, System.Drawing">
+    <value>940, 244</value>
+  </data>
+  <data name="tabPageDCE.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPageDCE.Text" xml:space="preserve">
+    <value>大商所</value>
+  </data>
+  <data name="&gt;&gt;tabPageDCE.Name" xml:space="preserve">
+    <value>tabPageDCE</value>
+  </data>
+  <data name="&gt;&gt;tabPageDCE.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageDCE.Parent" xml:space="preserve">
+    <value>tabExchange</value>
+  </data>
+  <data name="&gt;&gt;tabPageDCE.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="mdvwSHFE.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="mdvwSHFE.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="mdvwSHFE.Size" type="System.Drawing.Size, System.Drawing">
+    <value>934, 238</value>
+  </data>
+  <data name="mdvwSHFE.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;mdvwSHFE.Name" xml:space="preserve">
+    <value>mdvwSHFE</value>
+  </data>
+  <data name="&gt;&gt;mdvwSHFE.Type" xml:space="preserve">
+    <value>ProgramTradeModules.MarketViewer, ProgramTradeModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;mdvwSHFE.Parent" xml:space="preserve">
+    <value>tabPageSHFE</value>
+  </data>
+  <data name="&gt;&gt;mdvwSHFE.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageSHFE.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="tabPageSHFE.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageSHFE.Size" type="System.Drawing.Size, System.Drawing">
+    <value>940, 244</value>
+  </data>
+  <data name="tabPageSHFE.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabPageSHFE.Text" xml:space="preserve">
+    <value>上期所</value>
+  </data>
+  <data name="&gt;&gt;tabPageSHFE.Name" xml:space="preserve">
+    <value>tabPageSHFE</value>
+  </data>
+  <data name="&gt;&gt;tabPageSHFE.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageSHFE.Parent" xml:space="preserve">
+    <value>tabExchange</value>
+  </data>
+  <data name="&gt;&gt;tabPageSHFE.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="mdvwCFFE.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="mdvwCFFE.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="mdvwCFFE.Size" type="System.Drawing.Size, System.Drawing">
+    <value>934, 238</value>
+  </data>
+  <data name="mdvwCFFE.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;mdvwCFFE.Name" xml:space="preserve">
+    <value>mdvwCFFE</value>
+  </data>
+  <data name="&gt;&gt;mdvwCFFE.Type" xml:space="preserve">
+    <value>ProgramTradeModules.MarketViewer, ProgramTradeModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;mdvwCFFE.Parent" xml:space="preserve">
+    <value>tabPageCFFE</value>
+  </data>
+  <data name="&gt;&gt;mdvwCFFE.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageCFFE.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="tabPageCFFE.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageCFFE.Size" type="System.Drawing.Size, System.Drawing">
+    <value>940, 244</value>
+  </data>
+  <data name="tabPageCFFE.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabPageCFFE.Text" xml:space="preserve">
+    <value>中金所</value>
+  </data>
+  <data name="&gt;&gt;tabPageCFFE.Name" xml:space="preserve">
+    <value>tabPageCFFE</value>
+  </data>
+  <data name="&gt;&gt;tabPageCFFE.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageCFFE.Parent" xml:space="preserve">
+    <value>tabExchange</value>
+  </data>
+  <data name="&gt;&gt;tabPageCFFE.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="mdvwZCE.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="mdvwZCE.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="mdvwZCE.Size" type="System.Drawing.Size, System.Drawing">
+    <value>934, 238</value>
+  </data>
+  <data name="mdvwZCE.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;mdvwZCE.Name" xml:space="preserve">
+    <value>mdvwZCE</value>
+  </data>
+  <data name="&gt;&gt;mdvwZCE.Type" xml:space="preserve">
+    <value>ProgramTradeModules.MarketViewer, ProgramTradeModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;mdvwZCE.Parent" xml:space="preserve">
+    <value>tabPageZCE</value>
+  </data>
+  <data name="&gt;&gt;mdvwZCE.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageZCE.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="tabPageZCE.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageZCE.Size" type="System.Drawing.Size, System.Drawing">
+    <value>940, 244</value>
+  </data>
+  <data name="tabPageZCE.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tabPageZCE.Text" xml:space="preserve">
+    <value>郑商所</value>
+  </data>
+  <data name="&gt;&gt;tabPageZCE.Name" xml:space="preserve">
+    <value>tabPageZCE</value>
+  </data>
+  <data name="&gt;&gt;tabPageZCE.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageZCE.Parent" xml:space="preserve">
+    <value>tabExchange</value>
+  </data>
+  <data name="&gt;&gt;tabPageZCE.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="mdvwCustom.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="mdvwCustom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="mdvwCustom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>934, 238</value>
+  </data>
+  <data name="mdvwCustom.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;mdvwCustom.Name" xml:space="preserve">
+    <value>mdvwCustom</value>
+  </data>
+  <data name="&gt;&gt;mdvwCustom.Type" xml:space="preserve">
+    <value>ProgramTradeModules.MarketViewer, ProgramTradeModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;mdvwCustom.Parent" xml:space="preserve">
+    <value>tabUserDefine</value>
+  </data>
+  <data name="&gt;&gt;mdvwCustom.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabUserDefine.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="tabUserDefine.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabUserDefine.Size" type="System.Drawing.Size, System.Drawing">
+    <value>940, 244</value>
+  </data>
+  <data name="tabUserDefine.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tabUserDefine.Text" xml:space="preserve">
+    <value>自定义</value>
+  </data>
+  <data name="&gt;&gt;tabUserDefine.Name" xml:space="preserve">
+    <value>tabUserDefine</value>
+  </data>
+  <data name="&gt;&gt;tabUserDefine.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabUserDefine.Parent" xml:space="preserve">
+    <value>tabExchange</value>
+  </data>
+  <data name="&gt;&gt;tabUserDefine.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tabExchange.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabExchange.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="tabExchange.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 3, 10, 3</value>
+  </data>
+  <data name="tabExchange.ShowToolTips" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tabExchange.Size" type="System.Drawing.Size, System.Drawing">
+    <value>948, 270</value>
+  </data>
+  <data name="tabExchange.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tabExchange.Name" xml:space="preserve">
+    <value>tabExchange</value>
+  </data>
+  <data name="&gt;&gt;tabExchange.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabExchange.Parent" xml:space="preserve">
+    <value>splitMain.Panel1</value>
+  </data>
+  <data name="&gt;&gt;tabExchange.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitMain.Panel1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 0, 3, 3</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Panel1.Name" xml:space="preserve">
+    <value>splitMain.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Panel1.Parent" xml:space="preserve">
+    <value>splitMain</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tbpanlOrderInfo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tbpanlOrderInfo.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="tbpanlOrderInfo.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="odvwOpenOrders.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="odvwOpenOrders.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="odvwOpenOrders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="odvwOpenOrders.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="odvwOpenOrders.Size" type="System.Drawing.Size, System.Drawing">
+    <value>704, 305</value>
+  </data>
+  <data name="odvwOpenOrders.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;odvwOpenOrders.Name" xml:space="preserve">
+    <value>odvwOpenOrders</value>
+  </data>
+  <data name="&gt;&gt;odvwOpenOrders.Type" xml:space="preserve">
+    <value>ProgramTradeModules.OrderViewer, ProgramTradeModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;odvwOpenOrders.Parent" xml:space="preserve">
+    <value>tabPageOpenOrders</value>
+  </data>
+  <data name="&gt;&gt;odvwOpenOrders.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageOpenOrders.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageOpenOrders.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageOpenOrders.Size" type="System.Drawing.Size, System.Drawing">
+    <value>710, 311</value>
+  </data>
+  <data name="tabPageOpenOrders.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPageOpenOrders.Text" xml:space="preserve">
+    <value>开市自动单</value>
+  </data>
+  <data name="&gt;&gt;tabPageOpenOrders.Name" xml:space="preserve">
+    <value>tabPageOpenOrders</value>
+  </data>
+  <data name="&gt;&gt;tabPageOpenOrders.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageOpenOrders.Parent" xml:space="preserve">
+    <value>tabOrders</value>
+  </data>
+  <data name="&gt;&gt;tabPageOpenOrders.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="odvwAllOrders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="odvwAllOrders.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="odvwAllOrders.Size" type="System.Drawing.Size, System.Drawing">
+    <value>704, 305</value>
+  </data>
+  <data name="odvwAllOrders.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;odvwAllOrders.Name" xml:space="preserve">
+    <value>odvwAllOrders</value>
+  </data>
+  <data name="&gt;&gt;odvwAllOrders.Type" xml:space="preserve">
+    <value>ProgramTradeModules.OrderViewer, ProgramTradeModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;odvwAllOrders.Parent" xml:space="preserve">
+    <value>tabPageAllOrders</value>
+  </data>
+  <data name="&gt;&gt;odvwAllOrders.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageAllOrders.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageAllOrders.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageAllOrders.Size" type="System.Drawing.Size, System.Drawing">
+    <value>710, 311</value>
+  </data>
+  <data name="tabPageAllOrders.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabPageAllOrders.Text" xml:space="preserve">
+    <value>全部挂单</value>
+  </data>
+  <data name="&gt;&gt;tabPageAllOrders.Name" xml:space="preserve">
+    <value>tabPageAllOrders</value>
+  </data>
+  <data name="&gt;&gt;tabPageAllOrders.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageAllOrders.Parent" xml:space="preserve">
+    <value>tabOrders</value>
+  </data>
+  <data name="&gt;&gt;tabPageAllOrders.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="odvwHisOrders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="odvwHisOrders.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="odvwHisOrders.Size" type="System.Drawing.Size, System.Drawing">
+    <value>704, 305</value>
+  </data>
+  <data name="odvwHisOrders.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;odvwHisOrders.Name" xml:space="preserve">
+    <value>odvwHisOrders</value>
+  </data>
+  <data name="&gt;&gt;odvwHisOrders.Type" xml:space="preserve">
+    <value>ProgramTradeModules.OrderViewer, ProgramTradeModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;odvwHisOrders.Parent" xml:space="preserve">
+    <value>tabPageHisOrders</value>
+  </data>
+  <data name="&gt;&gt;odvwHisOrders.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageHisOrders.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageHisOrders.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageHisOrders.Size" type="System.Drawing.Size, System.Drawing">
+    <value>710, 311</value>
+  </data>
+  <data name="tabPageHisOrders.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabPageHisOrders.Text" xml:space="preserve">
+    <value>历史挂单</value>
+  </data>
+  <data name="&gt;&gt;tabPageHisOrders.Name" xml:space="preserve">
+    <value>tabPageHisOrders</value>
+  </data>
+  <data name="&gt;&gt;tabPageHisOrders.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageHisOrders.Parent" xml:space="preserve">
+    <value>tabOrders</value>
+  </data>
+  <data name="&gt;&gt;tabPageHisOrders.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="gdvwCodes.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gdvwCodes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="gdvwCodes.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="gdvwCodes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>704, 305</value>
+  </data>
+  <data name="gdvwCodes.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gdvwCodes.Name" xml:space="preserve">
+    <value>gdvwCodes</value>
+  </data>
+  <data name="&gt;&gt;gdvwCodes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gdvwCodes.Parent" xml:space="preserve">
+    <value>tabPageCodes</value>
+  </data>
+  <data name="&gt;&gt;gdvwCodes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageCodes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageCodes.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageCodes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>710, 311</value>
+  </data>
+  <data name="tabPageCodes.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tabPageCodes.Text" xml:space="preserve">
+    <value>代码表</value>
+  </data>
+  <data name="&gt;&gt;tabPageCodes.Name" xml:space="preserve">
+    <value>tabPageCodes</value>
+  </data>
+  <data name="&gt;&gt;tabPageCodes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageCodes.Parent" xml:space="preserve">
+    <value>tabOrders</value>
+  </data>
+  <data name="&gt;&gt;tabPageCodes.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabOrders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabOrders.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 23</value>
+  </data>
+  <data name="tabOrders.Size" type="System.Drawing.Size, System.Drawing">
+    <value>718, 337</value>
+  </data>
+  <data name="tabOrders.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;tabOrders.Name" xml:space="preserve">
+    <value>tabOrders</value>
+  </data>
+  <data name="&gt;&gt;tabOrders.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabOrders.Parent" xml:space="preserve">
+    <value>tbpanlOrderInfo</value>
+  </data>
+  <data name="&gt;&gt;tabOrders.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="flpnelInfo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="flpnelInfo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="flpnelInfo.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="lbAccountInfo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="lbAccountInfo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbAccountInfo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbAccountInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 1</value>
+  </data>
+  <data name="lbAccountInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 0, 3, 0</value>
+  </data>
+  <data name="lbAccountInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="lbAccountInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbAccountInfo.Text" xml:space="preserve">
+    <value>帐户概要：</value>
+  </data>
+  <data name="lbAccountInfo.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbAccountInfo.Name" xml:space="preserve">
+    <value>lbAccountInfo</value>
+  </data>
+  <data name="&gt;&gt;lbAccountInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbAccountInfo.Parent" xml:space="preserve">
+    <value>flpnelInfo</value>
+  </data>
+  <data name="&gt;&gt;lbAccountInfo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lbRightText.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="lbRightText.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbRightText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbRightText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>81, 1</value>
+  </data>
+  <data name="lbRightText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="lbRightText.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lbRightText.Text" xml:space="preserve">
+    <value>权益</value>
+  </data>
+  <data name="lbRightText.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbRightText.Name" xml:space="preserve">
+    <value>lbRightText</value>
+  </data>
+  <data name="&gt;&gt;lbRightText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbRightText.Parent" xml:space="preserve">
+    <value>flpnelInfo</value>
+  </data>
+  <data name="&gt;&gt;lbRightText.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lbRight.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="lbRight.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbRight.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10pt, style=Bold</value>
+  </data>
+  <data name="lbRight.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbRight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>116, 0</value>
+  </data>
+  <data name="lbRight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 14</value>
+  </data>
+  <data name="lbRight.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lbRight.Text" xml:space="preserve">
+    <value>lbRight</value>
+  </data>
+  <data name="lbRight.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbRight.Name" xml:space="preserve">
+    <value>lbRight</value>
+  </data>
+  <data name="&gt;&gt;lbRight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbRight.Parent" xml:space="preserve">
+    <value>flpnelInfo</value>
+  </data>
+  <data name="&gt;&gt;lbRight.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lbAvailableText.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="lbAvailableText.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbAvailableText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbAvailableText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>185, 1</value>
+  </data>
+  <data name="lbAvailableText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 12</value>
+  </data>
+  <data name="lbAvailableText.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lbAvailableText.Text" xml:space="preserve">
+    <value>可用资金</value>
+  </data>
+  <data name="lbAvailableText.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbAvailableText.Name" xml:space="preserve">
+    <value>lbAvailableText</value>
+  </data>
+  <data name="&gt;&gt;lbAvailableText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbAvailableText.Parent" xml:space="preserve">
+    <value>flpnelInfo</value>
+  </data>
+  <data name="&gt;&gt;lbAvailableText.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lbAvailable.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="lbAvailable.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbAvailable.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 10pt, style=Bold</value>
+  </data>
+  <data name="lbAvailable.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbAvailable.Location" type="System.Drawing.Point, System.Drawing">
+    <value>244, 0</value>
+  </data>
+  <data name="lbAvailable.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 14</value>
+  </data>
+  <data name="lbAvailable.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lbAvailable.Text" xml:space="preserve">
+    <value>lbAvailable</value>
+  </data>
+  <data name="lbAvailable.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;lbAvailable.Name" xml:space="preserve">
+    <value>lbAvailable</value>
+  </data>
+  <data name="&gt;&gt;lbAvailable.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbAvailable.Parent" xml:space="preserve">
+    <value>flpnelInfo</value>
+  </data>
+  <data name="&gt;&gt;lbAvailable.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="flpnelInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="flpnelInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>948, 14</value>
+  </data>
+  <data name="flpnelInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;flpnelInfo.Name" xml:space="preserve">
+    <value>flpnelInfo</value>
+  </data>
+  <data name="&gt;&gt;flpnelInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flpnelInfo.Parent" xml:space="preserve">
+    <value>tbpanlOrderInfo</value>
+  </data>
+  <data name="&gt;&gt;flpnelInfo.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="flpanlOrder.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="flpanlOrder.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="tbpanlOrder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tbpanlOrder.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tbpanlOrder.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="tbpanlOrder.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lbInstrument.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="lbInstrument.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbInstrument.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 11.25pt, style=Bold</value>
+  </data>
+  <data name="lbInstrument.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbInstrument.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 31</value>
+  </data>
+  <data name="lbInstrument.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 15</value>
+  </data>
+  <data name="lbInstrument.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbInstrument.Text" xml:space="preserve">
+    <value>合约</value>
+  </data>
+  <data name="lbInstrument.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;lbInstrument.Name" xml:space="preserve">
+    <value>lbInstrument</value>
+  </data>
+  <data name="&gt;&gt;lbInstrument.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbInstrument.Parent" xml:space="preserve">
+    <value>tbpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;lbInstrument.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lbDirection.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="lbDirection.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbDirection.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 11.25pt, style=Bold</value>
+  </data>
+  <data name="lbDirection.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbDirection.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 58</value>
+  </data>
+  <data name="lbDirection.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 15</value>
+  </data>
+  <data name="lbDirection.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbDirection.Text" xml:space="preserve">
+    <value>买卖</value>
+  </data>
+  <data name="lbDirection.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;lbDirection.Name" xml:space="preserve">
+    <value>lbDirection</value>
+  </data>
+  <data name="&gt;&gt;lbDirection.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbDirection.Parent" xml:space="preserve">
+    <value>tbpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;lbDirection.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lbAction.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="lbAction.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbAction.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 11.25pt, style=Bold</value>
+  </data>
+  <data name="lbAction.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbAction.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 86</value>
+  </data>
+  <data name="lbAction.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 15</value>
+  </data>
+  <data name="lbAction.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbAction.Text" xml:space="preserve">
+    <value>开平</value>
+  </data>
+  <data name="lbAction.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;lbAction.Name" xml:space="preserve">
+    <value>lbAction</value>
+  </data>
+  <data name="&gt;&gt;lbAction.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbAction.Parent" xml:space="preserve">
+    <value>tbpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;lbAction.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lbPrice.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="lbPrice.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbPrice.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 11.25pt, style=Bold</value>
+  </data>
+  <data name="lbPrice.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbPrice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 114</value>
+  </data>
+  <data name="lbPrice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 15</value>
+  </data>
+  <data name="lbPrice.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbPrice.Text" xml:space="preserve">
+    <value>指定价</value>
+  </data>
+  <data name="lbPrice.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;lbPrice.Name" xml:space="preserve">
+    <value>lbPrice</value>
+  </data>
+  <data name="&gt;&gt;lbPrice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbPrice.Parent" xml:space="preserve">
+    <value>tbpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;lbPrice.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lbVolume.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="lbVolume.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbVolume.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 11.25pt, style=Bold</value>
+  </data>
+  <data name="lbVolume.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbVolume.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 141</value>
+  </data>
+  <data name="lbVolume.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 15</value>
+  </data>
+  <data name="lbVolume.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbVolume.Text" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="lbVolume.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;lbVolume.Name" xml:space="preserve">
+    <value>lbVolume</value>
+  </data>
+  <data name="&gt;&gt;lbVolume.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbVolume.Parent" xml:space="preserve">
+    <value>tbpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;lbVolume.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="txtInstrumentID.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="txtInstrumentID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 28</value>
+  </data>
+  <data name="txtInstrumentID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 21</value>
+  </data>
+  <data name="txtInstrumentID.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txtInstrumentID.Name" xml:space="preserve">
+    <value>txtInstrumentID</value>
+  </data>
+  <data name="&gt;&gt;txtInstrumentID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtInstrumentID.Parent" xml:space="preserve">
+    <value>tbpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;txtInstrumentID.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="numPrice.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="numPrice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 111</value>
+  </data>
+  <data name="numPrice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 21</value>
+  </data>
+  <data name="numPrice.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="numPrice.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="numPrice.ThousandsSeparator" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;numPrice.Name" xml:space="preserve">
+    <value>numPrice</value>
+  </data>
+  <data name="&gt;&gt;numPrice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numPrice.Parent" xml:space="preserve">
+    <value>tbpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;numPrice.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="numVolume.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="numVolume.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 138</value>
+  </data>
+  <data name="numVolume.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
+  <data name="numVolume.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 21</value>
+  </data>
+  <data name="numVolume.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="numVolume.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;numVolume.Name" xml:space="preserve">
+    <value>numVolume</value>
+  </data>
+  <data name="&gt;&gt;numVolume.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numVolume.Parent" xml:space="preserve">
+    <value>tbpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;numVolume.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="tbpanlOpenClose.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="tbpanlOpenClose.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tbpanlOpenClose.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="tbpanlOpenClose.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="rdoOpen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="rdoOpen.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rdoOpen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rdoOpen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 3</value>
+  </data>
+  <data name="rdoOpen.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 10, 3</value>
+  </data>
+  <data name="rdoOpen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 16</value>
+  </data>
+  <data name="rdoOpen.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rdoOpen.Text" xml:space="preserve">
+    <value>开仓</value>
+  </data>
+  <data name="&gt;&gt;rdoOpen.Name" xml:space="preserve">
+    <value>rdoOpen</value>
+  </data>
+  <data name="&gt;&gt;rdoOpen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rdoOpen.Parent" xml:space="preserve">
+    <value>tbpanlOpenClose</value>
+  </data>
+  <data name="&gt;&gt;rdoOpen.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdoClose.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="rdoClose.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rdoClose.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rdoClose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 3</value>
+  </data>
+  <data name="rdoClose.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 3, 3, 3</value>
+  </data>
+  <data name="rdoClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 16</value>
+  </data>
+  <data name="rdoClose.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="rdoClose.Text" xml:space="preserve">
+    <value>平仓</value>
+  </data>
+  <data name="&gt;&gt;rdoClose.Name" xml:space="preserve">
+    <value>rdoClose</value>
+  </data>
+  <data name="&gt;&gt;rdoClose.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rdoClose.Parent" xml:space="preserve">
+    <value>tbpanlOpenClose</value>
+  </data>
+  <data name="&gt;&gt;rdoClose.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tbpanlOpenClose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 83</value>
+  </data>
+  <data name="tbpanlOpenClose.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tbpanlOpenClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 22</value>
+  </data>
+  <data name="tbpanlOpenClose.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;tbpanlOpenClose.Name" xml:space="preserve">
+    <value>tbpanlOpenClose</value>
+  </data>
+  <data name="&gt;&gt;tbpanlOpenClose.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbpanlOpenClose.Parent" xml:space="preserve">
+    <value>tbpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;tbpanlOpenClose.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="tbpanlOpenClose.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="rdoOpen" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="rdoClose" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tbpanlBuySell.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="tbpanlBuySell.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tbpanlBuySell.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="tbpanlBuySell.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="rdoBuy.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="rdoBuy.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rdoBuy.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rdoBuy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 3</value>
+  </data>
+  <data name="rdoBuy.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 10, 3</value>
+  </data>
+  <data name="rdoBuy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 16</value>
+  </data>
+  <data name="rdoBuy.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rdoBuy.Text" xml:space="preserve">
+    <value>买入</value>
+  </data>
+  <data name="&gt;&gt;rdoBuy.Name" xml:space="preserve">
+    <value>rdoBuy</value>
+  </data>
+  <data name="&gt;&gt;rdoBuy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rdoBuy.Parent" xml:space="preserve">
+    <value>tbpanlBuySell</value>
+  </data>
+  <data name="&gt;&gt;rdoBuy.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdoSell.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="rdoSell.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="rdoSell.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rdoSell.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 3</value>
+  </data>
+  <data name="rdoSell.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 3, 3, 3</value>
+  </data>
+  <data name="rdoSell.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 16</value>
+  </data>
+  <data name="rdoSell.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="rdoSell.Text" xml:space="preserve">
+    <value>卖出</value>
+  </data>
+  <data name="&gt;&gt;rdoSell.Name" xml:space="preserve">
+    <value>rdoSell</value>
+  </data>
+  <data name="&gt;&gt;rdoSell.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rdoSell.Parent" xml:space="preserve">
+    <value>tbpanlBuySell</value>
+  </data>
+  <data name="&gt;&gt;rdoSell.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tbpanlBuySell.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 55</value>
+  </data>
+  <data name="tbpanlBuySell.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tbpanlBuySell.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 22</value>
+  </data>
+  <data name="tbpanlBuySell.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tbpanlBuySell.Name" xml:space="preserve">
+    <value>tbpanlBuySell</value>
+  </data>
+  <data name="&gt;&gt;tbpanlBuySell.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbpanlBuySell.Parent" xml:space="preserve">
+    <value>tbpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;tbpanlBuySell.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="tbpanlBuySell.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="rdoBuy" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="rdoSell" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tbInstrumentInfo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="tbInstrumentInfo.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="tbInstrumentInfo.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lbInstrumentName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="lbInstrumentName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbInstrumentName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbInstrumentName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>106, 3</value>
+  </data>
+  <data name="lbInstrumentName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 12</value>
+  </data>
+  <data name="lbInstrumentName.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lbInstrumentName.Text" xml:space="preserve">
+    <value>合约名称</value>
+  </data>
+  <data name="lbInstrumentName.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lbInstrumentName.Name" xml:space="preserve">
+    <value>lbInstrumentName</value>
+  </data>
+  <data name="&gt;&gt;lbInstrumentName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbInstrumentName.Parent" xml:space="preserve">
+    <value>tbInstrumentInfo</value>
+  </data>
+  <data name="&gt;&gt;lbInstrumentName.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lbExchange.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="lbExchange.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbExchange.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbExchange.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="lbExchange.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 12</value>
+  </data>
+  <data name="lbExchange.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbExchange.Text" xml:space="preserve">
+    <value>交易所代码</value>
+  </data>
+  <data name="lbExchange.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lbExchange.Name" xml:space="preserve">
+    <value>lbExchange</value>
+  </data>
+  <data name="&gt;&gt;lbExchange.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbExchange.Parent" xml:space="preserve">
+    <value>tbInstrumentInfo</value>
+  </data>
+  <data name="&gt;&gt;lbExchange.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tbInstrumentInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="tbInstrumentInfo.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tbInstrumentInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 19</value>
+  </data>
+  <data name="tbInstrumentInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;tbInstrumentInfo.Name" xml:space="preserve">
+    <value>tbInstrumentInfo</value>
+  </data>
+  <data name="&gt;&gt;tbInstrumentInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbInstrumentInfo.Parent" xml:space="preserve">
+    <value>tbpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;tbInstrumentInfo.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="tbInstrumentInfo.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbInstrumentName" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lbExchange" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tbpanlOrder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="tbpanlOrder.RowCount" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="tbpanlOrder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 162</value>
+  </data>
+  <data name="tbpanlOrder.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tbpanlOrder.Name" xml:space="preserve">
+    <value>tbpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;tbpanlOrder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbpanlOrder.Parent" xml:space="preserve">
+    <value>flpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;tbpanlOrder.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tbpanlOrder.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbInstrument" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbDirection" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbAction" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbPrice" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbVolume" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="txtInstrumentID" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="numPrice" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="numVolume" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tbpanlOpenClose" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tbpanlBuySell" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tbInstrumentInfo" Row="0" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="Absolute,25,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tbpanlSubOrder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tbpanlSubOrder.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tbpanlSubOrder.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="tbpanlSubOrder.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnAddOpenOrder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="btnAddOpenOrder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnAddOpenOrder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 3</value>
+  </data>
+  <data name="btnAddOpenOrder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 3, 5, 3</value>
+  </data>
+  <data name="btnAddOpenOrder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 23</value>
+  </data>
+  <data name="btnAddOpenOrder.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnAddOpenOrder.Text" xml:space="preserve">
+    <value>开市自动单</value>
+  </data>
+  <data name="&gt;&gt;btnAddOpenOrder.Name" xml:space="preserve">
+    <value>btnAddOpenOrder</value>
+  </data>
+  <data name="&gt;&gt;btnAddOpenOrder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAddOpenOrder.Parent" xml:space="preserve">
+    <value>tbpanlSubOrder</value>
+  </data>
+  <data name="&gt;&gt;btnAddOpenOrder.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnAddOrder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="btnAddOrder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnAddOrder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 3</value>
+  </data>
+  <data name="btnAddOrder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 3, 5, 3</value>
+  </data>
+  <data name="btnAddOrder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 23</value>
+  </data>
+  <data name="btnAddOrder.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnAddOrder.Text" xml:space="preserve">
+    <value>下单</value>
+  </data>
+  <data name="&gt;&gt;btnAddOrder.Name" xml:space="preserve">
+    <value>btnAddOrder</value>
+  </data>
+  <data name="&gt;&gt;btnAddOrder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAddOrder.Parent" xml:space="preserve">
+    <value>tbpanlSubOrder</value>
+  </data>
+  <data name="&gt;&gt;btnAddOrder.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tbpanlSubOrder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 171</value>
+  </data>
+  <data name="tbpanlSubOrder.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tbpanlSubOrder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 29</value>
+  </data>
+  <data name="tbpanlSubOrder.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tbpanlSubOrder.Name" xml:space="preserve">
+    <value>tbpanlSubOrder</value>
+  </data>
+  <data name="&gt;&gt;tbpanlSubOrder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbpanlSubOrder.Parent" xml:space="preserve">
+    <value>flpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;tbpanlSubOrder.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tbpanlSubOrder.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btnAddOpenOrder" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="btnAddOrder" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tbpanlInstrumentInfo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tbpanlInstrumentInfo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tbpanlInstrumentInfo.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="tbpanlInstrumentInfo.ColumnCount" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lbBuyPrice.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="lbBuyPrice.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbBuyPrice.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbBuyPrice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 5</value>
+  </data>
+  <data name="lbBuyPrice.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="lbBuyPrice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="lbBuyPrice.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbBuyPrice.Text" xml:space="preserve">
+    <value>买价</value>
+  </data>
+  <data name="lbBuyPrice.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;lbBuyPrice.Name" xml:space="preserve">
+    <value>lbBuyPrice</value>
+  </data>
+  <data name="&gt;&gt;lbBuyPrice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbBuyPrice.Parent" xml:space="preserve">
+    <value>tbpanlInstrumentInfo</value>
+  </data>
+  <data name="&gt;&gt;lbBuyPrice.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lbSellPrice.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="lbSellPrice.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbSellPrice.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbSellPrice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>114, 5</value>
+  </data>
+  <data name="lbSellPrice.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="lbSellPrice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="lbSellPrice.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbSellPrice.Text" xml:space="preserve">
+    <value>卖价</value>
+  </data>
+  <data name="lbSellPrice.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;lbSellPrice.Name" xml:space="preserve">
+    <value>lbSellPrice</value>
+  </data>
+  <data name="&gt;&gt;lbSellPrice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbSellPrice.Parent" xml:space="preserve">
+    <value>tbpanlInstrumentInfo</value>
+  </data>
+  <data name="&gt;&gt;lbSellPrice.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lbSellVolume.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="lbSellVolume.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbSellVolume.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbSellVolume.Location" type="System.Drawing.Point, System.Drawing">
+    <value>114, 27</value>
+  </data>
+  <data name="lbSellVolume.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="lbSellVolume.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="lbSellVolume.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbSellVolume.Text" xml:space="preserve">
+    <value>卖量</value>
+  </data>
+  <data name="lbSellVolume.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;lbSellVolume.Name" xml:space="preserve">
+    <value>lbSellVolume</value>
+  </data>
+  <data name="&gt;&gt;lbSellVolume.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbSellVolume.Parent" xml:space="preserve">
+    <value>tbpanlInstrumentInfo</value>
+  </data>
+  <data name="&gt;&gt;lbSellVolume.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lbBuyVolume.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="lbBuyVolume.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbBuyVolume.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbBuyVolume.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 27</value>
+  </data>
+  <data name="lbBuyVolume.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="lbBuyVolume.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="lbBuyVolume.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbBuyVolume.Text" xml:space="preserve">
+    <value>买量</value>
+  </data>
+  <data name="lbBuyVolume.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;lbBuyVolume.Name" xml:space="preserve">
+    <value>lbBuyVolume</value>
+  </data>
+  <data name="&gt;&gt;lbBuyVolume.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbBuyVolume.Parent" xml:space="preserve">
+    <value>tbpanlInstrumentInfo</value>
+  </data>
+  <data name="&gt;&gt;lbBuyVolume.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lbTop.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="lbTop.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbTop.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 49</value>
+  </data>
+  <data name="lbTop.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="lbTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="lbTop.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbTop.Text" xml:space="preserve">
+    <value>涨停</value>
+  </data>
+  <data name="lbTop.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;lbTop.Name" xml:space="preserve">
+    <value>lbTop</value>
+  </data>
+  <data name="&gt;&gt;lbTop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbTop.Parent" xml:space="preserve">
+    <value>tbpanlInstrumentInfo</value>
+  </data>
+  <data name="&gt;&gt;lbTop.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lbBottom.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="lbBottom.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbBottom.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbBottom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>114, 49</value>
+  </data>
+  <data name="lbBottom.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="lbBottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="lbBottom.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbBottom.Text" xml:space="preserve">
+    <value>跌停</value>
+  </data>
+  <data name="lbBottom.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;lbBottom.Name" xml:space="preserve">
+    <value>lbBottom</value>
+  </data>
+  <data name="&gt;&gt;lbBottom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbBottom.Parent" xml:space="preserve">
+    <value>tbpanlInstrumentInfo</value>
+  </data>
+  <data name="&gt;&gt;lbBottom.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lbOpen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="lbOpen.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbOpen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbOpen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 71</value>
+  </data>
+  <data name="lbOpen.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="lbOpen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="lbOpen.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbOpen.Text" xml:space="preserve">
+    <value>可开</value>
+  </data>
+  <data name="lbOpen.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;lbOpen.Name" xml:space="preserve">
+    <value>lbOpen</value>
+  </data>
+  <data name="&gt;&gt;lbOpen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbOpen.Parent" xml:space="preserve">
+    <value>tbpanlInstrumentInfo</value>
+  </data>
+  <data name="&gt;&gt;lbOpen.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lbClose.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="lbClose.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbClose.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbClose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>114, 71</value>
+  </data>
+  <data name="lbClose.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="lbClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="lbClose.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbClose.Text" xml:space="preserve">
+    <value>可平</value>
+  </data>
+  <data name="lbClose.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;lbClose.Name" xml:space="preserve">
+    <value>lbClose</value>
+  </data>
+  <data name="&gt;&gt;lbClose.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbClose.Parent" xml:space="preserve">
+    <value>tbpanlInstrumentInfo</value>
+  </data>
+  <data name="&gt;&gt;lbClose.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="tbpanlInstrumentInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 206</value>
+  </data>
+  <data name="tbpanlInstrumentInfo.RowCount" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tbpanlInstrumentInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 88</value>
+  </data>
+  <data name="tbpanlInstrumentInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;tbpanlInstrumentInfo.Name" xml:space="preserve">
+    <value>tbpanlInstrumentInfo</value>
+  </data>
+  <data name="&gt;&gt;tbpanlInstrumentInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbpanlInstrumentInfo.Parent" xml:space="preserve">
+    <value>flpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;tbpanlInstrumentInfo.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tbpanlInstrumentInfo.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbBuyPrice" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbSellPrice" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbSellVolume" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbBuyVolume" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbTop" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbBottom" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lbOpen" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lbClose" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,40,Percent,50,Absolute,40,Percent,50" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="btnParellel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnParellel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 300</value>
+  </data>
+  <data name="btnParellel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnParellel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnParellel.Text" xml:space="preserve">
+    <value>并行下单</value>
+  </data>
+  <data name="&gt;&gt;btnParellel.Name" xml:space="preserve">
+    <value>btnParellel</value>
+  </data>
+  <data name="&gt;&gt;btnParellel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnParellel.Parent" xml:space="preserve">
+    <value>flpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;btnParellel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="flpanlOrder.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="flpanlOrder.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
+    <value>TopDown</value>
+  </data>
+  <data name="flpanlOrder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>727, 23</value>
+  </data>
+  <data name="flpanlOrder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 6, 6</value>
+  </data>
+  <data name="flpanlOrder.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>2, 300</value>
+  </data>
+  <data name="flpanlOrder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 334</value>
+  </data>
+  <data name="flpanlOrder.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;flpanlOrder.Name" xml:space="preserve">
+    <value>flpanlOrder</value>
+  </data>
+  <data name="&gt;&gt;flpanlOrder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flpanlOrder.Parent" xml:space="preserve">
+    <value>tbpanlOrderInfo</value>
+  </data>
+  <data name="&gt;&gt;flpanlOrder.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tbpanlOrderInfo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tbpanlOrderInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tbpanlOrderInfo.RowCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tbpanlOrderInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>954, 363</value>
+  </data>
+  <data name="tbpanlOrderInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tbpanlOrderInfo.Name" xml:space="preserve">
+    <value>tbpanlOrderInfo</value>
+  </data>
+  <data name="&gt;&gt;tbpanlOrderInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbpanlOrderInfo.Parent" xml:space="preserve">
+    <value>splitMain.Panel2</value>
+  </data>
+  <data name="&gt;&gt;tbpanlOrderInfo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tbpanlOrderInfo.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tabOrders" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="flpnelInfo" Row="0" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="flpanlOrder" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,230" /&gt;&lt;Rows Styles="AutoSize,0,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Panel2.Name" xml:space="preserve">
+    <value>splitMain.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Panel2.Parent" xml:space="preserve">
+    <value>splitMain</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>954, 640</value>
+  </data>
+  <data name="splitMain.SplitterDistance" type="System.Int32, mscorlib">
+    <value>273</value>
+  </data>
+  <data name="splitMain.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Name" xml:space="preserve">
+    <value>splitMain</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitMain.Parent" xml:space="preserve">
+    <value>panlMain</value>
+  </data>
+  <data name="&gt;&gt;splitMain.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>307, 16</value>
+  </metadata>
+  <data name="strplbTradeFrontSvr.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 17</value>
+  </data>
+  <data name="strplbTradeFrontSvr.Text" xml:space="preserve">
+    <value>TradeFrontServer</value>
+  </data>
+  <data name="toolStripSplitButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 20</value>
+  </data>
+  <data name="striplbMarketFrontSvr.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 17</value>
+  </data>
+  <data name="striplbMarketFrontSvr.Text" xml:space="preserve">
+    <value>MarketFrontServer</value>
+  </data>
+  <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 665</value>
+  </data>
+  <data name="statusStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>954, 22</value>
+  </data>
+  <data name="statusStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="statusStrip.Text" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="&gt;&gt;statusStrip.Name" xml:space="preserve">
+    <value>statusStrip</value>
+  </data>
+  <data name="&gt;&gt;statusStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;statusStrip.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;statusStrip.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="menuMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>10, 14</value>
+  </metadata>
+  <data name="修改密码ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="修改密码ToolStripMenuItem.Text" xml:space="preserve">
+    <value>修改密码</value>
+  </data>
+  <data name="退出登录ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="退出登录ToolStripMenuItem.Text" xml:space="preserve">
+    <value>退出登录</value>
+  </data>
+  <data name="用户ToolStripMenuItem.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
+  <data name="用户ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 21</value>
+  </data>
+  <data name="用户ToolStripMenuItem.Text" xml:space="preserve">
+    <value>用户</value>
+  </data>
+  <data name="开市自动单设置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="开市自动单设置ToolStripMenuItem.Text" xml:space="preserve">
+    <value>开市自动单设置</value>
+  </data>
+  <data name="设置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 21</value>
+  </data>
+  <data name="设置ToolStripMenuItem.Text" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="关于ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="关于ToolStripMenuItem.Text" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="帮助ToolStripMenuItem.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
+  <data name="帮助ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 21</value>
+  </data>
+  <data name="帮助ToolStripMenuItem.Text" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="menuMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>954, 25</value>
+  </data>
+  <data name="menuMain.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="menuMain.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuMain.Name" xml:space="preserve">
+    <value>menuMain</value>
+  </data>
+  <data name="&gt;&gt;menuMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuMain.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="panlMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panlMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 25</value>
+  </data>
+  <data name="panlMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>954, 640</value>
+  </data>
+  <data name="panlMain.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;panlMain.Name" xml:space="preserve">
+    <value>panlMain</value>
+  </data>
+  <data name="&gt;&gt;panlMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panlMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panlMain.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="dsDatas.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>421, 16</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>954, 687</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>970, 670</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>程序化交易</value>
+  </data>
+  <data name="&gt;&gt;切换显示ToolStripMenuItem.Name" xml:space="preserve">
+    <value>切换显示ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;切换显示ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;strplbTradeFrontSvr.Name" xml:space="preserve">
+    <value>strplbTradeFrontSvr</value>
+  </data>
+  <data name="&gt;&gt;strplbTradeFrontSvr.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSplitButton1.Name" xml:space="preserve">
+    <value>toolStripSplitButton1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSplitButton1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;striplbMarketFrontSvr.Name" xml:space="preserve">
+    <value>striplbMarketFrontSvr</value>
+  </data>
+  <data name="&gt;&gt;striplbMarketFrontSvr.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;用户ToolStripMenuItem.Name" xml:space="preserve">
+    <value>用户ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;用户ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;修改密码ToolStripMenuItem.Name" xml:space="preserve">
+    <value>修改密码ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;修改密码ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;退出登录ToolStripMenuItem.Name" xml:space="preserve">
+    <value>退出登录ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;退出登录ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;设置ToolStripMenuItem.Name" xml:space="preserve">
+    <value>设置ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;设置ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;开市自动单设置ToolStripMenuItem.Name" xml:space="preserve">
+    <value>开市自动单设置ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;开市自动单设置ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;帮助ToolStripMenuItem.Name" xml:space="preserve">
+    <value>帮助ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;帮助ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;关于ToolStripMenuItem.Name" xml:space="preserve">
+    <value>关于ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;关于ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dsDatas.Name" xml:space="preserve">
+    <value>dsDatas</value>
+  </data>
+  <data name="&gt;&gt;dsDatas.Type" xml:space="preserve">
+    <value>ProgramTrade.dsDatas, dsDatas.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>
