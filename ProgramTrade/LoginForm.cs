@@ -113,7 +113,7 @@ namespace ProgramTrade
             if (cmbTradeFrontSvr.SelectedIndex >= 0)
             {
                 tradeApi.SubscribeTopics(CLRQDP_TE_RESUME_TYPE.QDP_TERT_QUICK, cmbTradeFrontSvr.SelectedValue as FrontServer);
-                marketApi.SubscribeTopics(CLRQDP_TE_RESUME_TYPE.QDP_TERT_QUICK, 110, cmbTradeFrontSvr.SelectedValue as FrontServer);
+                marketApi.SubscribeTopics(CLRQDP_TE_RESUME_TYPE.QDP_TERT_QUICK, 100, cmbTradeFrontSvr.SelectedValue as FrontServer);
                 tmrFrontServer.Start();
             }
         }
