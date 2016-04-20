@@ -467,7 +467,7 @@ namespace CLRQdpApi {
 		virtual void OnRspSubscribeTopic(CLRCQdpFtdcDisseminationField Dissemination, CLRCQdpFtdcRspInfoField RspInfo, int nRequestID, bool bIsLast) =0 ;
 		virtual void OnRspQryTopic(CLRCQdpFtdcDisseminationField Dissemination, CLRCQdpFtdcRspInfoField RspInfo, int nRequestID, bool bIsLast) =0 ;
 		virtual void OnRtnDepthMarketData(CLRCQdpFtdcDepthMarketDataField DepthMarketData) =0 ;
-		virtual void OnRspSubMarketData(CLRCQdpFtdcSpecificInstrumentField SpecificInstrument, CLRCQdpFtdcRspInfoField RspInfo, int nRequestID, bool bIsLast) =0 ;
+		virtual void OnRspSubMarketData(CLRCQdpFtdcSpecificInstrumentField SpecificInstrument, /*CLRCQdpFtdcRspInfoField RspInfo,*/ int nRequestID, bool bIsLast) =0 ;
 		virtual void OnRspUnSubMarketData(CLRCQdpFtdcSpecificInstrumentField SpecificInstrument, CLRCQdpFtdcRspInfoField RspInfo, int nRequestID, bool bIsLast) =0 ;
 	internal:
 		void callOnFrontConnected();
