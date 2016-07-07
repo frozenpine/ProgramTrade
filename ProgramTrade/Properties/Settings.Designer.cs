@@ -22,17 +22,5 @@ namespace ProgramTrade.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("tcp://127.0.0.1:1234")]
-        public string TradeFrontServers {
-            get {
-                return ((string)(this["TradeFrontServers"]));
-            }
-            set {
-                this["TradeFrontServers"] = value;
-            }
-        }
     }
 }

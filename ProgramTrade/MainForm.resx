@@ -149,29 +149,113 @@
   <data name="&gt;&gt;contmenuTabExchange.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="mdvwDCE.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tabPageAll.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="splitMarket.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="mdvwDCE.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="splitMarket.IsSplitterFixed" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="splitMarket.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="mdvwDCE.Size" type="System.Drawing.Size, System.Drawing">
-    <value>934, 238</value>
+  <data name="&gt;&gt;splitMarket.Panel1.Name" xml:space="preserve">
+    <value>splitMarket.Panel1</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="mdvwDCE.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;splitMarket.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitMarket.Panel1.Parent" xml:space="preserve">
+    <value>splitMarket</value>
+  </data>
+  <data name="&gt;&gt;splitMarket.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;mdvwDCE.Name" xml:space="preserve">
-    <value>mdvwDCE</value>
+  <data name="dgvwMarket.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="&gt;&gt;mdvwDCE.Type" xml:space="preserve">
-    <value>ProgramTradeModules.MarketViewer, ProgramTradeModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="dgvwMarket.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;mdvwDCE.Parent" xml:space="preserve">
-    <value>tabPageDCE</value>
+  <data name="dgvwMarket.Size" type="System.Drawing.Size, System.Drawing">
+    <value>775, 238</value>
   </data>
-  <data name="&gt;&gt;mdvwDCE.ZOrder" xml:space="preserve">
+  <data name="dgvwMarket.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;dgvwMarket.Name" xml:space="preserve">
+    <value>dgvwMarket</value>
+  </data>
+  <data name="&gt;&gt;dgvwMarket.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvwMarket.Parent" xml:space="preserve">
+    <value>splitMarket.Panel2</value>
+  </data>
+  <data name="&gt;&gt;dgvwMarket.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitMarket.Panel2.Name" xml:space="preserve">
+    <value>splitMarket.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitMarket.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitMarket.Panel2.Parent" xml:space="preserve">
+    <value>splitMarket</value>
+  </data>
+  <data name="&gt;&gt;splitMarket.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitMarket.Size" type="System.Drawing.Size, System.Drawing">
+    <value>934, 238</value>
+  </data>
+  <data name="splitMarket.SplitterDistance" type="System.Int32, mscorlib">
+    <value>155</value>
+  </data>
+  <data name="splitMarket.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitMarket.Name" xml:space="preserve">
+    <value>splitMarket</value>
+  </data>
+  <data name="&gt;&gt;splitMarket.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitMarket.Parent" xml:space="preserve">
+    <value>tabPageAll</value>
+  </data>
+  <data name="&gt;&gt;splitMarket.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="tabPageAll.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>940, 244</value>
+  </data>
+  <data name="tabPageAll.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="tabPageAll.Text" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="&gt;&gt;tabPageAll.Name" xml:space="preserve">
+    <value>tabPageAll</value>
+  </data>
+  <data name="&gt;&gt;tabPageAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageAll.Parent" xml:space="preserve">
+    <value>tabExchange</value>
+  </data>
+  <data name="&gt;&gt;tabPageAll.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="tabPageDCE.Location" type="System.Drawing.Point, System.Drawing">
@@ -199,31 +283,7 @@
     <value>tabExchange</value>
   </data>
   <data name="&gt;&gt;tabPageDCE.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="mdvwSHFE.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="mdvwSHFE.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="mdvwSHFE.Size" type="System.Drawing.Size, System.Drawing">
-    <value>934, 238</value>
-  </data>
-  <data name="mdvwSHFE.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;mdvwSHFE.Name" xml:space="preserve">
-    <value>mdvwSHFE</value>
-  </data>
-  <data name="&gt;&gt;mdvwSHFE.Type" xml:space="preserve">
-    <value>ProgramTradeModules.MarketViewer, ProgramTradeModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;mdvwSHFE.Parent" xml:space="preserve">
-    <value>tabPageSHFE</value>
-  </data>
-  <data name="&gt;&gt;mdvwSHFE.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="tabPageSHFE.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 4</value>
@@ -250,31 +310,7 @@
     <value>tabExchange</value>
   </data>
   <data name="&gt;&gt;tabPageSHFE.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="mdvwCFFE.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="mdvwCFFE.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="mdvwCFFE.Size" type="System.Drawing.Size, System.Drawing">
-    <value>934, 238</value>
-  </data>
-  <data name="mdvwCFFE.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;mdvwCFFE.Name" xml:space="preserve">
-    <value>mdvwCFFE</value>
-  </data>
-  <data name="&gt;&gt;mdvwCFFE.Type" xml:space="preserve">
-    <value>ProgramTradeModules.MarketViewer, ProgramTradeModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;mdvwCFFE.Parent" xml:space="preserve">
-    <value>tabPageCFFE</value>
-  </data>
-  <data name="&gt;&gt;mdvwCFFE.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="tabPageCFFE.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 4</value>
@@ -301,31 +337,7 @@
     <value>tabExchange</value>
   </data>
   <data name="&gt;&gt;tabPageCFFE.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="mdvwZCE.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="mdvwZCE.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="mdvwZCE.Size" type="System.Drawing.Size, System.Drawing">
-    <value>934, 238</value>
-  </data>
-  <data name="mdvwZCE.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;mdvwZCE.Name" xml:space="preserve">
-    <value>mdvwZCE</value>
-  </data>
-  <data name="&gt;&gt;mdvwZCE.Type" xml:space="preserve">
-    <value>ProgramTradeModules.MarketViewer, ProgramTradeModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;mdvwZCE.Parent" xml:space="preserve">
-    <value>tabPageZCE</value>
-  </data>
-  <data name="&gt;&gt;mdvwZCE.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <data name="tabPageZCE.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 4</value>
@@ -352,31 +364,7 @@
     <value>tabExchange</value>
   </data>
   <data name="&gt;&gt;tabPageZCE.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="mdvwCustom.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="mdvwCustom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="mdvwCustom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>934, 238</value>
-  </data>
-  <data name="mdvwCustom.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;mdvwCustom.Name" xml:space="preserve">
-    <value>mdvwCustom</value>
-  </data>
-  <data name="&gt;&gt;mdvwCustom.Type" xml:space="preserve">
-    <value>ProgramTradeModules.MarketViewer, ProgramTradeModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;mdvwCustom.Parent" xml:space="preserve">
-    <value>tabUserDefine</value>
-  </data>
-  <data name="&gt;&gt;mdvwCustom.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>4</value>
   </data>
   <data name="tabUserDefine.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 4</value>
@@ -403,7 +391,7 @@
     <value>tabExchange</value>
   </data>
   <data name="&gt;&gt;tabUserDefine.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="tabExchange.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -459,85 +447,28 @@
   <data name="tbpanlOrderInfo.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="odvwOpenOrders.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="odvwOpenOrders.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
-  <data name="odvwOpenOrders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="dgvwOrders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="odvwOpenOrders.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="dgvwOrders.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="odvwOpenOrders.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="dgvwOrders.Size" type="System.Drawing.Size, System.Drawing">
     <value>704, 305</value>
   </data>
-  <data name="odvwOpenOrders.TabIndex" type="System.Int32, mscorlib">
+  <data name="dgvwOrders.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;odvwOpenOrders.Name" xml:space="preserve">
-    <value>odvwOpenOrders</value>
+  <data name="&gt;&gt;dgvwOrders.Name" xml:space="preserve">
+    <value>dgvwOrders</value>
   </data>
-  <data name="&gt;&gt;odvwOpenOrders.Type" xml:space="preserve">
-    <value>ProgramTradeModules.OrderViewer, ProgramTradeModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;dgvwOrders.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;odvwOpenOrders.Parent" xml:space="preserve">
-    <value>tabPageOpenOrders</value>
-  </data>
-  <data name="&gt;&gt;odvwOpenOrders.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabPageOpenOrders.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageOpenOrders.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageOpenOrders.Size" type="System.Drawing.Size, System.Drawing">
-    <value>710, 311</value>
-  </data>
-  <data name="tabPageOpenOrders.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="tabPageOpenOrders.Text" xml:space="preserve">
-    <value>开市自动单</value>
-  </data>
-  <data name="&gt;&gt;tabPageOpenOrders.Name" xml:space="preserve">
-    <value>tabPageOpenOrders</value>
-  </data>
-  <data name="&gt;&gt;tabPageOpenOrders.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageOpenOrders.Parent" xml:space="preserve">
-    <value>tabOrders</value>
-  </data>
-  <data name="&gt;&gt;tabPageOpenOrders.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="odvwAllOrders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="odvwAllOrders.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="odvwAllOrders.Size" type="System.Drawing.Size, System.Drawing">
-    <value>704, 305</value>
-  </data>
-  <data name="odvwAllOrders.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;odvwAllOrders.Name" xml:space="preserve">
-    <value>odvwAllOrders</value>
-  </data>
-  <data name="&gt;&gt;odvwAllOrders.Type" xml:space="preserve">
-    <value>ProgramTradeModules.OrderViewer, ProgramTradeModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;odvwAllOrders.Parent" xml:space="preserve">
+  <data name="&gt;&gt;dgvwOrders.Parent" xml:space="preserve">
     <value>tabPageAllOrders</value>
   </data>
-  <data name="&gt;&gt;odvwAllOrders.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;dgvwOrders.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="tabPageAllOrders.Location" type="System.Drawing.Point, System.Drawing">
@@ -553,7 +484,7 @@
     <value>1</value>
   </data>
   <data name="tabPageAllOrders.Text" xml:space="preserve">
-    <value>全部挂单</value>
+    <value>委托</value>
   </data>
   <data name="&gt;&gt;tabPageAllOrders.Name" xml:space="preserve">
     <value>tabPageAllOrders</value>
@@ -565,30 +496,72 @@
     <value>tabOrders</value>
   </data>
   <data name="&gt;&gt;tabPageAllOrders.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="odvwHisOrders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="odvwHisOrders.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="odvwHisOrders.Size" type="System.Drawing.Size, System.Drawing">
-    <value>704, 305</value>
-  </data>
-  <data name="odvwHisOrders.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;odvwHisOrders.Name" xml:space="preserve">
-    <value>odvwHisOrders</value>
+  <data name="exchangeIDDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>交易所</value>
   </data>
-  <data name="&gt;&gt;odvwHisOrders.Type" xml:space="preserve">
-    <value>ProgramTradeModules.OrderViewer, ProgramTradeModules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="exchangeIDDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>66</value>
   </data>
-  <data name="&gt;&gt;odvwHisOrders.Parent" xml:space="preserve">
+  <data name="instrumentIDDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>合约号</value>
+  </data>
+  <data name="instrumentIDDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>66</value>
+  </data>
+  <data name="directionDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>买/卖</value>
+  </data>
+  <data name="directionDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="positionPriceDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>开仓价位</value>
+  </data>
+  <data name="positionPriceDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>78</value>
+  </data>
+  <data name="volumeDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="volumeDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="flagDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>投保标记</value>
+  </data>
+  <data name="flagDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>78</value>
+  </data>
+  <metadata name="positionsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>421, 16</value>
+  </metadata>
+  <data name="dgvwPositions.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="dgvwPositions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="dgvwPositions.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="dgvwPositions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>704, 305</value>
+  </data>
+  <data name="dgvwPositions.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;dgvwPositions.Name" xml:space="preserve">
+    <value>dgvwPositions</value>
+  </data>
+  <data name="&gt;&gt;dgvwPositions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvwPositions.Parent" xml:space="preserve">
     <value>tabPageHisOrders</value>
   </data>
-  <data name="&gt;&gt;odvwHisOrders.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;dgvwPositions.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="tabPageHisOrders.Location" type="System.Drawing.Point, System.Drawing">
@@ -604,7 +577,7 @@
     <value>2</value>
   </data>
   <data name="tabPageHisOrders.Text" xml:space="preserve">
-    <value>历史挂单</value>
+    <value>持仓</value>
   </data>
   <data name="&gt;&gt;tabPageHisOrders.Name" xml:space="preserve">
     <value>tabPageHisOrders</value>
@@ -616,33 +589,30 @@
     <value>tabOrders</value>
   </data>
   <data name="&gt;&gt;tabPageHisOrders.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
-  <data name="gdvwCodes.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="dgvwInstruments.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="gdvwCodes.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="dgvwInstruments.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="gdvwCodes.RowHeadersWidth" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="gdvwCodes.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="dgvwInstruments.Size" type="System.Drawing.Size, System.Drawing">
     <value>704, 305</value>
   </data>
-  <data name="gdvwCodes.TabIndex" type="System.Int32, mscorlib">
+  <data name="dgvwInstruments.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;gdvwCodes.Name" xml:space="preserve">
-    <value>gdvwCodes</value>
+  <data name="&gt;&gt;dgvwInstruments.Name" xml:space="preserve">
+    <value>dgvwInstruments</value>
   </data>
-  <data name="&gt;&gt;gdvwCodes.Type" xml:space="preserve">
+  <data name="&gt;&gt;dgvwInstruments.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;gdvwCodes.Parent" xml:space="preserve">
+  <data name="&gt;&gt;dgvwInstruments.Parent" xml:space="preserve">
     <value>tabPageCodes</value>
   </data>
-  <data name="&gt;&gt;gdvwCodes.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;dgvwInstruments.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="tabPageCodes.Location" type="System.Drawing.Point, System.Drawing">
@@ -670,7 +640,7 @@
     <value>tabOrders</value>
   </data>
   <data name="&gt;&gt;tabPageCodes.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="tabOrders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -2227,10 +2197,16 @@
     <value>设置</value>
   </data>
   <data name="关于ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
+    <value>124, 22</value>
   </data>
   <data name="关于ToolStripMenuItem.Text" xml:space="preserve">
     <value>关于</value>
+  </data>
+  <data name="延时测试ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="延时测试ToolStripMenuItem.Text" xml:space="preserve">
+    <value>延时测试</value>
   </data>
   <data name="帮助ToolStripMenuItem.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
@@ -2289,9 +2265,6 @@
   <data name="&gt;&gt;panlMain.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="dsDatas.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>421, 16</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -2315,6 +2288,48 @@
   </data>
   <data name="&gt;&gt;切换显示ToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exchangeIDDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>exchangeIDDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;exchangeIDDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;instrumentIDDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>instrumentIDDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;instrumentIDDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;directionDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>directionDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;directionDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;positionPriceDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>positionPriceDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;positionPriceDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;volumeDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>volumeDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;volumeDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flagDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>flagDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;flagDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;positionsBindingSource.Name" xml:space="preserve">
+    <value>positionsBindingSource</value>
+  </data>
+  <data name="&gt;&gt;positionsBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;strplbTradeFrontSvr.Name" xml:space="preserve">
     <value>strplbTradeFrontSvr</value>
@@ -2376,11 +2391,11 @@
   <data name="&gt;&gt;关于ToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;dsDatas.Name" xml:space="preserve">
-    <value>dsDatas</value>
+  <data name="&gt;&gt;延时测试ToolStripMenuItem.Name" xml:space="preserve">
+    <value>延时测试ToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;dsDatas.Type" xml:space="preserve">
-    <value>ProgramTrade.dsDatas, dsDatas.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;延时测试ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

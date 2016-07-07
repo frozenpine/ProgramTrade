@@ -17,8 +17,6 @@ namespace ProgramTrade
         {
             if (disposing && (components != null))
             {
-                ProgramTradeEvents.RemoveRspHandler(RspSpiModules.FrontConnected, this.OnFrontServerConnected);
-                ProgramTradeEvents.RemoveRspUserLoginHander(this.OnRspUserLoginEvent);
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -42,6 +40,7 @@ namespace ProgramTrade
             this.btnLogin = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lbFrontServer = new System.Windows.Forms.Label();
+            this.lbValidateMsg = new System.Windows.Forms.Label();
             this.lbClientID = new System.Windows.Forms.Label();
             this.lbPassword = new System.Windows.Forms.Label();
             this.cmbTradeFrontSvr = new System.Windows.Forms.ComboBox();
@@ -49,11 +48,9 @@ namespace ProgramTrade
             this.txtUserID = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.chkSaveUserID = new System.Windows.Forms.CheckBox();
-            this.btnSpeedTest = new System.Windows.Forms.Button();
             this.tbFrontSvrInfo = new System.Windows.Forms.TableLayoutPanel();
             this.lbTdFront = new System.Windows.Forms.Label();
             this.lbMdFront = new System.Windows.Forms.Label();
-            this.tmrFrontServer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picBanner)).BeginInit();
             this.panlFooter.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -126,6 +123,7 @@ namespace ProgramTrade
             // btnComConfig
             // 
             this.btnComConfig.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnComConfig.Enabled = false;
             this.btnComConfig.Location = new System.Drawing.Point(147, 8);
             this.btnComConfig.Name = "btnComConfig";
             this.btnComConfig.Size = new System.Drawing.Size(92, 23);
@@ -149,17 +147,17 @@ namespace ProgramTrade
             this.tableLayoutPanel2.AutoSize = true;
             this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel2.Controls.Add(this.lbFrontServer, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbValidateMsg, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.lbClientID, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.lbPassword, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.cmbTradeFrontSvr, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtUserID, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.txtPassword, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.chkSaveUserID, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnSpeedTest, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.tbFrontSvrInfo, 0, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 66);
@@ -169,25 +167,39 @@ namespace ProgramTrade
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(387, 102);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(387, 100);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // lbFrontServer
             // 
             this.lbFrontServer.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbFrontServer.AutoSize = true;
-            this.lbFrontServer.Location = new System.Drawing.Point(33, 8);
+            this.lbFrontServer.Location = new System.Drawing.Point(10, 7);
             this.lbFrontServer.Name = "lbFrontServer";
             this.lbFrontServer.Size = new System.Drawing.Size(77, 12);
             this.lbFrontServer.TabIndex = 0;
             this.lbFrontServer.Text = "选择接入地址";
             this.lbFrontServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // lbValidateMsg
+            // 
+            this.lbValidateMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbValidateMsg.AutoSize = true;
+            this.lbValidateMsg.Location = new System.Drawing.Point(253, 60);
+            this.lbValidateMsg.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.lbValidateMsg.Name = "lbValidateMsg";
+            this.lbValidateMsg.Size = new System.Drawing.Size(124, 12);
+            this.lbValidateMsg.TabIndex = 0;
+            this.lbValidateMsg.Text = "lbValidateMsg";
+            this.lbValidateMsg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbValidateMsg.Visible = false;
+            // 
             // lbClientID
             // 
             this.lbClientID.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbClientID.AutoSize = true;
-            this.lbClientID.Location = new System.Drawing.Point(69, 35);
+            this.lbClientID.Location = new System.Drawing.Point(46, 33);
             this.lbClientID.Name = "lbClientID";
             this.lbClientID.Size = new System.Drawing.Size(41, 12);
             this.lbClientID.TabIndex = 0;
@@ -198,7 +210,7 @@ namespace ProgramTrade
             // 
             this.lbPassword.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbPassword.AutoSize = true;
-            this.lbPassword.Location = new System.Drawing.Point(57, 62);
+            this.lbPassword.Location = new System.Drawing.Point(34, 60);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Size = new System.Drawing.Size(53, 12);
             this.lbPassword.TabIndex = 0;
@@ -208,21 +220,23 @@ namespace ProgramTrade
             // cmbTradeFrontSvr
             // 
             this.cmbTradeFrontSvr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.SetColumnSpan(this.cmbTradeFrontSvr, 2);
             this.cmbTradeFrontSvr.DataSource = this.bsFrontServer;
-            this.cmbTradeFrontSvr.DisplayMember = "Key";
+            this.cmbTradeFrontSvr.DisplayMember = "Value";
+            this.cmbTradeFrontSvr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTradeFrontSvr.FormattingEnabled = true;
-            this.cmbTradeFrontSvr.Location = new System.Drawing.Point(116, 4);
+            this.cmbTradeFrontSvr.Location = new System.Drawing.Point(93, 3);
+            this.cmbTradeFrontSvr.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.cmbTradeFrontSvr.Name = "cmbTradeFrontSvr";
-            this.cmbTradeFrontSvr.Size = new System.Drawing.Size(154, 20);
+            this.cmbTradeFrontSvr.Size = new System.Drawing.Size(284, 20);
             this.cmbTradeFrontSvr.TabIndex = 1;
             this.cmbTradeFrontSvr.ValueMember = "Value";
-            this.cmbTradeFrontSvr.DropDown += new System.EventHandler(this.cmbTradeFrontSvr_DropDown);
             this.cmbTradeFrontSvr.SelectedIndexChanged += new System.EventHandler(this.cmbTradeFrontSvr_SelectedIndexChanged);
             // 
             // txtUserID
             // 
             this.txtUserID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUserID.Location = new System.Drawing.Point(116, 31);
+            this.txtUserID.Location = new System.Drawing.Point(93, 29);
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(154, 21);
             this.txtUserID.TabIndex = 2;
@@ -230,7 +244,7 @@ namespace ProgramTrade
             // txtPassword
             // 
             this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPassword.Location = new System.Drawing.Point(116, 58);
+            this.txtPassword.Location = new System.Drawing.Point(93, 56);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(154, 21);
             this.txtPassword.TabIndex = 3;
@@ -241,24 +255,12 @@ namespace ProgramTrade
             // 
             this.chkSaveUserID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.chkSaveUserID.AutoSize = true;
-            this.chkSaveUserID.Location = new System.Drawing.Point(276, 33);
+            this.chkSaveUserID.Location = new System.Drawing.Point(253, 31);
             this.chkSaveUserID.Name = "chkSaveUserID";
             this.chkSaveUserID.Size = new System.Drawing.Size(72, 16);
             this.chkSaveUserID.TabIndex = 0;
             this.chkSaveUserID.Text = "保存账号";
             this.chkSaveUserID.UseVisualStyleBackColor = true;
-            // 
-            // btnSpeedTest
-            // 
-            this.btnSpeedTest.AutoSize = true;
-            this.btnSpeedTest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnSpeedTest.FlatAppearance.BorderSize = 0;
-            this.btnSpeedTest.Location = new System.Drawing.Point(276, 3);
-            this.btnSpeedTest.Name = "btnSpeedTest";
-            this.btnSpeedTest.Size = new System.Drawing.Size(39, 22);
-            this.btnSpeedTest.TabIndex = 4;
-            this.btnSpeedTest.Text = "测速";
-            this.btnSpeedTest.UseVisualStyleBackColor = true;
             // 
             // tbFrontSvrInfo
             // 
@@ -269,7 +271,7 @@ namespace ProgramTrade
             this.tbFrontSvrInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbFrontSvrInfo.Controls.Add(this.lbTdFront, 0, 0);
             this.tbFrontSvrInfo.Controls.Add(this.lbMdFront, 1, 0);
-            this.tbFrontSvrInfo.Location = new System.Drawing.Point(3, 85);
+            this.tbFrontSvrInfo.Location = new System.Drawing.Point(3, 83);
             this.tbFrontSvrInfo.Name = "tbFrontSvrInfo";
             this.tbFrontSvrInfo.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.tbFrontSvrInfo.RowCount = 1;
@@ -301,11 +303,6 @@ namespace ProgramTrade
             this.lbMdFront.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbMdFront.Visible = false;
             // 
-            // tmrFrontServer
-            // 
-            this.tmrFrontServer.Interval = 5000;
-            this.tmrFrontServer.Tick += new System.EventHandler(this.tmFrontServer_Tick);
-            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnLogin;
@@ -323,6 +320,7 @@ namespace ProgramTrade
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "用户登录";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginForm_FormClosing);
             this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBanner)).EndInit();
             this.panlFooter.ResumeLayout(false);
@@ -354,11 +352,10 @@ namespace ProgramTrade
         private System.Windows.Forms.TextBox txtUserID;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.CheckBox chkSaveUserID;
-        private System.Windows.Forms.Button btnSpeedTest;
         private System.Windows.Forms.BindingSource bsFrontServer;
-        private System.Windows.Forms.Timer tmrFrontServer;
         private System.Windows.Forms.TableLayoutPanel tbFrontSvrInfo;
         private System.Windows.Forms.Label lbTdFront;
         private System.Windows.Forms.Label lbMdFront;
+        private System.Windows.Forms.Label lbValidateMsg;
     }
 }

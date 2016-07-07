@@ -1,4 +1,6 @@
 ﻿using ProgramTradeApi;
+using CLRQdpApi;
+using CLRXspeedApi;
 
 namespace ProgramTrade
 {
@@ -17,10 +19,6 @@ namespace ProgramTrade
         {
             if (disposing && (components != null))
             {
-                ProgramTradeEvents.RemoveRspOrderInsertHandler(OrderInsertHandler);
-#if DEBUG
-                t.Flush();
-#endif
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -40,26 +38,29 @@ namespace ProgramTrade
             this.tabExchange = new System.Windows.Forms.TabControl();
             this.contmenuTabExchange = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.切换显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPageAll = new System.Windows.Forms.TabPage();
+            this.splitMarket = new System.Windows.Forms.SplitContainer();
+            this.dgvwMarket = new System.Windows.Forms.DataGridView();
             this.tabPageDCE = new System.Windows.Forms.TabPage();
-            this.mdvwDCE = new ProgramTradeModules.MarketViewer();
             this.tabPageSHFE = new System.Windows.Forms.TabPage();
-            this.mdvwSHFE = new ProgramTradeModules.MarketViewer();
             this.tabPageCFFE = new System.Windows.Forms.TabPage();
-            this.mdvwCFFE = new ProgramTradeModules.MarketViewer();
             this.tabPageZCE = new System.Windows.Forms.TabPage();
-            this.mdvwZCE = new ProgramTradeModules.MarketViewer();
             this.tabUserDefine = new System.Windows.Forms.TabPage();
-            this.mdvwCustom = new ProgramTradeModules.MarketViewer();
             this.tbpanlOrderInfo = new System.Windows.Forms.TableLayoutPanel();
             this.tabOrders = new System.Windows.Forms.TabControl();
-            this.tabPageOpenOrders = new System.Windows.Forms.TabPage();
-            this.odvwOpenOrders = new ProgramTradeModules.OrderViewer();
             this.tabPageAllOrders = new System.Windows.Forms.TabPage();
-            this.odvwAllOrders = new ProgramTradeModules.OrderViewer();
+            this.dgvwOrders = new System.Windows.Forms.DataGridView();
             this.tabPageHisOrders = new System.Windows.Forms.TabPage();
-            this.odvwHisOrders = new ProgramTradeModules.OrderViewer();
+            this.dgvwPositions = new System.Windows.Forms.DataGridView();
+            this.exchangeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instrumentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.directionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.positionPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.volumeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flagDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.positionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageCodes = new System.Windows.Forms.TabPage();
-            this.gdvwCodes = new System.Windows.Forms.DataGridView();
+            this.dgvwInstruments = new System.Windows.Forms.DataGridView();
             this.flpnelInfo = new System.Windows.Forms.FlowLayoutPanel();
             this.lbAccountInfo = new System.Windows.Forms.Label();
             this.lbRightText = new System.Windows.Forms.Label();
@@ -110,6 +111,7 @@ namespace ProgramTrade
             this.开市自动单设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.延时测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panlMain = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.Panel1.SuspendLayout();
@@ -117,18 +119,20 @@ namespace ProgramTrade
             this.splitMain.SuspendLayout();
             this.tabExchange.SuspendLayout();
             this.contmenuTabExchange.SuspendLayout();
-            this.tabPageDCE.SuspendLayout();
-            this.tabPageSHFE.SuspendLayout();
-            this.tabPageCFFE.SuspendLayout();
-            this.tabPageZCE.SuspendLayout();
-            this.tabUserDefine.SuspendLayout();
+            this.tabPageAll.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitMarket)).BeginInit();
+            this.splitMarket.Panel2.SuspendLayout();
+            this.splitMarket.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvwMarket)).BeginInit();
             this.tbpanlOrderInfo.SuspendLayout();
             this.tabOrders.SuspendLayout();
-            this.tabPageOpenOrders.SuspendLayout();
             this.tabPageAllOrders.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvwOrders)).BeginInit();
             this.tabPageHisOrders.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvwPositions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource)).BeginInit();
             this.tabPageCodes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gdvwCodes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvwInstruments)).BeginInit();
             this.flpnelInfo.SuspendLayout();
             this.flpanlOrder.SuspendLayout();
             this.tbpanlOrder.SuspendLayout();
@@ -162,6 +166,7 @@ namespace ProgramTrade
             // 
             resources.ApplyResources(this.tabExchange, "tabExchange");
             this.tabExchange.ContextMenuStrip = this.contmenuTabExchange;
+            this.tabExchange.Controls.Add(this.tabPageAll);
             this.tabExchange.Controls.Add(this.tabPageDCE);
             this.tabExchange.Controls.Add(this.tabPageSHFE);
             this.tabExchange.Controls.Add(this.tabPageCFFE);
@@ -184,65 +189,59 @@ namespace ProgramTrade
             resources.ApplyResources(this.切换显示ToolStripMenuItem, "切换显示ToolStripMenuItem");
             this.切换显示ToolStripMenuItem.Click += new System.EventHandler(this.切换显示ToolStripMenuItem_Click);
             // 
+            // tabPageAll
+            // 
+            resources.ApplyResources(this.tabPageAll, "tabPageAll");
+            this.tabPageAll.Controls.Add(this.splitMarket);
+            this.tabPageAll.Name = "tabPageAll";
+            this.tabPageAll.UseVisualStyleBackColor = true;
+            // 
+            // splitMarket
+            // 
+            resources.ApplyResources(this.splitMarket, "splitMarket");
+            this.splitMarket.Name = "splitMarket";
+            // 
+            // splitMarket.Panel2
+            // 
+            this.splitMarket.Panel2.Controls.Add(this.dgvwMarket);
+            // 
+            // dgvwMarket
+            // 
+            this.dgvwMarket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.dgvwMarket, "dgvwMarket");
+            this.dgvwMarket.Name = "dgvwMarket";
+            this.dgvwMarket.ReadOnly = true;
+            this.dgvwMarket.RowTemplate.Height = 23;
+            // 
             // tabPageDCE
             // 
-            this.tabPageDCE.Controls.Add(this.mdvwDCE);
             resources.ApplyResources(this.tabPageDCE, "tabPageDCE");
             this.tabPageDCE.Name = "tabPageDCE";
             this.tabPageDCE.UseVisualStyleBackColor = true;
             // 
-            // mdvwDCE
-            // 
-            resources.ApplyResources(this.mdvwDCE, "mdvwDCE");
-            this.mdvwDCE.Name = "mdvwDCE";
-            // 
             // tabPageSHFE
             // 
-            this.tabPageSHFE.Controls.Add(this.mdvwSHFE);
             resources.ApplyResources(this.tabPageSHFE, "tabPageSHFE");
             this.tabPageSHFE.Name = "tabPageSHFE";
             this.tabPageSHFE.UseVisualStyleBackColor = true;
             // 
-            // mdvwSHFE
-            // 
-            resources.ApplyResources(this.mdvwSHFE, "mdvwSHFE");
-            this.mdvwSHFE.Name = "mdvwSHFE";
-            // 
             // tabPageCFFE
             // 
-            this.tabPageCFFE.Controls.Add(this.mdvwCFFE);
             resources.ApplyResources(this.tabPageCFFE, "tabPageCFFE");
             this.tabPageCFFE.Name = "tabPageCFFE";
             this.tabPageCFFE.UseVisualStyleBackColor = true;
             // 
-            // mdvwCFFE
-            // 
-            resources.ApplyResources(this.mdvwCFFE, "mdvwCFFE");
-            this.mdvwCFFE.Name = "mdvwCFFE";
-            // 
             // tabPageZCE
             // 
-            this.tabPageZCE.Controls.Add(this.mdvwZCE);
             resources.ApplyResources(this.tabPageZCE, "tabPageZCE");
             this.tabPageZCE.Name = "tabPageZCE";
             this.tabPageZCE.UseVisualStyleBackColor = true;
             // 
-            // mdvwZCE
-            // 
-            resources.ApplyResources(this.mdvwZCE, "mdvwZCE");
-            this.mdvwZCE.Name = "mdvwZCE";
-            // 
             // tabUserDefine
             // 
-            this.tabUserDefine.Controls.Add(this.mdvwCustom);
             resources.ApplyResources(this.tabUserDefine, "tabUserDefine");
             this.tabUserDefine.Name = "tabUserDefine";
             this.tabUserDefine.UseVisualStyleBackColor = true;
-            // 
-            // mdvwCustom
-            // 
-            resources.ApplyResources(this.mdvwCustom, "mdvwCustom");
-            this.mdvwCustom.Name = "mdvwCustom";
             // 
             // tbpanlOrderInfo
             // 
@@ -254,7 +253,6 @@ namespace ProgramTrade
             // 
             // tabOrders
             // 
-            this.tabOrders.Controls.Add(this.tabPageOpenOrders);
             this.tabOrders.Controls.Add(this.tabPageAllOrders);
             this.tabOrders.Controls.Add(this.tabPageHisOrders);
             this.tabOrders.Controls.Add(this.tabPageCodes);
@@ -262,62 +260,114 @@ namespace ProgramTrade
             this.tabOrders.Name = "tabOrders";
             this.tabOrders.SelectedIndex = 0;
             // 
-            // tabPageOpenOrders
-            // 
-            this.tabPageOpenOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tabPageOpenOrders.Controls.Add(this.odvwOpenOrders);
-            resources.ApplyResources(this.tabPageOpenOrders, "tabPageOpenOrders");
-            this.tabPageOpenOrders.Name = "tabPageOpenOrders";
-            // 
-            // odvwOpenOrders
-            // 
-            resources.ApplyResources(this.odvwOpenOrders, "odvwOpenOrders");
-            this.odvwOpenOrders.DataSource = null;
-            this.odvwOpenOrders.Name = "odvwOpenOrders";
-            // 
             // tabPageAllOrders
             // 
             this.tabPageAllOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tabPageAllOrders.Controls.Add(this.odvwAllOrders);
+            this.tabPageAllOrders.Controls.Add(this.dgvwOrders);
             resources.ApplyResources(this.tabPageAllOrders, "tabPageAllOrders");
             this.tabPageAllOrders.Name = "tabPageAllOrders";
             // 
-            // odvwAllOrders
+            // dgvwOrders
             // 
-            this.odvwAllOrders.DataSource = null;
-            resources.ApplyResources(this.odvwAllOrders, "odvwAllOrders");
-            this.odvwAllOrders.Name = "odvwAllOrders";
+            this.dgvwOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.dgvwOrders, "dgvwOrders");
+            this.dgvwOrders.Name = "dgvwOrders";
+            this.dgvwOrders.ReadOnly = true;
+            this.dgvwOrders.RowTemplate.Height = 23;
             // 
             // tabPageHisOrders
             // 
             this.tabPageHisOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.tabPageHisOrders.Controls.Add(this.odvwHisOrders);
+            this.tabPageHisOrders.Controls.Add(this.dgvwPositions);
             resources.ApplyResources(this.tabPageHisOrders, "tabPageHisOrders");
             this.tabPageHisOrders.Name = "tabPageHisOrders";
             // 
-            // odvwHisOrders
+            // dgvwPositions
             // 
-            this.odvwHisOrders.DataSource = null;
-            resources.ApplyResources(this.odvwHisOrders, "odvwHisOrders");
-            this.odvwHisOrders.Name = "odvwHisOrders";
+            this.dgvwPositions.AllowUserToAddRows = false;
+            this.dgvwPositions.AllowUserToDeleteRows = false;
+            this.dgvwPositions.AutoGenerateColumns = false;
+            this.dgvwPositions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvwPositions.CausesValidation = false;
+            this.dgvwPositions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvwPositions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.exchangeIDDataGridViewTextBoxColumn,
+            this.instrumentIDDataGridViewTextBoxColumn,
+            this.directionDataGridViewTextBoxColumn,
+            this.positionPriceDataGridViewTextBoxColumn,
+            this.volumeDataGridViewTextBoxColumn,
+            this.flagDataGridViewTextBoxColumn});
+            this.dgvwPositions.DataMember = "Value";
+            this.dgvwPositions.DataSource = this.positionsBindingSource;
+            resources.ApplyResources(this.dgvwPositions, "dgvwPositions");
+            this.dgvwPositions.Name = "dgvwPositions";
+            this.dgvwPositions.ReadOnly = true;
+            this.dgvwPositions.RowTemplate.Height = 23;
+            this.dgvwPositions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            // 
+            // exchangeIDDataGridViewTextBoxColumn
+            // 
+            this.exchangeIDDataGridViewTextBoxColumn.DataPropertyName = "ExchangeID";
+            resources.ApplyResources(this.exchangeIDDataGridViewTextBoxColumn, "exchangeIDDataGridViewTextBoxColumn");
+            this.exchangeIDDataGridViewTextBoxColumn.Name = "exchangeIDDataGridViewTextBoxColumn";
+            this.exchangeIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // instrumentIDDataGridViewTextBoxColumn
+            // 
+            this.instrumentIDDataGridViewTextBoxColumn.DataPropertyName = "InstrumentID";
+            resources.ApplyResources(this.instrumentIDDataGridViewTextBoxColumn, "instrumentIDDataGridViewTextBoxColumn");
+            this.instrumentIDDataGridViewTextBoxColumn.Name = "instrumentIDDataGridViewTextBoxColumn";
+            this.instrumentIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // directionDataGridViewTextBoxColumn
+            // 
+            this.directionDataGridViewTextBoxColumn.DataPropertyName = "Direction";
+            resources.ApplyResources(this.directionDataGridViewTextBoxColumn, "directionDataGridViewTextBoxColumn");
+            this.directionDataGridViewTextBoxColumn.Name = "directionDataGridViewTextBoxColumn";
+            this.directionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // positionPriceDataGridViewTextBoxColumn
+            // 
+            this.positionPriceDataGridViewTextBoxColumn.DataPropertyName = "PositionPrice";
+            resources.ApplyResources(this.positionPriceDataGridViewTextBoxColumn, "positionPriceDataGridViewTextBoxColumn");
+            this.positionPriceDataGridViewTextBoxColumn.Name = "positionPriceDataGridViewTextBoxColumn";
+            this.positionPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // volumeDataGridViewTextBoxColumn
+            // 
+            this.volumeDataGridViewTextBoxColumn.DataPropertyName = "Volume";
+            resources.ApplyResources(this.volumeDataGridViewTextBoxColumn, "volumeDataGridViewTextBoxColumn");
+            this.volumeDataGridViewTextBoxColumn.Name = "volumeDataGridViewTextBoxColumn";
+            this.volumeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // flagDataGridViewTextBoxColumn
+            // 
+            this.flagDataGridViewTextBoxColumn.DataPropertyName = "Flag";
+            resources.ApplyResources(this.flagDataGridViewTextBoxColumn, "flagDataGridViewTextBoxColumn");
+            this.flagDataGridViewTextBoxColumn.Name = "flagDataGridViewTextBoxColumn";
+            this.flagDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // positionsBindingSource
+            // 
+            this.positionsBindingSource.AllowNew = true;
+            this.positionsBindingSource.DataSource = typeof(System.Collections.Generic.KeyValuePair<string, ProgramTradeApi.PositionDetail>);
+            //this.positionsBindingSource.DataSource = typeof(PositionDetail);
+            this.positionsBindingSource.Sort = "";
             // 
             // tabPageCodes
             // 
             this.tabPageCodes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.tabPageCodes.Controls.Add(this.gdvwCodes);
+            this.tabPageCodes.Controls.Add(this.dgvwInstruments);
             resources.ApplyResources(this.tabPageCodes, "tabPageCodes");
             this.tabPageCodes.Name = "tabPageCodes";
             // 
-            // gdvwCodes
+            // dgvwInstruments
             // 
-            this.gdvwCodes.AllowUserToResizeRows = false;
-            this.gdvwCodes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.gdvwCodes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.gdvwCodes, "gdvwCodes");
-            this.gdvwCodes.Name = "gdvwCodes";
-            this.gdvwCodes.RowTemplate.Height = 23;
-            this.gdvwCodes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gdvwCodes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdvwCodes_CellDoubleClick);
+            this.dgvwInstruments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.dgvwInstruments, "dgvwInstruments");
+            this.dgvwInstruments.Name = "dgvwInstruments";
+            this.dgvwInstruments.ReadOnly = true;
+            this.dgvwInstruments.RowTemplate.Height = 23;
             // 
             // flpnelInfo
             // 
@@ -578,7 +628,6 @@ namespace ProgramTrade
             resources.ApplyResources(this.btnParellel, "btnParellel");
             this.btnParellel.Name = "btnParellel";
             this.btnParellel.UseVisualStyleBackColor = true;
-            this.btnParellel.Click += new System.EventHandler(this.btnParellel_Click);
             // 
             // statusStrip
             // 
@@ -645,12 +694,12 @@ namespace ProgramTrade
             // 
             this.开市自动单设置ToolStripMenuItem.Name = "开市自动单设置ToolStripMenuItem";
             resources.ApplyResources(this.开市自动单设置ToolStripMenuItem, "开市自动单设置ToolStripMenuItem");
-            this.开市自动单设置ToolStripMenuItem.Click += new System.EventHandler(this.开市自动单设置ToolStripMenuItem_Click);
             // 
             // 帮助ToolStripMenuItem
             // 
             this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.关于ToolStripMenuItem});
+            this.关于ToolStripMenuItem,
+            this.延时测试ToolStripMenuItem});
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
             resources.ApplyResources(this.帮助ToolStripMenuItem, "帮助ToolStripMenuItem");
             // 
@@ -658,6 +707,11 @@ namespace ProgramTrade
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
             resources.ApplyResources(this.关于ToolStripMenuItem, "关于ToolStripMenuItem");
+            // 
+            // 延时测试ToolStripMenuItem
+            // 
+            this.延时测试ToolStripMenuItem.Name = "延时测试ToolStripMenuItem";
+            resources.ApplyResources(this.延时测试ToolStripMenuItem, "延时测试ToolStripMenuItem");
             // 
             // panlMain
             // 
@@ -669,11 +723,14 @@ namespace ProgramTrade
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.Controls.Add(this.panlMain);
             this.Controls.Add(this.menuMain);
             this.Controls.Add(this.statusStrip);
             this.DoubleBuffered = true;
+            this.MainMenuStrip = this.menuMain;
             this.Name = "MainForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.splitMain.Panel1.ResumeLayout(false);
             this.splitMain.Panel2.ResumeLayout(false);
@@ -682,20 +739,21 @@ namespace ProgramTrade
             this.splitMain.ResumeLayout(false);
             this.tabExchange.ResumeLayout(false);
             this.contmenuTabExchange.ResumeLayout(false);
-            this.tabPageDCE.ResumeLayout(false);
-            this.tabPageSHFE.ResumeLayout(false);
-            this.tabPageCFFE.ResumeLayout(false);
-            this.tabPageZCE.ResumeLayout(false);
-            this.tabUserDefine.ResumeLayout(false);
+            this.tabPageAll.ResumeLayout(false);
+            this.splitMarket.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitMarket)).EndInit();
+            this.splitMarket.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvwMarket)).EndInit();
             this.tbpanlOrderInfo.ResumeLayout(false);
             this.tbpanlOrderInfo.PerformLayout();
             this.tabOrders.ResumeLayout(false);
-            this.tabPageOpenOrders.ResumeLayout(false);
-            this.tabPageOpenOrders.PerformLayout();
             this.tabPageAllOrders.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvwOrders)).EndInit();
             this.tabPageHisOrders.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvwPositions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource)).EndInit();
             this.tabPageCodes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gdvwCodes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvwInstruments)).EndInit();
             this.flpnelInfo.ResumeLayout(false);
             this.flpnelInfo.PerformLayout();
             this.flpanlOrder.ResumeLayout(false);
@@ -724,14 +782,41 @@ namespace ProgramTrade
         }
 
         #endregion
+        private System.Windows.Forms.ContextMenuStrip contmenuTabExchange;
+        private System.Windows.Forms.ToolStripMenuItem 切换显示ToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel strplbTradeFrontSvr;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripStatusLabel striplbMarketFrontSvr;
+        private System.Windows.Forms.MenuStrip menuMain;
+        private System.Windows.Forms.ToolStripMenuItem 用户ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 修改密码ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 退出登录ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 开市自动单设置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 延时测试ToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitMain;
+        private System.Windows.Forms.TabControl tabExchange;
+        private System.Windows.Forms.TabPage tabPageDCE;
+        private System.Windows.Forms.TabPage tabPageSHFE;
+        private System.Windows.Forms.TabPage tabPageCFFE;
+        private System.Windows.Forms.TabPage tabPageZCE;
+        private System.Windows.Forms.TabPage tabUserDefine;
         private System.Windows.Forms.TableLayoutPanel tbpanlOrderInfo;
+        private System.Windows.Forms.TabControl tabOrders;
+        private System.Windows.Forms.TabPage tabPageAllOrders;
+        private System.Windows.Forms.TabPage tabPageHisOrders;
+        private System.Windows.Forms.DataGridView dgvwPositions;
+        private System.Windows.Forms.TabPage tabPageCodes;
         private System.Windows.Forms.FlowLayoutPanel flpnelInfo;
         private System.Windows.Forms.Label lbAccountInfo;
         private System.Windows.Forms.Label lbRightText;
         private System.Windows.Forms.Label lbRight;
         private System.Windows.Forms.Label lbAvailableText;
         private System.Windows.Forms.Label lbAvailable;
+        private System.Windows.Forms.FlowLayoutPanel flpanlOrder;
         private System.Windows.Forms.TableLayoutPanel tbpanlOrder;
         private System.Windows.Forms.Label lbInstrument;
         private System.Windows.Forms.Label lbDirection;
@@ -741,7 +826,15 @@ namespace ProgramTrade
         private System.Windows.Forms.TextBox txtInstrumentID;
         private System.Windows.Forms.NumericUpDown numPrice;
         private System.Windows.Forms.NumericUpDown numVolume;
-        private System.Windows.Forms.FlowLayoutPanel flpanlOrder;
+        private System.Windows.Forms.TableLayoutPanel tbpanlOpenClose;
+        private System.Windows.Forms.RadioButton rdoOpen;
+        private System.Windows.Forms.RadioButton rdoClose;
+        private System.Windows.Forms.TableLayoutPanel tbpanlBuySell;
+        private System.Windows.Forms.RadioButton rdoBuy;
+        private System.Windows.Forms.RadioButton rdoSell;
+        private System.Windows.Forms.TableLayoutPanel tbInstrumentInfo;
+        private System.Windows.Forms.Label lbInstrumentName;
+        private System.Windows.Forms.Label lbExchange;
         private System.Windows.Forms.TableLayoutPanel tbpanlSubOrder;
         private System.Windows.Forms.Button btnAddOpenOrder;
         private System.Windows.Forms.Button btnAddOrder;
@@ -754,51 +847,20 @@ namespace ProgramTrade
         private System.Windows.Forms.Label lbBottom;
         private System.Windows.Forms.Label lbOpen;
         private System.Windows.Forms.Label lbClose;
-        private System.Windows.Forms.TabControl tabExchange;
-        private System.Windows.Forms.TabPage tabPageDCE;
-        private System.Windows.Forms.TabPage tabPageSHFE;
-        private System.Windows.Forms.TabPage tabPageCFFE;
-        private System.Windows.Forms.TabPage tabPageZCE;
-        private System.Windows.Forms.TabPage tabUserDefine;
-        private ProgramTradeModules.MarketViewer mdvwDCE;
-        private System.Windows.Forms.ContextMenuStrip contmenuTabExchange;
-        private System.Windows.Forms.ToolStripMenuItem 切换显示ToolStripMenuItem;
         private System.Windows.Forms.Button btnParellel;
-        private ProgramTradeModules.MarketViewer mdvwSHFE;
-        private ProgramTradeModules.MarketViewer mdvwCFFE;
-        private ProgramTradeModules.MarketViewer mdvwZCE;
-        private ProgramTradeModules.MarketViewer mdvwCustom;
-        private System.Windows.Forms.RadioButton rdoSell;
-        private System.Windows.Forms.TableLayoutPanel tbpanlBuySell;
-        private System.Windows.Forms.RadioButton rdoBuy;
-        private System.Windows.Forms.TableLayoutPanel tbpanlOpenClose;
-        private System.Windows.Forms.RadioButton rdoOpen;
-        private System.Windows.Forms.RadioButton rdoClose;
-        private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.ToolStripStatusLabel strplbTradeFrontSvr;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
-        private System.Windows.Forms.ToolStripStatusLabel striplbMarketFrontSvr;
-        private System.Windows.Forms.MenuStrip menuMain;
-        private System.Windows.Forms.ToolStripMenuItem 用户ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 修改密码ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 退出登录ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
         private System.Windows.Forms.Panel panlMain;
-        private System.Windows.Forms.TabControl tabOrders;
-        private System.Windows.Forms.TabPage tabPageOpenOrders;
-        private ProgramTradeModules.OrderViewer odvwOpenOrders;
-        private System.Windows.Forms.TabPage tabPageAllOrders;
-        private ProgramTradeModules.OrderViewer odvwAllOrders;
-        private System.Windows.Forms.TabPage tabPageHisOrders;
-        private ProgramTradeModules.OrderViewer odvwHisOrders;
-        private System.Windows.Forms.TabPage tabPageCodes;
-        private System.Windows.Forms.DataGridView gdvwCodes;
-        private System.Windows.Forms.TableLayoutPanel tbInstrumentInfo;
-        private System.Windows.Forms.Label lbInstrumentName;
-        private System.Windows.Forms.Label lbExchange;
-        private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 开市自动单设置ToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPageAll;
+        private System.Windows.Forms.DataGridView dgvwOrders;
+        private System.Windows.Forms.DataGridView dgvwInstruments;
+        private System.Windows.Forms.SplitContainer splitMarket;
+        private System.Windows.Forms.DataGridView dgvwMarket;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exchangeIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn instrumentIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn directionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn positionPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn volumeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn flagDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource positionsBindingSource;
     }
 }
 

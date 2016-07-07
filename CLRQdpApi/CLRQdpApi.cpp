@@ -483,20 +483,6 @@ namespace CLRQdpApi
 	{
 		CQdpFtdcInputOrderField* pInputOrder = new CQdpFtdcInputOrderField;
 		Marshal::StructureToPtr(InputOrder, IntPtr(pInputOrder), false);
-		/*pInputOrder->OrderPriceType = InputOrder->OrderPriceType;
-		pInputOrder->Direction = InputOrder->Direction;
-		pInputOrder->OffsetFlag = InputOrder->OffsetFlag;
-		pInputOrder->HedgeFlag = InputOrder->HedgeFlag;
-		pInputOrder->LimitPrice = InputOrder->LimitPrice;
-		pInputOrder->Volume = InputOrder->LimitPrice;
-		pInputOrder->TimeCondition = InputOrder->TimeCondition;
-		pInputOrder->VolumeCondition = InputOrder->VolumeCondition;
-		pInputOrder->MinVolume = InputOrder->MinVolume;
-		pInputOrder->StopPrice = InputOrder->StopPrice;
-		pInputOrder->ForceCloseReason = InputOrder->ForceCloseReason;
-		pInputOrder->IsAutoSuspend = InputOrder->IsAutoSuspend;
-		pInputOrder->RecNum = InputOrder->RecNum;
-		pInputOrder->BusinessType = InputOrder->BusinessType;*/
 		return m_pNativeApi->ReqOrderInsert(pInputOrder, nRequestID);
 	}
 
@@ -712,7 +698,8 @@ namespace CLRQdpApi
 		SpecificInstrument = (CLRCQdpFtdcSpecificInstrumentField^)Marshal::PtrToStructure(IntPtr(pSpecificInstrument), SpecificInstrument->GetType());
 		CLRCQdpFtdcRspInfoField^ RspInfo = gcnew CLRCQdpFtdcRspInfoField;
 		RspInfo = (CLRCQdpFtdcRspInfoField^)Marshal::PtrToStructure(IntPtr(pRspInfo), RspInfo->GetType());
-		this->OnRspSubMarketData(*SpecificInstrument, *RspInfo, nRequestID, bIsLast);
+		//this->OnRspSubMarketData(*SpecificInstrument, *RspInfo, nRequestID, bIsLast);
+		this->OnRspSubMarketData(*SpecificInstrument, nRequestID, bIsLast);
 	}
 	void CLRCQdpFtdcMduserSpi::callOnRspUnSubMarketData(CQdpFtdcSpecificInstrumentField * pSpecificInstrument, CQdpFtdcRspInfoField * pRspInfo, int nRequestID, bool bIsLast)
 	{
@@ -888,12 +875,12 @@ namespace CLRQdpApi
 		Parallel::ForEach<String^>(InstrumentID, );
 		return m_pNativeApi->SubMarketData(ppInstrumentID, nCount);*/
 		int size = InstrumentID->Length;
-		char * ppInstrumentID = static_cast<char *>(Marshal::AllocHGlobal(sizeof(int) * size).ToPointer());
+		char **ppInstrumentID = static_cast<char **>(Marshal::AllocHGlobal(sizeof(int) * size).ToPointer());
 		for (int i = 0; i < InstrumentID->Length; i++)
 		{
-			*(ppInstrumentID + i) = *(static_cast<char *>(Marshal::StringToHGlobalAnsi(InstrumentID[i]).ToPointer()));
+			*(ppInstrumentID + i) = static_cast<char *>(Marshal::StringToHGlobalAnsi(InstrumentID[i]).ToPointer());
 		}
-		return m_pNativeApi->SubMarketData(&ppInstrumentID, size);
+		return m_pNativeApi->SubMarketData(ppInstrumentID, size);
 	}
 
 	///退订合约行情。

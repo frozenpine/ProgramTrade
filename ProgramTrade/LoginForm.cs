@@ -1,5 +1,4 @@
-﻿using CLRQdpApi;
-using ProgramTradeApi;
+﻿using ProgramTradeApi;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,134 +8,245 @@ using System.Windows.Forms;
 
 namespace ProgramTrade
 {
-    public partial class LoginForm : Form
+    public partial class LoginForm : Form, ILoginView
     {
-        private Dictionary<string, FrontServer> FrontServers = new Dictionary<string, FrontServer>();
-
-        private TradeApi tradeApi;
-        private MarketApi marketApi;
-
-        public LoginForm(TradeApi tradeApi, MarketApi marketApi)
+        public LoginForm()
         {
-            FrontServers.Add(@"QDP-INSIDE", new FrontServer(@"192.168.89.6", @"30005", @"30007" ));
-            FrontServers.Add(@"QDP-OUTSIDE", new FrontServer (@"140.206.63.35", @"30005", @"30007" ));
             InitializeComponent();
-            this.ActiveControl = btnLogin;
-            bsFrontServer.DataSource = FrontServers;
-            
-            this.tradeApi = tradeApi;
-            this.marketApi = marketApi;
+            ActiveControl = btnLogin;
+        }
 
-            ProgramTradeEvents.AddRspHandler(RspSpiModules.FrontConnected, this.OnFrontServerConnected);
-            ProgramTradeEvents.AddRspUserLoginHandler(this.OnRspUserLoginEvent);
+        public event EventHandler LoginStart;
+        public event EventHandler BrokerSelectionChange;
+        public event EventHandler<FormClosingEventArgs> Quit;
+        public event EventHandler SaveLoginUser;
+        public event EventHandler SaveLoginInfo;
+        public event EventHandler FormLoaded;
+
+        Action<TextBox, string> SetLogin = (txtbox, str) =>
+            {
+                txtbox.Text = str;
+            };
+        Action<Label, string> SetMsg = (lb, msg) =>
+            {
+                lb.Text = msg;
+                lb.Visible = true;
+            };
+        Action<Button, Label, bool> SetFrontState = (btn, lb, b) =>
+            {
+                btn.Enabled = b;
+                if (b)
+                    lb.ForeColor = Color.Green;
+                else
+                    lb.ForeColor = Color.Red;
+            };
+        Action<ComboBox, string> SetBrokerSelection = (cmb, str) =>
+           {
+               cmb.SelectedItem = str;
+           };
+
+        IEnumerable<string> ILoginView.Brokers
+        {
+            set
+            {
+                BindingSource bind = new BindingSource();
+                bind.DataSource = value;
+                cmbTradeFrontSvr.DataSource = bind;
+            }
+        }
+
+        public string SelectedBroker
+        {
+            get
+            {
+                return cmbTradeFrontSvr.SelectedItem.ToString();
+            }
+
+            set
+            {
+                if (InvokeRequired)
+                {
+                    Invoke(SetBrokerSelection, new object[] { cmbTradeFrontSvr, value });
+                }
+                else
+                    SetBrokerSelection(cmbTradeFrontSvr, value);
+            }
+        }
+
+        public string Username
+        {
+            get
+            {
+                return txtUserID.Text;
+            }
+
+            set
+            {
+                if (InvokeRequired)
+                {
+                    Invoke(SetLogin, new object[] { txtUserID, value });
+                }
+                else
+                {
+                    SetLogin(txtUserID, value);
+                }
+            }
+        }
+
+        public string Password
+        {
+            get
+            {
+                return txtPassword.Text;
+            }
+            set
+            {
+                if (InvokeRequired)
+                {
+                    Invoke(SetLogin, new object[] { txtPassword, value });
+                }
+                else
+                {
+                    SetLogin(txtPassword, value);
+                }
+            }
+        }
+
+        public string TradeFrontMsg
+        {
+            set
+            {
+                if (InvokeRequired)
+                {
+                    Invoke(SetMsg, new object[] { lbTdFront, value });
+                }
+                else
+                {
+                    SetMsg(lbTdFront, value);
+                }
+            }
+        }
+
+        public string MarketFrontMsg
+        {
+            set
+            {
+                if (InvokeRequired)
+                {
+                    Invoke(SetMsg, new object[] { lbMdFront, value });
+                }
+                else
+                {
+                    SetMsg(lbMdFront, value);
+                }
+            }
+        }
+
+        public string InvalidMsg
+        {
+            set
+            {
+
+                if (InvokeRequired)
+                {
+                    Invoke(SetMsg, new object[] { lbValidateMsg, value });
+                }
+                else
+                {
+                    SetMsg(lbValidateMsg, value);
+                }
+            }
+        }
+
+        public bool TdFrontConnected
+        {
+            set
+            {
+                if (InvokeRequired)
+                {
+                    Invoke(SetFrontState, new object[] { btnLogin, lbTdFront, value });
+                }
+                else
+                {
+                    SetFrontState(btnLogin, lbTdFront, value);
+                }
+            }
+        }
+
+        public bool MdFrontConnected
+        {
+            set
+            {
+                if (InvokeRequired)
+                {
+                    Invoke(SetFrontState, new object[] { btnLogin, lbMdFront, value });
+                }
+                else
+                {
+                    SetFrontState(btnLogin, lbMdFront, value);
+                }
+            }
+        }
+
+        public bool UsernameInvalid
+        {
+            set
+            {
+                lbValidateMsg.ForeColor = Color.Red;
+                lbValidateMsg.Visible = value;
+            }
+        }
+
+        public bool PasswordInvalid
+        {
+            set
+            {
+                lbValidateMsg.ForeColor = Color.Red;
+                lbValidateMsg.Visible = value;
+            }
+        }
+
+        public bool ViewVisible
+        {
+            set
+            {
+                if (value)
+                {
+                    this.ShowDialog();
+                }
+                else
+                {
+                    Action closefrm = () => { this.Close(); };
+                    if (InvokeRequired)
+                    {
+                        Invoke(closefrm);
+                    }
+                    else
+                    {
+                        closefrm();
+                    }
+                }
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            lbTdFront.Visible = lbMdFront.Visible = false;
-            CLRCQdpFtdcReqUserLoginField User = new CLRCQdpFtdcReqUserLoginField();
-            User.BrokerID = "guofu";
-            User.UserID = txtUserID.Text;
-            User.Password = txtPassword.Text;
-
-            if (tradeApi.IsConnected && marketApi.IsConnected)
-            {
-                tradeApi.UserLogin(User);
-                marketApi.UserLogin(User);
-            }
-            else
-            {
-                lbTdFront.ForeColor = lbMdFront.ForeColor = Color.Red;
-                lbTdFront.Text = "交易前置未连接！";
-                lbMdFront.Text = "行情前置未连接！";
-            }
-        }
-
-        private Action<RspEventArgs, Label> UpdateLoginInfo = (evt, lb) =>
-        {
-            if (0 == evt.ErrorID)
-            {
-                lb.Text = string.Format(evt.Message);
-                lb.ForeColor = Color.Green;
-            }
-            else
-            {
-                lb.Text = string.Format("ErrorMsg：{0}", evt.Message);
-                lb.ForeColor = Color.Red;
-            }
-            lb.Visible = true;
-        };
-
-        private void OnFrontServerConnected(object sender,RspEventArgs e)
-        {
-            if (this.InvokeRequired)
-            {
-                tmrFrontServer.Stop();
-                switch (sender.GetType().Name)
-                {
-                    case "TradeSpi":
-                        lbTdFront.Invoke(UpdateLoginInfo, new object[] { e, lbTdFront });
-                        break;
-                    case "MarketSpi":
-                        lbMdFront.Invoke(UpdateLoginInfo, new object[] { e, lbMdFront });
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-
-        private void OnRspUserLoginEvent(object sender, RspUserLoginEventArgs e)
-        {
-            if (this.InvokeRequired)
-            {
-                switch(sender.GetType().ToString())
-                {
-                    case "TradeSpi":
-                        lbTdFront.Invoke(UpdateLoginInfo, new object[] { e, lbTdFront });
-                        break;
-                    case "MarketSpi":
-                        lbMdFront.Invoke(UpdateLoginInfo, new object[] { e, lbMdFront });
-                        break;
-                    default:break;
-                }
-                if (0==e.RspInfo.ErrorID)
-                {
-                    tradeApi.UserPwd = marketApi.UserPwd = this.txtPassword.Text;
-                    this.DialogResult = DialogResult.OK;
-                }
-            }
+            LoginStart?.Invoke(sender, e);
         }
 
         private void cmbTradeFrontSvr_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbTradeFrontSvr.SelectedIndex >= 0)
             {
-                tradeApi.SubscribeTopics(CLRQDP_TE_RESUME_TYPE.QDP_TERT_QUICK, cmbTradeFrontSvr.SelectedValue as FrontServer);
-                marketApi.SubscribeTopics(CLRQDP_TE_RESUME_TYPE.QDP_TERT_QUICK, new int[] { 100,110 }, cmbTradeFrontSvr.SelectedValue as FrontServer);
-                tmrFrontServer.Start();
+                SelectedBroker = cmbTradeFrontSvr.SelectedText;
+                BrokerSelectionChange?.Invoke(sender, e);
             }
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            FormLoaded?.Invoke(sender, e);
             cmbTradeFrontSvr.SelectedIndex = -1;
-        }
-
-        private void cmbTradeFrontSvr_DropDown(object sender, EventArgs e)
-        {
-            lbTdFront.Visible = lbMdFront.Visible = false;
-        }
-
-        private void tmFrontServer_Tick(object sender, EventArgs e)
-        {
-            tmrFrontServer.Stop();
-            lbTdFront.Text = string.Format("交易前置连接超时！");
-            lbTdFront.ForeColor = Color.Red;
-            lbTdFront.Visible = true;
-            lbMdFront.Text = string.Format("行情前置连接超时！");
-            lbMdFront.ForeColor = Color.Red;
-            lbMdFront.Visible = true;
         }
 
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
@@ -145,6 +255,11 @@ namespace ProgramTrade
             {
                 this.DialogResult = DialogResult.OK;
             }
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Quit?.Invoke(sender, e);
         }
     }
 }
