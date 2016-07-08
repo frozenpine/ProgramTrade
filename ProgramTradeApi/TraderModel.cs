@@ -126,7 +126,7 @@ namespace ProgramTradeApi
                         var pos = (e as TypedRspEventArgs<CLRDFITCPositionInfoRtnField, CLRDFITCErrorRtnField>).Data;
                         if (pos.instrumentID != "")
                         {
-                            Positions.AddOrUpdate(pos.instrumentID, new PositionDetail(pos), (k, v) => v);
+                            Positions.AddOrUpdate(pos.instrumentID, /*new PositionDetail(pos)*/PositionDetail.CreateDetail(pos), (k, v) => v);
                             if (e.IsLast)
                             {
                                 eventPositionChanged?.Invoke(this, null);
@@ -150,7 +150,7 @@ namespace ProgramTradeApi
                         var odr = (e as TypedRspEventArgs<CLRDFITCOrderCommRtnField, CLRDFITCErrorRtnField>).Data;
                         if (odr.spdOrderID > 0)
                         {
-                            Orders.AddOrUpdate(odr.spdOrderID, new OrderDetail(odr), (k, v) => v);
+                            Orders.AddOrUpdate(odr.spdOrderID, /*new OrderDetail(odr)*/OrderDetail.CreateDetail(odr), (k, v) => v);
                             if(e.IsLast)
                             {
                                 // shoot event
@@ -169,7 +169,7 @@ namespace ProgramTradeApi
             switch(sender.ToString())
             {
                 case "ProgramTradeApi.XTradeSpi":
-                    PositionDetail odr = new PositionDetail((e as TypedRspEventArgs<CLRDFITCMatchRtnField, object>).Data);
+                    PositionDetail odr = /*new PositionDetail*/PositionDetail.CreateDetail((e as TypedRspEventArgs<CLRDFITCMatchRtnField, object>).Data);
                     if(Positions.ContainsKey(odr.InstrumentID) && Positions[odr.InstrumentID].Direction==odr.Direction)
                     {
                         Positions[odr.InstrumentID] += odr;

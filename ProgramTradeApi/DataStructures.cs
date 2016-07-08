@@ -379,98 +379,99 @@ namespace ProgramTradeApi
             }
         }
 
-        public PositionDetail (CLRDFITCPositionInfoRtnField pos)
+        public static PositionDetail CreateDetail(CLRDFITCPositionInfoRtnField pos)
         {
+            PositionDetail result = new PositionDetail();
             switch(pos.exchangeID)
             {
                 case "DCE":
-                    this.ExchangeID = ExchangeID.DCE;
+                    result.ExchangeID = ExchangeID.DCE;
                     break;
                 case "CZCE":
-                    this.ExchangeID = ExchangeID.CZCE;
+                    result.ExchangeID = ExchangeID.CZCE;
                     break;
                 case "SHFE":
-                    this.ExchangeID = ExchangeID.SHFE;
+                    result.ExchangeID = ExchangeID.SHFE;
                     break;
                 case "CFFEX":
-                    this.ExchangeID = ExchangeID.CFFEX;
+                    result.ExchangeID = ExchangeID.CFFEX;
                     break;
                 case "INE":
-                    this.ExchangeID = ExchangeID.INE;
+                    result.ExchangeID = ExchangeID.INE;
                     break;
             }
-            this.InstrumentID = pos.instrumentID;
+            result.InstrumentID = pos.instrumentID;
             switch (pos.buySellType)
             {
                 case (short)CLRDFITCBuySellType.SPD_BUY:
-                    this.Direction = Direction.Buy;
+                    result.Direction = Direction.Buy;
                     break;
                 case (short)CLRDFITCBuySellType.SPD_SELL:
-                    this.Direction = Direction.Sell;
+                    result.Direction = Direction.Sell;
                     break;
             }
-            this.PositionPrice = pos.positionAvgPrice;
-            this.Volume = pos.positionAmount;
+            result.PositionPrice = pos.positionAvgPrice;
+            result.Volume = pos.positionAmount;
             switch (pos.speculator)
             {
                 case (int)CLRDFITCSpeculatorType.SPD_SPECULATOR:
-                    this.Flag = Flag.Speculator;
+                    result.Flag = Flag.Speculator;
                     break;
                 case (int)CLRDFITCSpeculatorType.SPD_HEDGE:
-                    this.Flag = Flag.Hedge;
+                    result.Flag = Flag.Hedge;
                     break;
                 case (int)CLRDFITCSpeculatorType.SPD_ARBITRAGE:
-                    this.Flag = Flag.Arbitrage;
+                    result.Flag = Flag.Arbitrage;
                     break;
             }
-            //return this;
+            return result;
         }
-        public PositionDetail (CLRDFITCMatchRtnField pos)
+        public static PositionDetail CreateDetail(CLRDFITCMatchRtnField pos)
         {
-            //Positionthis this = new Positionthis();
+            PositionDetail result = new PositionDetail();
             switch (pos.exchangeID)
             {
                 case "DCE":
-                    this.ExchangeID = ExchangeID.DCE;
+                    result.ExchangeID = ExchangeID.DCE;
                     break;
                 case "CZCE":
-                    this.ExchangeID = ExchangeID.CZCE;
+                    result.ExchangeID = ExchangeID.CZCE;
                     break;
                 case "SHFE":
-                    this.ExchangeID = ExchangeID.SHFE;
+                    result.ExchangeID = ExchangeID.SHFE;
                     break;
                 case "CFFEX":
-                    this.ExchangeID = ExchangeID.CFFEX;
+                    result.ExchangeID = ExchangeID.CFFEX;
                     break;
                 case "INE":
-                    this.ExchangeID = ExchangeID.INE;
+                    result.ExchangeID = ExchangeID.INE;
                     break;
             }
-            this.InstrumentID = pos.instrumentID;
+            result.InstrumentID = pos.instrumentID;
             switch (pos.buySellType)
             {
                 case (short)CLRDFITCBuySellType.SPD_BUY:
-                    this.Direction = Direction.Buy;
+                    result.Direction = Direction.Buy;
                     break;
                 case (short)CLRDFITCBuySellType.SPD_SELL:
-                    this.Direction = Direction.Sell;
+                    result.Direction = Direction.Sell;
                     break;
             }
-            this.PositionPrice = pos.insertPrice;
-            this.Volume = pos.orderAmount;
+            result.PositionPrice = pos.insertPrice;
+            result.Volume = pos.orderAmount;
             switch (pos.speculator)
             {
                 case (int)CLRDFITCSpeculatorType.SPD_SPECULATOR:
-                    this.Flag = Flag.Speculator;
+                    result.Flag = Flag.Speculator;
                     break;
                 case (int)CLRDFITCSpeculatorType.SPD_HEDGE:
-                    this.Flag = Flag.Hedge;
+                    result.Flag = Flag.Hedge;
                     break;
                 case (int)CLRDFITCSpeculatorType.SPD_ARBITRAGE:
-                    this.Flag = Flag.Arbitrage;
+                    result.Flag = Flag.Arbitrage;
                     break;
             }
-            //return this;
+            return result;
         }
 
         public static PositionDetail operator +(PositionDetail lpos, PositionDetail rpos)
@@ -727,33 +728,33 @@ namespace ProgramTradeApi
             }
         }
 
-        public OrderDetail(CLRCQdpFtdcInputOrderField ord)
+        public static OrderDetail CreateDetail(CLRCQdpFtdcInputOrderField ord)
         {
-            //Orderthis result = new Orderthis();
+            OrderDetail result = new OrderDetail();
 
-            //return result;
+            return result;
         }
-
-        public OrderDetail(CLRDFITCOrderCommRtnField order)
+        public static OrderDetail CreateDetail(CLRDFITCOrderCommRtnField order)
         {
-            //Orderthis result = new Orderthis();
-            OrderSysID = order.spdOrderID;
+            OrderDetail result = new OrderDetail();
+            result.OrderSysID = order.spdOrderID;
             switch(order.exchangeID)
             {
                 case "DCE":
-                    ExchangeID = ExchangeID.DCE;
+                    result.ExchangeID = ExchangeID.DCE;
                     break;
                 case "CZCE":
-                    ExchangeID = ExchangeID.CZCE;
+                    result.ExchangeID = ExchangeID.CZCE;
                     break;
                 case "CFFEX":
-                    ExchangeID = ExchangeID.CFFEX;
+                    result.ExchangeID = ExchangeID.CFFEX;
                     break;
                 case "SHFE":
-                    ExchangeID = ExchangeID.SHFE;
+                    result.ExchangeID = ExchangeID.SHFE;
                     break;
             }
-            InstrumentID = order.instrumentID;
+            result.InstrumentID = order.instrumentID;
+            return result;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

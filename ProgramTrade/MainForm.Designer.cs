@@ -113,6 +113,11 @@ namespace ProgramTrade
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.延时测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panlMain = new System.Windows.Forms.Panel();
+            this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.marketsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.instrumentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.keyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.Panel1.SuspendLayout();
             this.splitMain.Panel2.SuspendLayout();
@@ -146,6 +151,9 @@ namespace ProgramTrade
             this.statusStrip.SuspendLayout();
             this.menuMain.SuspendLayout();
             this.panlMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marketsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.instrumentsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitMain
@@ -269,7 +277,13 @@ namespace ProgramTrade
             // 
             // dgvwOrders
             // 
+            this.dgvwOrders.AutoGenerateColumns = false;
             this.dgvwOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvwOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.keyDataGridViewTextBoxColumn,
+            this.valueDataGridViewTextBoxColumn});
+            this.dgvwOrders.DataMember = "Value";
+            this.dgvwOrders.DataSource = this.ordersBindingSource;
             resources.ApplyResources(this.dgvwOrders, "dgvwOrders");
             this.dgvwOrders.Name = "dgvwOrders";
             this.dgvwOrders.ReadOnly = true;
@@ -351,7 +365,6 @@ namespace ProgramTrade
             // 
             this.positionsBindingSource.AllowNew = true;
             this.positionsBindingSource.DataSource = typeof(System.Collections.Generic.KeyValuePair<string, ProgramTradeApi.PositionDetail>);
-            //this.positionsBindingSource.DataSource = typeof(PositionDetail);
             this.positionsBindingSource.Sort = "";
             // 
             // tabPageCodes
@@ -719,6 +732,37 @@ namespace ProgramTrade
             resources.ApplyResources(this.panlMain, "panlMain");
             this.panlMain.Name = "panlMain";
             // 
+            // ordersBindingSource
+            // 
+            this.ordersBindingSource.AllowNew = true;
+            this.ordersBindingSource.DataSource = typeof(System.Collections.Generic.KeyValuePair<string, ProgramTradeApi.OrderDetail>);
+            this.ordersBindingSource.Sort = "";
+            // 
+            // marketsBindingSource
+            // 
+            this.marketsBindingSource.AllowNew = true;
+            this.marketsBindingSource.DataSource = typeof(System.Collections.Generic.KeyValuePair<string, ProgramTradeApi.MarketDetail>);
+            this.marketsBindingSource.Sort = "";
+            // 
+            // instrumentsBindingSource
+            // 
+            this.instrumentsBindingSource.AllowNew = true;
+            this.instrumentsBindingSource.Sort = "";
+            // 
+            // keyDataGridViewTextBoxColumn
+            // 
+            this.keyDataGridViewTextBoxColumn.DataPropertyName = "Key";
+            resources.ApplyResources(this.keyDataGridViewTextBoxColumn, "keyDataGridViewTextBoxColumn");
+            this.keyDataGridViewTextBoxColumn.Name = "keyDataGridViewTextBoxColumn";
+            this.keyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // valueDataGridViewTextBoxColumn
+            // 
+            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
+            resources.ApplyResources(this.valueDataGridViewTextBoxColumn, "valueDataGridViewTextBoxColumn");
+            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
+            this.valueDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -776,6 +820,9 @@ namespace ProgramTrade
             this.menuMain.ResumeLayout(false);
             this.menuMain.PerformLayout();
             this.panlMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marketsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.instrumentsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -861,6 +908,11 @@ namespace ProgramTrade
         private System.Windows.Forms.DataGridViewTextBoxColumn volumeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn flagDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource positionsBindingSource;
+        private System.Windows.Forms.BindingSource ordersBindingSource;
+        private System.Windows.Forms.BindingSource marketsBindingSource;
+        private System.Windows.Forms.BindingSource instrumentsBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn keyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
     }
 }
 
