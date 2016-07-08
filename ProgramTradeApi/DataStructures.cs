@@ -728,12 +728,12 @@ namespace ProgramTradeApi
             }
         }
 
-        public static OrderDetail CreateDetail(CLRCQdpFtdcInputOrderField ord)
+        /*public static OrderDetail CreateDetail(CLRCQdpFtdcInputOrderField ord)
         {
             OrderDetail result = new OrderDetail();
 
             return result;
-        }
+        }*/
         public static OrderDetail CreateDetail(CLRDFITCOrderCommRtnField order)
         {
             OrderDetail result = new OrderDetail();
