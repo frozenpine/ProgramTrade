@@ -10,9 +10,22 @@ namespace ProgramTrade
 {
     public interface IMainView : IDisposable, IMarketView, IPositionView, IOrderView
     {
-        bool ViewVisable { get; set; }
-
         event EventHandler ViewLoad;
         event EventHandler ViewClosing;
+
+        bool ViewVisable { get; set; }
+        string ErrorMsg { set; }
+
+
+        #region Orders
+        event EventHandler SubmitOrder;
+        event EventHandler EmbeddedOrder;
+
+        string OrderInstrumentID { get; }
+        Direction OrderDirection { get; }
+        Operation OrderOperation { get; }
+        double OrderPrice { get; set; }
+        int OrderVolume { get; set; }
+        #endregion
     }
 }

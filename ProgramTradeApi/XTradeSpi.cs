@@ -13,10 +13,10 @@ namespace ProgramTradeApi
     {
         protected override void OnFrontConnected()
         {
-            if (ProgramTradeEvents.RspEventHandler.ContainsKey(RspSpiModules.TdFrontConnected) && null != ProgramTradeEvents.RspEventHandler[RspSpiModules.TdFrontConnected])
+            if (ProgramTradeEvents.RspEventHandler.ContainsKey(RspSpiModules.FrontConnected) && null != ProgramTradeEvents.RspEventHandler[RspSpiModules.FrontConnected])
             {
                 TypedRspEventArgs<object, object> evt = new TypedRspEventArgs<object, object> { RequestID = -1, ErrorID = 0, Message = "交易前置连接成功", Data = null, Error = null, IsLast = true };
-                Parallel.ForEach(ProgramTradeEvents.RspEventHandler[RspSpiModules.TdFrontConnected].GetInvocationList(), handler =>
+                Parallel.ForEach(ProgramTradeEvents.RspEventHandler[RspSpiModules.FrontConnected].GetInvocationList(), handler =>
                 {
                     (handler as EventHandler<RspEventArgs>).BeginInvoke(this, evt, null, null);
                 });
@@ -276,7 +276,14 @@ namespace ProgramTradeApi
 
         protected override void OnRtnExchangeStatus(CLRDFITCExchangeStatusRtnField RtnExchangeStatusData)
         {
-            throw new NotImplementedException();
+            if (ProgramTradeEvents.RspEventHandler.ContainsKey(RspSpiModules.ExchangeStatus) && null != ProgramTradeEvents.RspEventHandler[RspSpiModules.ExchangeStatus])
+            {
+                TypedRspEventArgs<CLRDFITCExchangeStatusRtnField, object> evt = new TypedRspEventArgs<CLRDFITCExchangeStatusRtnField, object> { RequestID = -1, ErrorID = 0, Message = RtnExchangeStatusData.enterTime, Data = RtnExchangeStatusData, Error = null, IsLast = true };
+                Parallel.ForEach(ProgramTradeEvents.RspEventHandler[RspSpiModules.ExchangeStatus].GetInvocationList(), handler =>
+                {
+                    (handler as EventHandler<RspEventArgs>).BeginInvoke(this, evt, null, null);
+                });
+            }
         }
 
         protected override void OnRtnForQuote(CLRDFITCForQuoteRtnField RtnForQuote)
@@ -313,10 +320,10 @@ namespace ProgramTradeApi
 
         protected override void OnRtnOrder(CLRDFITCOrderRtnField RtnOrderData)
         {
-            if (ProgramTradeEvents.RspEventHandler.ContainsKey(RspSpiModules.OrderReturn) && null != ProgramTradeEvents.RspEventHandler[RspSpiModules.OrderReturn])
+            if (ProgramTradeEvents.RspEventHandler.ContainsKey(RspSpiModules.RtnOrder) && null != ProgramTradeEvents.RspEventHandler[RspSpiModules.RtnOrder])
             {
                 TypedRspEventArgs<CLRDFITCOrderRtnField, object> evt = new TypedRspEventArgs<CLRDFITCOrderRtnField, object> { RequestID = -1, ErrorID = 0, Message = RtnOrderData.statusMsg, Data = RtnOrderData, Error = null, IsLast = true };
-                Parallel.ForEach(ProgramTradeEvents.RspEventHandler[RspSpiModules.OrderReturn].GetInvocationList(), handler =>
+                Parallel.ForEach(ProgramTradeEvents.RspEventHandler[RspSpiModules.RtnOrder].GetInvocationList(), handler =>
                 {
                     (handler as EventHandler<RspEventArgs>).BeginInvoke(this, evt, null, null);
                 });

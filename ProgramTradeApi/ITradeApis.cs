@@ -31,6 +31,11 @@ namespace ProgramTradeApi
         /// <returns>请求返回</returns>
         int RequestUserPosition();
         /// <summary>
+        /// 交易所状态查询
+        /// </summary>
+        /// <returns></returns>
+        HashSet<ExchangeID> RequestExchangeStatus(HashSet<ExchangeID> exchanges);
+        /// <summary>
         /// 交易所合约查询请求
         /// </summary>
         /// <param name="exchangeID">交易所代码</param>

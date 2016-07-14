@@ -5,6 +5,7 @@ using System.Text;
 using System.Net.Sockets;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
+using System.Threading;
 
 namespace ProgramTradeApi
 {
@@ -50,6 +51,10 @@ namespace ProgramTradeApi
 
     public class TCPIP
     {
+        private ManualResetEvent TimeoutObject = new ManualResetEvent(false);
+        private bool Connectable = false;
+        private Stopwatch watch = new Stopwatch();
+
         private uint ipv4 = 0;
         public string IPv4Address
         {
@@ -197,30 +202,53 @@ namespace ProgramTradeApi
 
         public long DelayTest()
         {
-            try
+            TimeoutObject.Reset();
+            watch.Reset();
+            Socket sock;
+            switch (PortType)
             {
-                Socket sock;
-                switch (PortType)
-                {
-                    case PortType.TCP:
-                        sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                        break;
-                    case PortType.UDP:
-                        sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-                        break;
-                    default:
-                        throw new SocketException();
-                }
-                Stopwatch watch = new Stopwatch();
-                watch.Start();
-                sock.Connect(IPv4Address, Port);
-                watch.Stop();
-                sock.Close();
+                case PortType.TCP:
+                    sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                    break;
+                case PortType.UDP:
+                    sock = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+                    break;
+                default:
+                    throw new SocketException();
+            }
+            watch.Start();
+            sock.BeginConnect(IPv4Address, Port, new AsyncCallback(StopWatch), sock);
+            TimeoutObject.WaitOne(3000, true);
+            if (Connectable)
+            {
                 return watch.ElapsedTicks;
             }
-            catch(SocketException)
+            else
             {
                 return -1;
+            }
+        }
+
+        private void StopWatch(IAsyncResult ar)
+        {
+            try
+            {
+                Connectable = false;
+                Socket s = ar.AsyncState as Socket;
+                if (s != null)
+                {
+                    s.EndConnect(ar);
+                    Connectable = true;
+                    watch.Stop();
+                }
+            }
+            catch(Exception)
+            {
+                Connectable = false;
+            }
+            finally
+            {
+                TimeoutObject.Set();
             }
         }
 

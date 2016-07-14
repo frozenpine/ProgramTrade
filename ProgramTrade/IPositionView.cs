@@ -11,8 +11,8 @@ namespace ProgramTrade
 {
     public interface IPositionView
     {
-        event EventHandler PositionViewDoubleClick;
+        event EventHandler<System.Windows.Forms.MouseEventArgs> PositionViewDoubleClick;
 
-        IEnumerable<PositionDetail> Position { get; set; }
+        IEnumerable<PositionDetail> Positions { set; }
     }
 }

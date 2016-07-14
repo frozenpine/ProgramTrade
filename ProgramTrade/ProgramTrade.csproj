@@ -127,6 +127,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="app.config" />
+    <None Include="Instruments.csv" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ProgramTradeApi.Brokers.datasource" />
     <None Include="Properties\DataSources\ProgramTradeApi.CancelOrder.datasource" />

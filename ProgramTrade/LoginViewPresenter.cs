@@ -19,7 +19,6 @@ namespace ProgramTrade
             LoginView = loginFrm;
             Trader = trader;
 
-            //LoginView.FormLoaded += LoginView_FormLoaded;
             LoginView.LoginStart += LoginView_LoginStart;
             LoginView.BrokerSelectionChange += LoginView_BrokerSelectionChange;
 
@@ -29,40 +28,72 @@ namespace ProgramTrade
             LoginView.TradeFrontMsg = "请选择接入商";
             LoginView.MarketFrontMsg = "请选择接入商";
 
-            Trader.eventTdFrontConnected += Trader_FrontConnected;
-            Trader.eventTdUserLogined += Trader_UserLoggedIn;
+            Trader.eventFrontConnected += Trader_FrontConnected;
+            Trader.eventUserLogined += Trader_UserLogined;
         }
 
-        private void Trader_UserLoggedIn(object sender, RspEventArgs e)
+        private void Trader_UserLogined(object sender, RspEventArgs e)
         {
-            if (e.ErrorID == 0)
-            {
-                LoginView.ViewVisible = false;
-            }
-            else
-            {
-                LoginView.InvalidMsg = e.Message;
+            switch (sender.ToString())
+            { 
+                case "ProgramTradeApi.XTradeSpi":
+                    if (e.ErrorID == 0)
+                    {
+                        LoginView.ViewVisible = false;
+                    }
+                    else
+                    {
+                        LoginView.InvalidMsg = "交易前置：" + e.Message;
+                    }
+                    break;
+                case "ProgramTradeApi.XMduserSpi":
+                    if (e.ErrorID == 0)
+                    {
+                        
+                    }
+                    else
+                    {
+                        LoginView.InvalidMsg = "行情前置：" + e.Message;
+                    }
+                    break;
             }
         }
 
         private void Trader_FrontConnected(object sender, RspEventArgs e)
         {
-            if (e.ErrorID == 0)
+            switch (sender.ToString())
             {
-                LoginView.TdFrontConnected = true;
-                LoginView.Username = "000200001740";
-                LoginView.Password = "123";
+                case "ProgramTradeApi.XTradeSpi":
+                    if (e.ErrorID == 0)
+                    {
+                        LoginView.TdFrontConnected = true;
+                        LoginView.Username = "000200001740";
+                        LoginView.Password = "123";
+                    }
+                    else
+                    {
+                        LoginView.TdFrontConnected = false;
+                    }
+                    LoginView.TradeFrontMsg = e.Message;
+                    break;
+                case "ProgramTradeApi.XMduserSpi":
+                    if (e.ErrorID == 0)
+                    {
+                        LoginView.MdFrontConnected = true;
+                        //LoginView.Username = "000200001740";
+                        //LoginView.Password = "123";
+                    }
+                    else
+                    {
+                        LoginView.MdFrontConnected = false;
+                    }
+                    LoginView.MarketFrontMsg = e.Message;
+                    break;
             }
-            else
-            {
-                LoginView.TdFrontConnected = false;
-            }
-            LoginView.TradeFrontMsg = e.Message;
         }
 
         private void LoginView_BrokerSelectionChange(object sender, EventArgs e)
         {
-            //FrontServers fronts = Trader.Brokers[LoginForm.SelectedBroker];
             LoginView.Username = LoginView.Password = "";
             Trader.Brokers.SelectBroker = LoginView.SelectedBroker;
             Action trade = () =>
@@ -107,11 +138,11 @@ namespace ProgramTrade
                         Trader.CreateMarketApi(Trader.Brokers.Current.BrokerType);
                         try
                         {
-                            //Trader.MarketApi.Init(new Initiator(Trader.Brokers.SelectMarketFront));
+                            Trader.MarketApi.Init(new Initiator(Trader.Brokers.SelectMarketFront));
                         }
                         catch (SocketException err)
                         {
-                            LoginView.MarketFrontMsg = "交易前置连接超时";
+                            LoginView.MarketFrontMsg = "行情前置连接超时";
                             LoginView.MdFrontConnected = false;
                         }
                     }
@@ -152,18 +183,24 @@ namespace ProgramTrade
             else
             {
                 LoginView.UsernameInvalid = LoginView.PasswordInvalid = false;
-                Trader.TradeApi.RequestUserLogin(LoginView.Username, LoginView.Password);
+                if (Trader.IsTradeConnected)
+                {
+                    Trader.TradeApi.RequestUserLogin(LoginView.Username, LoginView.Password);
+                }
+                if(Trader.IsMarketConnected)
+                {
+                    Trader.MarketApi.RequestUserLogin(LoginView.Username, LoginView.Password);
+                }
             }
         }
 
         public void Dispose()
         {
-            //LoginView.FormLoaded -= LoginView_FormLoaded;
             LoginView.LoginStart -= LoginView_LoginStart;
             LoginView.BrokerSelectionChange -= LoginView_BrokerSelectionChange;
 
-            Trader.eventTdFrontConnected -= Trader_FrontConnected;
-            Trader.eventTdUserLogined -= Trader_UserLoggedIn;
+            Trader.eventFrontConnected -= Trader_FrontConnected;
+            Trader.eventUserLogined -= Trader_UserLogined;
 
             LoginView.Dispose();
         }

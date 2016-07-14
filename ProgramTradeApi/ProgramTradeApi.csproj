@@ -64,6 +64,8 @@
     <Compile Include="DataStructures.cs" />
     <Compile Include="TCPIP.cs" />
     <Compile Include="TraderModel.cs" />
+    <Compile Include="XMduserApi.cs" />
+    <Compile Include="XMduserSpi.cs" />
     <Compile Include="XTradeApi.cs" />
     <Compile Include="XTradeSpi.cs" />
   </ItemGroup>

@@ -523,7 +523,11 @@ namespace CLRXspeedApi
 	}
 	void CLRDFITCTraderSpi::callOnRtnExchangeStatus(DFITCExchangeStatusRtnField * pRtnExchangeStatusData)
 	{
-		throw gcnew System::NotImplementedException();
+		if (!m_pNativeSpi)
+			throw gcnew System::ObjectDisposedException("CLRDFITCTraderSpi");
+		CLRDFITCExchangeStatusRtnField^ RtnExchangeStatusData = gcnew CLRDFITCExchangeStatusRtnField;
+		RtnExchangeStatusData = (CLRDFITCExchangeStatusRtnField^)Marshal::PtrToStructure(IntPtr(pRtnExchangeStatusData), RtnExchangeStatusData->GetType());
+		this->OnRtnExchangeStatus(*RtnExchangeStatusData);
 	}
 	void CLRDFITCTraderSpi::callOnRspQryDepthMarketData(DFITCDepthMarketDataField * pDepthMarketData, DFITCErrorRtnField * pErrorInfo, bool bIsLast)
 	{
@@ -562,4 +566,217 @@ namespace CLRXspeedApi
 		}
 	}
 #pragma endregion
+	CLRDFITCMduserSpi::CLRDFITCMduserSpi()
+	{
+		m_pNativeSpi = new MduserSpiHandler(this);
+	}
+	CLRDFITCMduserSpi::~CLRDFITCMduserSpi()
+	{
+		if (m_pNativeSpi)
+		{
+			delete m_pNativeSpi;
+			m_pNativeSpi = 0;
+		}
+	}
+	void CLRDFITCMduserSpi::callOnFrontConnected()
+	{
+		if(!m_pNativeSpi)
+			throw gcnew System::ObjectDisposedException("CLRDFITCMduserSpi");
+		this->OnFrontConnected();
+	}
+	void CLRDFITCMduserSpi::callOnFrontDisconnected(int nReason)
+	{
+		if (!m_pNativeSpi)
+			throw gcnew System::ObjectDisposedException("CLRDFITCMduserSpi");
+		this->OnFrontDisconnected(nReason);
+	}
+	void CLRDFITCMduserSpi::callOnRspUserLogin(DFITCUserLoginInfoRtnField * pRspUserLogin, DFITCErrorRtnField * pRspInfo)
+	{
+		if (!m_pNativeSpi)
+			throw gcnew System::ObjectDisposedException("CLRDFITCMduserSpi");
+		CLRDFITCUserLoginInfoRtnField^ RspUserLogin = gcnew CLRDFITCUserLoginInfoRtnField;
+		RspUserLogin = (CLRDFITCUserLoginInfoRtnField^)Marshal::PtrToStructure(IntPtr(pRspUserLogin), RspUserLogin->GetType());
+		CLRDFITCErrorRtnField^ RspInfo = gcnew CLRDFITCErrorRtnField;
+		if (pRspInfo != nullptr)
+		{
+			RspInfo = (CLRDFITCErrorRtnField^)Marshal::PtrToStructure(IntPtr(pRspInfo), RspInfo->GetType());
+		}
+		this->OnRspUserLogin(*RspUserLogin, *RspInfo);
+	}
+	void CLRDFITCMduserSpi::callOnRspUserLogout(DFITCUserLogoutInfoRtnField * pRspUsrLogout, DFITCErrorRtnField * pRspInfo)
+	{
+		if (!m_pNativeSpi)
+			throw gcnew System::ObjectDisposedException("CLRDFITCMduserSpi");
+		CLRDFITCUserLogoutInfoRtnField^ RspUsrLogout = gcnew CLRDFITCUserLogoutInfoRtnField;
+		RspUsrLogout = (CLRDFITCUserLogoutInfoRtnField^)Marshal::PtrToStructure(IntPtr(pRspUsrLogout), RspUsrLogout->GetType());
+		CLRDFITCErrorRtnField^ RspInfo = gcnew CLRDFITCErrorRtnField;
+		if (pRspInfo != nullptr)
+		{
+			RspInfo = (CLRDFITCErrorRtnField^)Marshal::PtrToStructure(IntPtr(pRspInfo), RspInfo->GetType());
+		}
+		this->OnRspUserLogout(*RspUsrLogout, *RspInfo);
+	}
+	void CLRDFITCMduserSpi::callOnRspError(DFITCErrorRtnField * pRspInfo)
+	{
+		if (!m_pNativeSpi)
+			throw gcnew System::ObjectDisposedException("CLRDFITCMduserSpi");
+		CLRDFITCErrorRtnField^ RspInfo = gcnew CLRDFITCErrorRtnField;
+		if (pRspInfo != nullptr)
+		{
+			RspInfo = (CLRDFITCErrorRtnField^)Marshal::PtrToStructure(IntPtr(pRspInfo), RspInfo->GetType());
+		}
+		this->OnRspError(*RspInfo);
+	}
+	void CLRDFITCMduserSpi::callOnRspSubMarketData(DFITCSpecificInstrumentField * pSpecificInstrument, DFITCErrorRtnField * pRspInfo)
+	{
+		if (!m_pNativeSpi)
+			throw gcnew System::ObjectDisposedException("CLRDFITCMduserSpi");
+		CLRDFITCSpecificInstrumentField^ SpecificInstrument = gcnew CLRDFITCSpecificInstrumentField;
+		SpecificInstrument = (CLRDFITCSpecificInstrumentField^)Marshal::PtrToStructure(IntPtr(pSpecificInstrument), SpecificInstrument->GetType());
+		CLRDFITCErrorRtnField^ RspInfo = gcnew CLRDFITCErrorRtnField;
+		if (pRspInfo != nullptr)
+		{
+			RspInfo = (CLRDFITCErrorRtnField^)Marshal::PtrToStructure(IntPtr(pRspInfo), RspInfo->GetType());
+		}
+		this->OnRspSubMarketData(*SpecificInstrument, *RspInfo);
+	}
+	void CLRDFITCMduserSpi::callOnRspUnSubMarketData(DFITCSpecificInstrumentField * pSpecificInstrument, DFITCErrorRtnField * pRspInfo)
+	{
+		if (!m_pNativeSpi)
+			throw gcnew System::ObjectDisposedException("CLRDFITCMduserSpi");
+		CLRDFITCSpecificInstrumentField^ SpecificInstrument = gcnew CLRDFITCSpecificInstrumentField;
+		SpecificInstrument = (CLRDFITCSpecificInstrumentField^)Marshal::PtrToStructure(IntPtr(pSpecificInstrument), SpecificInstrument->GetType());
+		CLRDFITCErrorRtnField^ RspInfo = gcnew CLRDFITCErrorRtnField;
+		if (pRspInfo != nullptr)
+		{
+			RspInfo = (CLRDFITCErrorRtnField^)Marshal::PtrToStructure(IntPtr(pRspInfo), RspInfo->GetType());
+		}
+		this->OnRspUnSubMarketData(*SpecificInstrument, *RspInfo);
+	}
+	void CLRDFITCMduserSpi::callOnRspSubForQuoteRsp(DFITCSpecificInstrumentField * pSpecificInstrument, DFITCErrorRtnField * pRspInfo)
+	{
+		if (!m_pNativeSpi)
+			throw gcnew System::ObjectDisposedException("CLRDFITCMduserSpi");
+		CLRDFITCSpecificInstrumentField^ SpecificInstrument = gcnew CLRDFITCSpecificInstrumentField;
+		SpecificInstrument = (CLRDFITCSpecificInstrumentField^)Marshal::PtrToStructure(IntPtr(pSpecificInstrument), SpecificInstrument->GetType());
+		CLRDFITCErrorRtnField^ RspInfo = gcnew CLRDFITCErrorRtnField;
+		if (pRspInfo != nullptr)
+		{
+			RspInfo = (CLRDFITCErrorRtnField^)Marshal::PtrToStructure(IntPtr(pRspInfo), RspInfo->GetType());
+		}
+		this->OnRspSubForQuoteRsp(*SpecificInstrument, *RspInfo);
+	}
+	void CLRDFITCMduserSpi::callOnRspUnSubForQuoteRsp(DFITCSpecificInstrumentField * pSpecificInstrument, DFITCErrorRtnField * pRspInfo)
+	{
+		if (!m_pNativeSpi)
+			throw gcnew System::ObjectDisposedException("CLRDFITCMduserSpi");
+		CLRDFITCSpecificInstrumentField^ SpecificInstrument = gcnew CLRDFITCSpecificInstrumentField;
+		SpecificInstrument = (CLRDFITCSpecificInstrumentField^)Marshal::PtrToStructure(IntPtr(pSpecificInstrument), SpecificInstrument->GetType());
+		CLRDFITCErrorRtnField^ RspInfo = gcnew CLRDFITCErrorRtnField;
+		if (pRspInfo != nullptr)
+		{
+			RspInfo = (CLRDFITCErrorRtnField^)Marshal::PtrToStructure(IntPtr(pRspInfo), RspInfo->GetType());
+		}
+		this->OnRspUnSubForQuoteRsp(*SpecificInstrument, *RspInfo);
+	}
+	void CLRDFITCMduserSpi::callOnMarketData(DFITCDepthMarketDataField * pMarketDataField)
+	{
+		if (!m_pNativeSpi)
+			throw gcnew System::ObjectDisposedException("CLRDFITCMduserSpi");
+		CLRDFITCDepthMarketDataField^ MarketDataField = gcnew CLRDFITCDepthMarketDataField;
+		MarketDataField = (CLRDFITCDepthMarketDataField^)Marshal::PtrToStructure(IntPtr(pMarketDataField), MarketDataField->GetType());
+		this->OnMarketData(*MarketDataField);
+	}
+	void CLRDFITCMduserSpi::callOnCustomMarketData(DFITCCustomMarketDataField * pMarketDataField)
+	{
+		if (!m_pNativeSpi)
+			throw gcnew System::ObjectDisposedException("CLRDFITCMduserSpi");
+		CLRDFITCCustomMarketDataField^ MarketDataField = gcnew CLRDFITCCustomMarketDataField;
+		MarketDataField = (CLRDFITCCustomMarketDataField^)Marshal::PtrToStructure(IntPtr(pMarketDataField), MarketDataField->GetType());
+		this->OnCustomMarketData(*MarketDataField);
+	}
+	void CLRDFITCMduserSpi::callOnRtnForQuoteRsp(DFITCQuoteSubscribeRtnField * pForQuoteField)
+	{
+		if (!m_pNativeSpi)
+			throw gcnew System::ObjectDisposedException("CLRDFITCMduserSpi");
+		CLRDFITCQuoteSubscribeRtnField^ ForQuoteField = gcnew CLRDFITCQuoteSubscribeRtnField;
+		ForQuoteField = (CLRDFITCQuoteSubscribeRtnField^)Marshal::PtrToStructure(IntPtr(pForQuoteField), ForQuoteField->GetType());
+		this->OnRtnForQuoteRsp(*ForQuoteField);
+	}
+	void CLRDFITCMduserSpi::callOnRspTradingDay(DFITCTradingDayRtnField * pTradingDayRtnData)
+	{
+		if (!m_pNativeSpi)
+			throw gcnew System::ObjectDisposedException("CLRDFITCMduserSpi");
+		CLRDFITCTradingDayRtnField^ TradingDayRtnData = gcnew CLRDFITCTradingDayRtnField;
+		TradingDayRtnData = (CLRDFITCTradingDayRtnField^)Marshal::PtrToStructure(IntPtr(pTradingDayRtnData), TradingDayRtnData->GetType());
+		this->OnRspTradingDay(*TradingDayRtnData);
+	}
+	int CLRDFITCMduserApi::Init(String ^ SvrAddr, CLRDFITCMduserSpi ^ Spi)
+	{
+		IntPtr p = Marshal::StringToHGlobalAnsi(SvrAddr);
+		char* pszSvrAddr = static_cast<char *>(p.ToPointer());
+		return m_pNativeApi->Init(pszSvrAddr, Spi->m_pNativeSpi);
+	}
+	void CLRDFITCMduserApi::Release()
+	{
+		m_pNativeApi->Release();
+	}
+	int CLRDFITCMduserApi::SubscribeMarketData(array<String^>^ InstrumentID, int RequestID)
+	{
+		int size = InstrumentID->Length;
+		char **ppInstrumentID = static_cast<char **>(Marshal::AllocHGlobal(sizeof(char*) * size).ToPointer());
+		for (int i = 0; i < size; i++)
+		{
+			*(ppInstrumentID + i) = static_cast<char *>(Marshal::StringToHGlobalAnsi(InstrumentID[i]).ToPointer());
+		}
+		return m_pNativeApi->SubscribeMarketData(ppInstrumentID, size, RequestID);
+	}
+	int CLRDFITCMduserApi::UnSubscribeMarketData(array<String^>^ InstrumentID, int RequestID)
+	{
+		int size = InstrumentID->Length;
+		char **ppInstrumentID = static_cast<char **>(Marshal::AllocHGlobal(sizeof(char*) * size).ToPointer());
+		for (int i = 0; i < size; i++)
+		{
+			*(ppInstrumentID + i) = static_cast<char *>(Marshal::StringToHGlobalAnsi(InstrumentID[i]).ToPointer());
+		}
+		return m_pNativeApi->UnSubscribeMarketData(ppInstrumentID, size, RequestID);
+	}
+	int CLRDFITCMduserApi::SubscribeForQuoteRsp(array<String^>^ InstrumentID, int RequestID)
+	{
+		int size = InstrumentID->Length;
+		char **ppInstrumentID = static_cast<char **>(Marshal::AllocHGlobal(sizeof(char*) * size).ToPointer());
+		for (int i = 0; i < size; i++)
+		{
+			*(ppInstrumentID + i) = static_cast<char *>(Marshal::StringToHGlobalAnsi(InstrumentID[i]).ToPointer());
+		}
+		return m_pNativeApi->SubscribeForQuoteRsp(ppInstrumentID, size, RequestID);
+	}
+	int CLRDFITCMduserApi::UnSubscribeForQuoteRsp(array<String^>^ InstrumentID, int RequestID)
+	{
+		int size = InstrumentID->Length;
+		char **ppInstrumentID = static_cast<char **>(Marshal::AllocHGlobal(sizeof(char*) * size).ToPointer());
+		for (int i = 0; i < size; i++)
+		{
+			*(ppInstrumentID + i) = static_cast<char *>(Marshal::StringToHGlobalAnsi(InstrumentID[i]).ToPointer());
+		}
+		return m_pNativeApi->UnSubscribeForQuoteRsp(ppInstrumentID, size, RequestID);
+	}
+	int CLRDFITCMduserApi::ReqUserLogin(CLRDFITCUserLoginField ^ ReqUserLoginField)
+	{
+		DFITCUserLoginField* pReqUserLoginField = new DFITCUserLoginField;
+		Marshal::StructureToPtr(ReqUserLoginField, IntPtr(pReqUserLoginField), true);
+		return m_pNativeApi->ReqUserLogin(pReqUserLoginField);
+	}
+	int CLRDFITCMduserApi::ReqUserLogout(CLRDFITCUserLogoutField ^ ReqUserLogoutField)
+	{
+		DFITCUserLogoutField* pReqUserLogoutField = new DFITCUserLogoutField;
+		Marshal::StructureToPtr(ReqUserLogoutField, IntPtr(pReqUserLogoutField), true);
+		return m_pNativeApi->ReqUserLogout(pReqUserLogoutField);
+	}
+	int CLRDFITCMduserApi::ReqTradingDay(CLRDFITCTradingDayField ^ TradingDay)
+	{
+		DFITCTradingDayField* pTradingDay = new DFITCTradingDayField;
+		Marshal::StructureToPtr(TradingDay, IntPtr(pTradingDay), true);
+		return m_pNativeApi->ReqTradingDay(pTradingDay);
+	}
 }

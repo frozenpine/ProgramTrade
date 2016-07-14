@@ -13,17 +13,18 @@ namespace ProgramTradeApi
         Brokers Brokers { get; }
         PositionList Positions { get; }
         OrderList Orders { get; }
-        MarketList MarketDatas { get; }
+        MarketList Markets { get; }
 
         bool IsTradeConnected { get; }
         bool IsMarketConnected { get; }
         bool IsTradeLogined { get; }
         bool IsMarketLogined { get; }
 
-        event EventHandler<RspEventArgs> eventTdFrontConnected;
-        event EventHandler<RspEventArgs> eventTdUserLogined;
-        //event EventHandler eventOrderInserted;
+        event EventHandler<RspEventArgs> eventFrontConnected;
+        event EventHandler<RspEventArgs> eventUserLogined;
+        event EventHandler eventOrderChanged;
         event EventHandler eventPositionChanged;
+        event EventHandler eventMarketChanged;
 
         void CreateTradeApi(BrokerType type);
         void CreateMarketApi(BrokerType type);

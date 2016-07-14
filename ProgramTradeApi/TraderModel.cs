@@ -14,16 +14,10 @@ namespace ProgramTradeApi
         public IMarketApi MarketApi { get; private set; }
         public ITradeApi TradeApi { get; private set; }
 
-        //Brokers brokers = new Brokers();
         public Brokers Brokers { get; private set; }
-
-        //PositionList positions = new PositionList();
         public PositionList Positions { get; private set; }
-
-        //OrderList orders = new OrderList();
         public OrderList Orders { get; private set; }
-
-        public MarketList MarketDatas { get; private set; }
+        public MarketList Markets { get; private set; }
 
         public bool IsTradeConnected { get; private set; }
 
@@ -33,11 +27,11 @@ namespace ProgramTradeApi
 
         public bool IsMarketLogined { get; private set; }
 
-        public event EventHandler<RspEventArgs> eventTdFrontConnected;
-        public event EventHandler<RspEventArgs> eventTdUserLogined;
+        public event EventHandler<RspEventArgs> eventFrontConnected;
+        public event EventHandler<RspEventArgs> eventUserLogined;
         public event EventHandler eventPositionChanged;
-
-        //public event EventHandler eventOrderInserted;
+        public event EventHandler eventOrderChanged;
+        public event EventHandler eventMarketChanged;
 
         public TraderModel()
         {
@@ -45,9 +39,12 @@ namespace ProgramTradeApi
             Brokers.Add("XSpeed测试服务器群", new FrontServers(BrokerType.XSpeed));
             Brokers.Add("QDP测试服务器群", new FrontServers(BrokerType.QDP));
             Brokers["XSpeed测试服务器群"].Add(new FrontServer("XSpeed交易前置测试", "203.187.171.250", 10910, ServerType.TradeFrontSvr));
+            Brokers["XSpeed测试服务器群"].Add(new FrontServer("XSpeed行情前置测试", "203.187.171.250", 10915, ServerType.MarketFrontSvr));
             Brokers["QDP测试服务器群"].Add(new FrontServer("QDP交易前置内网测试", "192.168.89.6", 30005, ServerType.TradeFrontSvr));
 
             Positions = new PositionList();
+            Orders = new OrderList();
+            Markets = CreateMarkets();
 
             IsTradeConnected = IsTradeLogined = false;
             IsMarketConnected = IsMarketLogined = false;
@@ -67,16 +64,28 @@ namespace ProgramTradeApi
                     throw new NotImplementedException();
             }
 
-            ProgramTradeEvents.AddRspHandler(RspSpiModules.TdFrontConnected, OnTradeFrontConnected);
-            ProgramTradeEvents.AddRspHandler(RspSpiModules.UserLogin, OnTdUserLogined);
+            ProgramTradeEvents.AddRspHandler(RspSpiModules.FrontConnected, OnFrontConnected);
+            ProgramTradeEvents.AddRspHandler(RspSpiModules.UserLogin, OnUserLogin);
             ProgramTradeEvents.AddRspHandler(RspSpiModules.QryPosition, OnRspQryPosition);
             ProgramTradeEvents.AddRspHandler(RspSpiModules.QryOrders, OnRspQryOrder);
             ProgramTradeEvents.AddRspHandler(RspSpiModules.OrderDeal, OnOrderDeal);
+            ProgramTradeEvents.AddRspHandler(RspSpiModules.RtnOrder, OnOrderReturn);
         }
 
         public void CreateMarketApi(BrokerType type)
         {
-            throw new NotImplementedException();
+            switch (type)
+            {
+                case BrokerType.XSpeed:
+                    MarketApi = new XMduserApi();
+                    break;
+                case BrokerType.QDP:
+                    //MarketApi = 
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+            ProgramTradeEvents.AddRspHandler(RspSpiModules.RtnMarket, OnMarketDataReturn);
         }
 
         public void Dispose()
@@ -91,42 +100,87 @@ namespace ProgramTradeApi
             }
         }
 
-        #region RspEventArgs Handlers
-        private void OnTradeFrontConnected(object sender,RspEventArgs e)
+        private MarketList CreateMarkets()
         {
-            if (e.ErrorID == 0)
-            {
-                IsTradeConnected = true;
-            }
-            else
-            {
-                IsTradeConnected = false;
-            }
-            eventTdFrontConnected?.Invoke(sender, e);
+            MarketList list = new MarketList();
+            list.TryAdd("a1607", MarketDetail.CreateMarketDetail("大连", "a1607", "黄大豆1号"));
+            list.TryAdd("a1609", MarketDetail.CreateMarketDetail("大连", "a1609", "黄大豆1号"));
+            list.TryAdd("a1611", MarketDetail.CreateMarketDetail("大连", "a1611", "黄大豆1号"));
+            return list;
         }
-        private void OnTdUserLogined(object sender,RspEventArgs e)
+
+        #region RspEventArgs Handlers
+        private void OnFrontConnected(object sender, RspEventArgs e)
         {
-            if (e.ErrorID == 0)
+            switch (sender.ToString())
             {
-                IsTradeLogined = true;
+                case "ProgramTradeApi.XTradeSpi":
+                    if (e.ErrorID == 0)
+                    {
+                        IsTradeConnected = true;
+                    }
+                    else
+                    {
+                        IsTradeConnected = false;
+                    }
+                    eventFrontConnected?.Invoke(sender, e);
+                    break;
+                case "ProgramTradeApi.XMduserSpi":
+                    if (e.ErrorID == 0)
+                    {
+                        IsMarketConnected = true;
+                    }
+                    else
+                    {
+                        IsMarketConnected = false;
+                    }
+                    eventFrontConnected?.Invoke(sender, e);
+                    break;
             }
-            else
+        }
+        private void OnUserLogin(object sender, RspEventArgs e)
+        {
+            switch (sender.ToString())
             {
-                IsTradeLogined = false;
+                case "ProgramTradeApi.XTradeSpi":
+                    if (e.ErrorID == 0)
+                    {
+                        IsTradeLogined = true;
+                        TradeApi.RequestUserPosition();
+                        TradeApi.RequestQueryOrders();
+                    }
+                    else
+                    {
+                        IsTradeLogined = false;
+                    }
+                    eventUserLogined?.Invoke(sender, e);
+                    break;
+                case "ProgramTradeApi.XMduserSpi":
+                    if (e.ErrorID == 0)
+                    {
+                        IsMarketLogined = true;
+                        HashSet<string> instruments = new HashSet<string>() { "a1607", "a1609", "a1611" };
+                        MarketApi.SubMarketData(instruments); 
+                    }
+                    else
+                    {
+                        IsMarketLogined = false;
+                    }
+                    eventUserLogined?.Invoke(sender, e);
+                    break;
             }
-            eventTdUserLogined?.Invoke(sender, e);
         }
         private void OnRspQryPosition(object sender,RspEventArgs e)
         {
             switch (sender.ToString())
             {
-                               case "ProgramTradeApi.XTradeSpi":
+                    case "ProgramTradeApi.XTradeSpi":
                     if (e.ErrorID == 0)
                     {
-                        var pos = (e as TypedRspEventArgs<CLRDFITCPositionInfoRtnField, CLRDFITCErrorRtnField>).Data;
-                        if (pos.instrumentID != "")
+                        var pos = PositionDetail.CreateDetail((e as TypedRspEventArgs<CLRDFITCPositionInfoRtnField, CLRDFITCErrorRtnField>).Data);
+                        if (pos.InstrumentID != "")
                         {
-                            Positions.AddOrUpdate(pos.instrumentID, /*new PositionDetail(pos)*/PositionDetail.CreateDetail(pos), (k, v) => v);
+                            Positions.AddOrUpdate(pos.InstrumentID + pos.Direction, pos, (k, v) => v);
                             if (e.IsLast)
                             {
                                 eventPositionChanged?.Invoke(this, null);
@@ -147,13 +201,13 @@ namespace ProgramTradeApi
                 case "ProgramTradeApi.XTradeSpi":
                     if (e.ErrorID == 0)
                     {
-                        var odr = (e as TypedRspEventArgs<CLRDFITCOrderCommRtnField, CLRDFITCErrorRtnField>).Data;
-                        if (odr.spdOrderID > 0)
+                        var odr = OrderDetail.CreateDetail((e as TypedRspEventArgs<CLRDFITCOrderCommRtnField, CLRDFITCErrorRtnField>).Data);
+                        if (odr.OrderSysID > 0)
                         {
-                            Orders.AddOrUpdate(odr.spdOrderID, /*new OrderDetail(odr)*/OrderDetail.CreateDetail(odr), (k, v) => v);
-                            if(e.IsLast)
+                            Orders.AddOrUpdate(odr.OrderSysID, odr, (k, v) => v);
+                            if (e.IsLast)
                             {
-                                // shoot event
+                                eventOrderChanged?.Invoke(this, null);
                             }
                         }
                     }
@@ -164,20 +218,43 @@ namespace ProgramTradeApi
                     break;
             }
         }
+        private void OnOrderReturn(object sender,RspEventArgs e)
+        {
+            switch(sender.ToString())
+            {
+                case "ProgramTradeApi.XTradeSpi":
+                    var odr = OrderDetail.CreateDetail((e as TypedRspEventArgs<CLRDFITCOrderRtnField, object>).Data);
+                    Orders.AddOrUpdate(odr.OrderSysID, odr, (k, v) => odr);
+                    eventOrderChanged?.Invoke(this, null);
+                    break;
+            }
+        }
         private void OnOrderDeal(object sender,RspEventArgs e)
         {
             switch(sender.ToString())
             {
                 case "ProgramTradeApi.XTradeSpi":
-                    PositionDetail odr = /*new PositionDetail*/PositionDetail.CreateDetail((e as TypedRspEventArgs<CLRDFITCMatchRtnField, object>).Data);
-                    if(Positions.ContainsKey(odr.InstrumentID) && Positions[odr.InstrumentID].Direction==odr.Direction)
+                    PositionDetail odr = PositionDetail.CreateDetail((e as TypedRspEventArgs<CLRDFITCMatchRtnField, object>).Data);
+                    try
                     {
-                        Positions[odr.InstrumentID] += odr;
+                        Positions.AddOrUpdate(odr.InstrumentID + odr.Direction, odr, (k, v) => { return v += odr; });
+                        eventPositionChanged?.Invoke(this, null);
                     }
-                    else
+                    catch(Exception)
                     {
-                        Positions.TryAdd(odr.InstrumentID, odr);
+                        //deal exception
                     }
+                    break;
+            }
+        }
+        private void OnMarketDataReturn(object sender,RspEventArgs e)
+        {
+            switch(sender.ToString())
+            {
+                case "ProgramTradeApi.XMduserSpi":
+                    MarketDetail market = MarketDetail.CreateMarketDetail((e as TypedRspEventArgs<CLRDFITCDepthMarketDataField, object>).Data);
+                    Markets.AddOrUpdate(market.InstrumentID, market, (k, v) => { market.InstrumentName = v.InstrumentName; return market; });
+                    //eventMarketChanged?.Invoke(this, null);
                     break;
             }
         }

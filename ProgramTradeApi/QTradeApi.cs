@@ -292,5 +292,10 @@ namespace ProgramTradeApi
         {
             throw new NotImplementedException();
         }
+
+        public HashSet<ExchangeID> RequestExchangeStatus(HashSet<ExchangeID> exchanges)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

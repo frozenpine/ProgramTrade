@@ -16,22 +16,24 @@ namespace ProgramTradeApi
         private static int requestID;
         private static int localOrderID;
 
-        protected static int RequestID
+        private static int RequestID
         {
             get { return requestID++; }
-            private set { requestID = value; }
+            set { requestID = value; }
         }
-        protected static int LocalOrderID
+        public static int LocalOrderID
         {
             get { return localOrderID++; }
-            private set { localOrderID = value; }
+            set { localOrderID = value; }
         }
         public string FrontServers { get; private set; }
-        public string AccountID { get; set; }
+        public string AccountID { get; private set; }
 
-        protected string Password { get; set; }
+        private string Password { get; set; }
         public int SessionID { get; private set; }
         public short CompanyID { get; private set; }
+
+        private bool released;
 
         public XTradeApi()
         {
@@ -249,11 +251,31 @@ namespace ProgramTradeApi
         public void Release()
         {
             clrXspeedTradeApi.Release();
+            released = true;
         }
 
         public void Dispose()
         {
-            Release();
+            if (!released) Release();
+        }
+
+        public HashSet<ExchangeID> RequestExchangeStatus(HashSet<ExchangeID> exchanges=null)
+        {
+            HashSet<ExchangeID> result = new HashSet<ExchangeID>();
+            foreach (var exchange in exchanges)
+            {
+                CLRDFITCQryExchangeStatusField status = new CLRDFITCQryExchangeStatusField();
+                status.lRequestID = RequestID;
+                status.exchangeID = exchange.ToString();
+                if(clrXspeedTradeApi.ReqQryExchangeStatus(status)!=0)
+                {
+                    result.Add(exchange);
+                }
+            }
+            if (result.Count > 0)
+                return result;
+            else
+                return null;
         }
     }
 }

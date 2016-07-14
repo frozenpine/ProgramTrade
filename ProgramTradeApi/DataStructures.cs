@@ -93,13 +93,12 @@ namespace ProgramTradeApi
             ip.Port = svrPort;
             ip.IPv4Description = svrName;
             ServerType = svrType;
-            Delay = ip.DelayTest();
+            Delay = /*ip.DelayTest()*/-1;
         }
 
-        public long RefreshDelay()
+        public void GetDelay()
         {
             Delay = ip.DelayTest();
-            return Delay;
         }
     }
 
@@ -126,18 +125,17 @@ namespace ProgramTradeApi
         }
         public FrontServer Fastiest()
         {
-            FrontServer result = this.FirstOrDefault<FrontServer>();
-            long delay = result.Delay;
+            FrontServer result = this.FirstOrDefault();
             foreach(var svr in this)
             {
-                if (svr != result)
+                svr.GetDelay();
+                if(svr==result)
                 {
-                    long dly = svr.Delay;
-                    if (dly > 0 && dly < delay)
-                    {
-                        delay = dly;
-                        result = svr;
-                    }
+                    result = svr;
+                }
+                else if(svr.Delay<result.Delay)
+                {
+                    result = svr;
                 }
             }
             if (result.Delay > 0)
@@ -281,13 +279,15 @@ namespace ProgramTradeApi
 
     public enum OrderState
     {
-        InsFailed,
-        Inserted,
-        InsNoFirmed,
-        InsConfirmed,
-        InsInQueen,
+        Error,
+        Placed,
+        Triggered,
+        Canceling,
+        Queuening,
         PartialDealed,
-        AllDealed
+        PartialCaneled,
+        AllDealed,
+        AllCanceled
     }
 
     public class InsertOrder
@@ -311,7 +311,7 @@ namespace ProgramTradeApi
         public int OrderID { get; set; }
     }
 
-    public class PositionDetail : INotifyPropertyChanged
+    public class InstrumentDetail : INotifyPropertyChanged
     {
         ExchangeID exchangeID;
         public ExchangeID ExchangeID
@@ -335,48 +335,64 @@ namespace ProgramTradeApi
             }
         }
 
+
+        public event PropertyChangedEventHandler PropertyChanged;
+    }
+
+    public class PositionDetail : INotifyPropertyChanged
+    {
+        ExchangeID exchangeID;
+        public ExchangeID ExchangeID
+        {
+            get { return exchangeID; }
+            set { exchangeID = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ExchangeID")); }
+        }
+
+        string instrumentID;
+        public string InstrumentID
+        {
+            get { return instrumentID; }
+            set { instrumentID = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("InstrumentID")); }
+        }
+
         Direction direction;
         public Direction Direction
         {
             get { return direction; }
-            set
-            {
-                direction = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Direction"));
-            }
+            set { direction = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Direction")); }
         }
 
         double positionPrice;
         public double PositionPrice
         {
             get { return positionPrice; }
-            set
-            {
-                positionPrice = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PositionPrice"));
-            }
+            set { positionPrice = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PositionPrice")); }
         }
 
-        int volume;
-        public int Volume
+        int volumeAll;
+        public int VolumeAll
         {
-            get { return volume; }
-            set
-            {
-                volume = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Volume"));
-            }
+            get { return volumeAll; }
+            set { volumeAll = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Volume")); }
+        }
+
+        int volumeToday;
+        public int VolumeToday
+        {
+            get { return volumeToday; }
+            set { volumeToday = value;PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("VolumeToday")); }
+        }
+
+        public int VolumeYestoday
+        {
+            get { return volumeAll - volumeToday; }
         }
 
         Flag flag;
         public Flag Flag
         {
             get { return flag; }
-            set
-            {
-                flag = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flag"));
-            }
+            set { flag = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flag")); }
         }
 
         public static PositionDetail CreateDetail(CLRDFITCPositionInfoRtnField pos)
@@ -411,7 +427,7 @@ namespace ProgramTradeApi
                     break;
             }
             result.PositionPrice = pos.positionAvgPrice;
-            result.Volume = pos.positionAmount;
+            result.VolumeAll = pos.positionAmount;
             switch (pos.speculator)
             {
                 case (int)CLRDFITCSpeculatorType.SPD_SPECULATOR:
@@ -457,8 +473,8 @@ namespace ProgramTradeApi
                     result.Direction = Direction.Sell;
                     break;
             }
-            result.PositionPrice = pos.insertPrice;
-            result.Volume = pos.orderAmount;
+            result.PositionPrice = pos.matchedPrice;
+            result.VolumeAll = pos.matchedAmount;
             switch (pos.speculator)
             {
                 case (int)CLRDFITCSpeculatorType.SPD_SPECULATOR:
@@ -476,7 +492,7 @@ namespace ProgramTradeApi
 
         public static PositionDetail operator +(PositionDetail lpos, PositionDetail rpos)
         {
-            lpos.PositionPrice = (lpos.PositionPrice * lpos.Volume + rpos.PositionPrice * rpos.Volume) / (lpos.Volume += rpos.Volume);
+            lpos.PositionPrice = (lpos.PositionPrice * lpos.VolumeAll + rpos.PositionPrice * rpos.VolumeAll) / (lpos.VolumeAll += rpos.VolumeAll);
             return lpos;
         }
 
@@ -504,6 +520,9 @@ namespace ProgramTradeApi
 
     public class MarketDetail : INotifyPropertyChanged
     {
+        /// <summary>
+        /// 交易所代码
+        /// </summary>
         ExchangeID exchangeID;
         public ExchangeID ExchangeID
         {
@@ -514,7 +533,9 @@ namespace ProgramTradeApi
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ExchangeID"));
             }
         }
-
+        /// <summary>
+        /// 合约代码
+        /// </summary>
         string instrumentID;
         public string InstrumentID
         {
@@ -525,7 +546,18 @@ namespace ProgramTradeApi
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("InstrumentID"));
             }
         }
-
+        /// <summary>
+        /// 合约名
+        /// </summary>
+        string instrumentName;
+        public string InstrumentName
+        {
+            get { return instrumentName; }
+            set { instrumentName = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("InstrumentName")); }
+        }
+        /// <summary>
+        /// 最新价
+        /// </summary>
         double lastPrice;
         public double LatestPrice
         {
@@ -536,7 +568,9 @@ namespace ProgramTradeApi
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LatestPrice"));
             }
         }
-
+        /// <summary>
+        /// 开盘价
+        /// </summary>
         double openPrice;
         public double OpenPrice
         {
@@ -547,7 +581,9 @@ namespace ProgramTradeApi
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("OpenPrice"));
             }
         }
-
+        /// <summary>
+        /// 最高价
+        /// </summary>
         double highestPrice;
         public double HighestPrice
         {
@@ -558,7 +594,9 @@ namespace ProgramTradeApi
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HighestPrice"));
             }
         }
-
+        /// <summary>
+        /// 最低价
+        /// </summary>
         double lowestPrice;
         public double LowestPrice
         {
@@ -569,7 +607,9 @@ namespace ProgramTradeApi
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LowestPrice"));
             }
         }
-
+        /// <summary>
+        /// 收盘价
+        /// </summary>
         double closePrice;
         public double ClosePrice
         {
@@ -580,7 +620,9 @@ namespace ProgramTradeApi
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ClosePrice"));
             }
         }
-
+        /// <summary>
+        /// 成交数量
+        /// </summary>
         int volume;
         public int Volume
         {
@@ -590,6 +632,75 @@ namespace ProgramTradeApi
                 volume = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Volume"));
             }
+        }
+
+        double topLimitPrice;
+        public double TopLimitPrice
+        {
+            get { return topLimitPrice; }
+            private set { topLimitPrice = value;PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TopLimitPrice")); }
+        }
+
+        double bottomLimitPrice;
+        public double BottomLimitPrice
+        {
+            get { return bottomLimitPrice; }
+            private set { bottomLimitPrice = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("BottomLimitPrice")); }
+        }
+
+        public static MarketDetail CreateMarketDetail(CLRDFITCDepthMarketDataField market)
+        {
+            MarketDetail result = new MarketDetail();
+            switch (market.exchangeID)
+            {
+                case "DCE":
+                    result.ExchangeID = ExchangeID.DCE;
+                    break;
+                case "CZCE":
+                    result.ExchangeID = ExchangeID.CZCE;
+                    break;
+                case "SHFE":
+                    result.ExchangeID = ExchangeID.SHFE;
+                    break;
+                case "CFFEX":
+                    result.ExchangeID = ExchangeID.CFFEX;
+                    break;
+                case "INE":
+                    result.ExchangeID = ExchangeID.INE;
+                    break;
+            }
+            result.InstrumentID = market.instrumentID;
+            result.LatestPrice = market.lastPrice;
+            result.OpenPrice = market.openPrice;
+            result.HighestPrice = market.highestPrice;
+            result.LowestPrice = market.lowestPrice;
+            result.ClosePrice = market.closePrice;
+            result.Volume = market.Volume;
+            result.TopLimitPrice = market.upperLimitPrice;
+            result.BottomLimitPrice = market.lowerLimitPrice;
+            return result;
+        }
+        public static MarketDetail CreateMarketDetail(string exchange, string instrument, string name)
+        {
+            MarketDetail result = new MarketDetail();
+            switch (exchange)
+            {
+                case "大连":
+                    result.ExchangeID = ExchangeID.DCE;
+                    break;
+                case "上海":
+                    result.ExchangeID = ExchangeID.SHFE;
+                    break;
+                case "中金":
+                    result.ExchangeID = ExchangeID.CFFEX;
+                    break;
+                case "郑州":
+                    result.ExchangeID = ExchangeID.CZCE;
+                    break;
+            }
+            result.InstrumentID = instrument;
+            result.InstrumentName = name;
+            return result;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -684,6 +795,13 @@ namespace ProgramTradeApi
             }
         }
 
+        OrderState orderStatus;
+        public OrderState OrderStatus
+        {
+            get { return orderStatus; }
+            set { orderStatus = value;PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("OrderStatus")); }
+        }
+
         Direction direction;
         public Direction Direction
         {
@@ -693,6 +811,13 @@ namespace ProgramTradeApi
                 direction = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Direction"));
             }
+        }
+
+        Operation operation;
+        public Operation Operation
+        {
+            get { return operation; }
+            set { operation = value;PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Operation")); }
         }
 
         Flag flag;
@@ -717,6 +842,13 @@ namespace ProgramTradeApi
             }
         }
 
+        double matchedPrice;
+        public double MatchedPrice
+        {
+            get { return matchedPrice; }
+            set { matchedPrice = value;PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MatchedPrice")); }
+        }
+
         int volume;
         public int Volume
         {
@@ -728,12 +860,15 @@ namespace ProgramTradeApi
             }
         }
 
-        /*public static OrderDetail CreateDetail(CLRCQdpFtdcInputOrderField ord)
+        int matchedVolume;
+        public int MatchedVolume
         {
-            OrderDetail result = new OrderDetail();
+            get { return matchedVolume; }
+            set { matchedVolume = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("MatchedVolume")); }
+        }
 
-            return result;
-        }*/
+        public DateTime TradingDay { get; set; }
+
         public static OrderDetail CreateDetail(CLRDFITCOrderCommRtnField order)
         {
             OrderDetail result = new OrderDetail();
@@ -754,6 +889,130 @@ namespace ProgramTradeApi
                     break;
             }
             result.InstrumentID = order.instrumentID;
+            switch(order.openClose)
+            {
+                case (int)CLRDFITCOpenCloseType.SPD_OPEN:
+                    result.Operation = Operation.Open;
+                    break;
+                case (int)CLRDFITCOpenCloseType.SPD_CLOSE:
+                    result.Operation = Operation.Close;
+                    break;
+            }
+            switch(order.buySellType)
+            {
+                case (short)CLRDFITCBuySellType.SPD_BUY:
+                    result.Direction = Direction.Buy;
+                    break;
+                case (short)CLRDFITCBuySellType.SPD_SELL:
+                    result.Direction = Direction.Sell;
+                    break;
+            }
+            result.LimitPrice = order.insertPrice;
+            result.Volume = order.orderAmount;
+            result.MatchedPrice = order.matchedPrice;
+            result.MatchedVolume = order.matchedAmount;
+            switch(order.orderStatus)
+            {
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_CANCELED:
+                    result.OrderStatus = OrderState.AllCanceled;
+                    break;
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_FILLED:
+                    result.OrderStatus = OrderState.AllDealed;
+                    break;
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_IN_QUEUE:
+                    result.OrderStatus = OrderState.Queuening;
+                    break;
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_PARTIAL:
+                    result.OrderStatus = OrderState.PartialDealed;
+                    break;
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_PARTIAL_CANCELED:
+                    result.OrderStatus = OrderState.PartialCaneled;
+                    break;
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_IN_CANCELING:
+                    result.OrderStatus = OrderState.Canceling;
+                    break;
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_ERROR:
+                    result.OrderStatus = OrderState.Error;
+                    break;
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_PLACED:
+                    result.OrderStatus = OrderState.Placed;
+                    break;
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_TRIGGERED:
+                    result.OrderStatus = OrderState.Triggered;
+                    break;
+            }
+            return result;
+        }
+        public static OrderDetail CreateDetail(CLRDFITCOrderRtnField order)
+        {
+            OrderDetail result = new OrderDetail();
+            result.OrderSysID = order.spdOrderID;
+            switch (order.exchangeID)
+            {
+                case "DCE":
+                    result.ExchangeID = ExchangeID.DCE;
+                    break;
+                case "CZCE":
+                    result.ExchangeID = ExchangeID.CZCE;
+                    break;
+                case "CFFEX":
+                    result.ExchangeID = ExchangeID.CFFEX;
+                    break;
+                case "SHFE":
+                    result.ExchangeID = ExchangeID.SHFE;
+                    break;
+            }
+            result.InstrumentID = order.instrumentID;
+            switch (order.openCloseType)
+            {
+                case (int)CLRDFITCOpenCloseType.SPD_OPEN:
+                    result.Operation = Operation.Open;
+                    break;
+                case (int)CLRDFITCOpenCloseType.SPD_CLOSE:
+                    result.Operation = Operation.Close;
+                    break;
+            }
+            switch (order.buySellType)
+            {
+                case (short)CLRDFITCBuySellType.SPD_BUY:
+                    result.Direction = Direction.Buy;
+                    break;
+                case (short)CLRDFITCBuySellType.SPD_SELL:
+                    result.Direction = Direction.Sell;
+                    break;
+            }
+            result.LimitPrice = order.insertPrice;
+            result.Volume = order.orderAmount;
+            switch (order.orderStatus)
+            {
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_CANCELED:
+                    result.OrderStatus = OrderState.AllCanceled;
+                    break;
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_FILLED:
+                    result.OrderStatus = OrderState.AllDealed;
+                    break;
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_IN_QUEUE:
+                    result.OrderStatus = OrderState.Queuening;
+                    break;
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_PARTIAL:
+                    result.OrderStatus = OrderState.PartialDealed;
+                    break;
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_PARTIAL_CANCELED:
+                    result.OrderStatus = OrderState.PartialCaneled;
+                    break;
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_IN_CANCELING:
+                    result.OrderStatus = OrderState.Canceling;
+                    break;
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_ERROR:
+                    result.OrderStatus = OrderState.Error;
+                    break;
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_PLACED:
+                    result.OrderStatus = OrderState.Placed;
+                    break;
+                case (short)CLRDFITCOrderAnswerStatusType.SPD_TRIGGERED:
+                    result.OrderStatus = OrderState.Triggered;
+                    break;
+            }
             return result;
         }
 

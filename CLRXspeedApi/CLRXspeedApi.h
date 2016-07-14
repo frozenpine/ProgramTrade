@@ -1612,4 +1612,338 @@ namespace CLRXspeedApi {
 		DFITCXSPEEDAPI::DFITCTraderApi *m_pNativeApi;
 	};
 
+	public ref class CLRDFITCMduserSpi abstract
+	{
+	public:
+		CLRDFITCMduserSpi();
+		~CLRDFITCMduserSpi();
+		DFITCXSPEEDMDAPI::DFITCMdSpi* m_pNativeSpi;
+	protected:
+		/**
+		* 网络连接正常响应
+		*/
+		virtual void OnFrontConnected() = 0;
+
+		/**
+		* 网络连接不正常响应
+		*/
+		virtual void OnFrontDisconnected(int nReason) = 0;
+
+		/**
+		* 登陆请求响应:当用户发出登录请求后，前置机返回响应时此方法会被调用，通知用户登录是否成功。
+		* @param pRspUserLogin:用户登录信息结构地址。
+		* @param pRspInfo:若请求失败，返回错误信息地址，该结构含有错误信息。
+		*/
+		virtual void OnRspUserLogin(CLRDFITCUserLoginInfoRtnField RspUserLogin, CLRDFITCErrorRtnField RspInfo) = 0;
+
+		/**
+		* 登出请求响应:当用户发出退出请求后，前置机返回响应此方法会被调用，通知用户退出状态。
+		* @param pRspUsrLogout:返回用户退出信息结构地址。
+		* @param pRspInfo:若请求失败，返回错误信息地址。
+		*/
+		virtual void OnRspUserLogout(CLRDFITCUserLogoutInfoRtnField RspUsrLogout, CLRDFITCErrorRtnField RspInfo) = 0;
+
+		/**
+		* 错误应答
+		* @param pRspInfo:错误信息地址。
+		*/
+		virtual void OnRspError(CLRDFITCErrorRtnField RspInfo) = 0;
+
+		/**
+		* 行情订阅应答:当用户发出行情订阅该方法会被调用。
+		* @param pSpecificInstrument:指向合约响应结构，该结构包含合约的相关信息。
+		* @param pRspInfo:错误信息，如果发生错误，该结构含有错误信息。
+		*/
+		virtual void OnRspSubMarketData(CLRDFITCSpecificInstrumentField SpecificInstrument, CLRDFITCErrorRtnField RspInfo) = 0;
+
+		/**
+		* 取消订阅行情应答:当用户发出退订请求后该方法会被调用。
+		* @param pSpecificInstrument:指向合约响应结构，该结构包含合约的相关信息。
+		* @param pRspInfo:错误信息，如果发生错误，该结构含有错误信息。
+		*/
+		virtual void OnRspUnSubMarketData(CLRDFITCSpecificInstrumentField SpecificInstrument, CLRDFITCErrorRtnField RspInfo) = 0;
+
+		/**
+		* 订阅询价应答
+		* @param pSpecificInstrument:指向合约响应结构，该结构包含合约的相关信息。
+		* @param pRspInfo:错误信息，如果发生错误，该结构含有错误信息。
+		*/
+		virtual void OnRspSubForQuoteRsp(CLRDFITCSpecificInstrumentField SpecificInstrument, CLRDFITCErrorRtnField RspInfo) = 0;
+
+		/**
+		* 取消订阅询价应答
+		* @param pSpecificInstrument:指向合约响应结构，该结构包含合约的相关信息。
+		* @param pRspInfo:错误信息，如果发生错误，该结构含有错误信息。
+		*/
+		virtual void OnRspUnSubForQuoteRsp(CLRDFITCSpecificInstrumentField SpecificInstrument, CLRDFITCErrorRtnField RspInfo) = 0;
+
+		/**
+		* 行情消息应答:如果订阅行情成功且有行情返回时，该方法会被调用。
+		* @param pMarketDataField:指向行情信息结构的指针，结构体中包含具体的行情信息。
+		*/
+		virtual void OnMarketData(CLRDFITCDepthMarketDataField MarketDataField) = 0;
+
+		/**
+		* 自定义组合行情消息应答:如果订阅行情成功且有行情返回时，该方法会被调用。
+		* @param pMarketDataField:指向行情信息结构的指针，结构体中包含具体的行情信息。
+		*/
+		virtual void OnCustomMarketData(CLRDFITCCustomMarketDataField MarketDataField) = 0;
+
+		/**
+		* 询价通知
+		* @param pForQuoteField:指向询价信息结构的指针，结构体中包含具体的询价信息。
+		*/
+		virtual void OnRtnForQuoteRsp(CLRDFITCQuoteSubscribeRtnField ForQuoteField) = 0;
+
+		/**
+		* 交易日确认响应:用于接收交易日信息。
+		* @param pTradingDayRtnData: 返回交易日请求确认响应结构的地址。
+		*/
+		virtual void OnRspTradingDay(CLRDFITCTradingDayRtnField TradingDayRtnData) = 0;
+	internal:
+
+		void callOnFrontConnected();
+
+		void callOnFrontDisconnected(int nReason);
+
+		void callOnRspUserLogin(struct DFITCUserLoginInfoRtnField * pRspUserLogin, struct DFITCErrorRtnField * pRspInfo);
+
+		void callOnRspUserLogout(struct DFITCUserLogoutInfoRtnField * pRspUsrLogout, struct DFITCErrorRtnField * pRspInfo);
+
+		void callOnRspError(struct DFITCErrorRtnField *pRspInfo);
+
+		void callOnRspSubMarketData(struct DFITCSpecificInstrumentField * pSpecificInstrument, struct DFITCErrorRtnField * pRspInfo);
+
+		void callOnRspUnSubMarketData(struct DFITCSpecificInstrumentField * pSpecificInstrument, struct DFITCErrorRtnField * pRspInfo);
+
+		void callOnRspSubForQuoteRsp(struct DFITCSpecificInstrumentField * pSpecificInstrument, struct DFITCErrorRtnField * pRspInfo);
+
+		void callOnRspUnSubForQuoteRsp(struct DFITCSpecificInstrumentField * pSpecificInstrument, struct DFITCErrorRtnField * pRspInfo);
+
+		void callOnMarketData(struct DFITCDepthMarketDataField * pMarketDataField);
+
+		void callOnCustomMarketData(struct DFITCCustomMarketDataField * pMarketDataField);
+
+		void callOnRtnForQuoteRsp(struct DFITCQuoteSubscribeRtnField * pForQuoteField);
+
+		void callOnRspTradingDay(struct DFITCTradingDayRtnField * pTradingDayRtnData);
+	};
+
+	class MduserSpiHandler : public DFITCXSPEEDMDAPI::DFITCMdSpi
+	{
+	public:
+		MduserSpiHandler(CLRDFITCMduserSpi^ owner) : m_owner(owner) {};
+		~MduserSpiHandler() {};
+		gcroot<CLRDFITCMduserSpi^> m_owner;
+	public:
+		/**
+		* 网络连接正常响应
+		*/
+		virtual void OnFrontConnected() 
+		{
+			m_owner->callOnFrontConnected();
+		}
+
+		/**
+		* 网络连接不正常响应
+		*/
+		virtual void OnFrontDisconnected(int nReason) 
+		{
+			m_owner->callOnFrontDisconnected(nReason);
+		}
+
+		/**
+		* 登陆请求响应:当用户发出登录请求后，前置机返回响应时此方法会被调用，通知用户登录是否成功。
+		* @param pRspUserLogin:用户登录信息结构地址。
+		* @param pRspInfo:若请求失败，返回错误信息地址，该结构含有错误信息。
+		*/
+		virtual void OnRspUserLogin(struct DFITCUserLoginInfoRtnField * pRspUserLogin, struct DFITCErrorRtnField * pRspInfo) 
+		{
+			m_owner->callOnRspUserLogin(pRspUserLogin, pRspInfo);
+		}
+
+		/**
+		* 登出请求响应:当用户发出退出请求后，前置机返回响应此方法会被调用，通知用户退出状态。
+		* @param pRspUsrLogout:返回用户退出信息结构地址。
+		* @param pRspInfo:若请求失败，返回错误信息地址。
+		*/
+		virtual void OnRspUserLogout(struct DFITCUserLogoutInfoRtnField * pRspUsrLogout, struct DFITCErrorRtnField * pRspInfo)
+		{
+			m_owner->callOnRspUserLogout(pRspUsrLogout, pRspInfo);
+		}
+
+		/**
+		* 错误应答
+		* @param pRspInfo:错误信息地址。
+		*/
+		virtual void OnRspError(struct DFITCErrorRtnField *pRspInfo) 
+		{
+			m_owner->callOnRspError(pRspInfo);
+		}
+
+		/**
+		* 行情订阅应答:当用户发出行情订阅该方法会被调用。
+		* @param pSpecificInstrument:指向合约响应结构，该结构包含合约的相关信息。
+		* @param pRspInfo:错误信息，如果发生错误，该结构含有错误信息。
+		*/
+		virtual void OnRspSubMarketData(struct DFITCSpecificInstrumentField * pSpecificInstrument, struct DFITCErrorRtnField * pRspInfo) 
+		{
+			m_owner->callOnRspSubMarketData(pSpecificInstrument, pRspInfo);
+		}
+
+		/**
+		* 取消订阅行情应答:当用户发出退订请求后该方法会被调用。
+		* @param pSpecificInstrument:指向合约响应结构，该结构包含合约的相关信息。
+		* @param pRspInfo:错误信息，如果发生错误，该结构含有错误信息。
+		*/
+		virtual void OnRspUnSubMarketData(struct DFITCSpecificInstrumentField * pSpecificInstrument, struct DFITCErrorRtnField * pRspInfo) 
+		{
+			m_owner->callOnRspUnSubMarketData(pSpecificInstrument, pRspInfo);
+		}
+
+		/**
+		* 订阅询价应答
+		* @param pSpecificInstrument:指向合约响应结构，该结构包含合约的相关信息。
+		* @param pRspInfo:错误信息，如果发生错误，该结构含有错误信息。
+		*/
+		virtual void OnRspSubForQuoteRsp(struct DFITCSpecificInstrumentField * pSpecificInstrument, struct DFITCErrorRtnField * pRspInfo) 
+		{
+			m_owner->callOnRspSubForQuoteRsp(pSpecificInstrument, pRspInfo);
+		}
+
+		/**
+		* 取消订阅询价应答
+		* @param pSpecificInstrument:指向合约响应结构，该结构包含合约的相关信息。
+		* @param pRspInfo:错误信息，如果发生错误，该结构含有错误信息。
+		*/
+		virtual void OnRspUnSubForQuoteRsp(struct DFITCSpecificInstrumentField * pSpecificInstrument, struct DFITCErrorRtnField * pRspInfo)
+		{
+			m_owner->callOnRspUnSubForQuoteRsp(pSpecificInstrument, pRspInfo);
+		}
+
+		/**
+		* 行情消息应答:如果订阅行情成功且有行情返回时，该方法会被调用。
+		* @param pMarketDataField:指向行情信息结构的指针，结构体中包含具体的行情信息。
+		*/
+		virtual void OnMarketData(struct DFITCDepthMarketDataField * pMarketDataField) 
+		{
+			m_owner->callOnMarketData(pMarketDataField);
+		}
+
+		/**
+		* 自定义组合行情消息应答:如果订阅行情成功且有行情返回时，该方法会被调用。
+		* @param pMarketDataField:指向行情信息结构的指针，结构体中包含具体的行情信息。
+		*/
+		virtual void OnCustomMarketData(struct DFITCCustomMarketDataField * pMarketDataField) 
+		{
+			m_owner->callOnCustomMarketData(pMarketDataField);
+		}
+
+		/**
+		* 询价通知
+		* @param pForQuoteField:指向询价信息结构的指针，结构体中包含具体的询价信息。
+		*/
+		virtual void OnRtnForQuoteRsp(struct DFITCQuoteSubscribeRtnField * pForQuoteField) 
+		{
+			m_owner->callOnRtnForQuoteRsp(pForQuoteField);
+		}
+
+		/**
+		* 交易日确认响应:用于接收交易日信息。
+		* @param pTradingDayRtnData: 返回交易日请求确认响应结构的地址。
+		*/
+		virtual void OnRspTradingDay(struct DFITCTradingDayRtnField * pTradingDayRtnData) 
+		{
+			m_owner->callOnRspTradingDay(pTradingDayRtnData);
+		}
+	};
+
+	public ref class CLRDFITCMduserApi
+	{
+	public:
+		CLRDFITCMduserApi() 
+		{
+			m_pNativeApi = DFITCXSPEEDMDAPI::DFITCMdApi::CreateDFITCMdApi();
+		}
+		~CLRDFITCMduserApi() 
+		{
+			if (m_pNativeApi)
+			{
+				//delete m_pNativeApi;
+				m_pNativeApi = 0;
+			}
+		}
+		
+	public:
+		/**
+		* 进行一系列初始化工作:注册回调函数接口,连接行情前置。
+		* @param pszSvrAddr:行情前置网络地址。
+		*                  网络地址的格式为:"protocol://ipaddress:port",如"tcp://127.0.0.1:10915"
+		*                  其中protocol的值为tcp,udp,udpb(广播行情),表示接收行情的方式;如果是udp接收行情数据,udp的端口将由API自行确定，
+		*                  如果是udpb广播行情，需要与期货公司确认报盘广播行情端口。
+		*                  ipaddress表示行情前置的IP,port表示行情前置的端口
+		* @param pSpi:类DFITCMdSpi对象实例
+		* @return 0 - 成功; -1 - 失败。
+		*/
+		int Init(String^ SvrAddr, CLRDFITCMduserSpi^ Spi);
+
+		/**
+		* 删除接口对象本身，不再使用本接口对象时,调用该函数删除接口对象。
+		*/
+		void Release();
+
+		/**
+		* 订阅行情:该方法发出订阅某个或者某些合约行情请求。
+		* @param ppInstrumentID[]:指针数组，每个指针指向一个合约。（*代表订阅所有合约，也可订阅某交易所所有合约如DCE）
+		* @param nCount:合约个数
+		* @return 0 - 请求发送成功; -1 - 请求发送失败。
+		*/
+		int SubscribeMarketData(array<String^>^ InstrumentID, int RequestID);
+
+		/**
+		* 退订行情:该方法发出退订某个/某些合约行情请求。
+		* @param ppInstrumentID[]:指针数组，每个指针指向一个合约。（*代表订阅退订所有合约，也可退订某交易所所有合约如DCE）
+		* @param nCount:合约个数
+		* @return 0 - 请求发送成功; -1 - 请求发送失败
+		*/
+		int UnSubscribeMarketData(array<String^>^ InstrumentID, int RequestID);
+
+		/**
+		* 订阅询价
+		* @param ppInstrumentID[]:指针数组，每个指针指向一个合约。（*代表订阅所有询价，也可订阅某交易所所有询价如DCE）
+		* @param nCount:合约个数
+		* @return 0 - 请求发送成功; -1 - 请求发送失败
+		*/
+		int SubscribeForQuoteRsp(array<String^>^ InstrumentID, int RequestID);
+
+		/**
+		* 退订询价
+		* @param ppInstrumentID[]:指针数组，每个指针指向一个合约。（*代表订阅退订所有询价，也可退订某交易所所有询价如DCE）
+		* @param nCount:合约个数
+		* @return 0 - 请求发送成功; -1 - 请求发送失败
+		*/
+		int UnSubscribeForQuoteRsp(array<String^>^ InstrumentID, int RequestID);
+
+		/**
+		* 用户发出登陆请求
+		* @param pReqUserLoginField:指向用户登录请求结构的地址。
+		* @return 0 - 请求发送成功; -1 - 请求发送失败; -2 - 检测异常。
+		*/
+		int ReqUserLogin(CLRDFITCUserLoginField^ ReqUserLoginField);
+
+		/**
+		* 用户发出登出请求
+		* @param pReqUserLogoutField:指向用户登录请出结构的地址。
+		* @return 0 - 请求发送成功; -1 - 请求发送失败; -2 - 检测异常。
+		*/
+		int ReqUserLogout(CLRDFITCUserLogoutField^ ReqUserLogoutField);
+
+		/**
+		* 交易日查询请求
+		* @return 0 - 请求发送成功; -1 - 请求发送失败。
+		*/
+		int ReqTradingDay(CLRDFITCTradingDayField^ TradingDay);
+	public:
+		DFITCXSPEEDMDAPI::DFITCMdApi *m_pNativeApi;
+	};
 }

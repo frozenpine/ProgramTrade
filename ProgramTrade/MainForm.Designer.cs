@@ -34,6 +34,13 @@ namespace ProgramTrade
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitMain = new System.Windows.Forms.SplitContainer();
             this.tabExchange = new System.Windows.Forms.TabControl();
             this.contmenuTabExchange = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -41,6 +48,7 @@ namespace ProgramTrade
             this.tabPageAll = new System.Windows.Forms.TabPage();
             this.splitMarket = new System.Windows.Forms.SplitContainer();
             this.dgvwMarket = new System.Windows.Forms.DataGridView();
+            this.marketsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageDCE = new System.Windows.Forms.TabPage();
             this.tabPageSHFE = new System.Windows.Forms.TabPage();
             this.tabPageCFFE = new System.Windows.Forms.TabPage();
@@ -50,25 +58,32 @@ namespace ProgramTrade
             this.tabOrders = new System.Windows.Forms.TabControl();
             this.tabPageAllOrders = new System.Windows.Forms.TabPage();
             this.dgvwOrders = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instrumentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.matchedPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.directionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.volumeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.matchedVolumeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exchangeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flagDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageHisOrders = new System.Windows.Forms.TabPage();
             this.dgvwPositions = new System.Windows.Forms.DataGridView();
-            this.posExchangeIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.posInstrumentIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.posDirectionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.posPositionPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.posVolumeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.posFlagColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.odrExchangeIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.odrOrderSysIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.odrInvestorIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.odrUserIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.odrInstrumentIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.odrOrderLocalIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.odrOrderTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.odrDirectionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.odrFlagColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.odrLimitPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.odrVolumeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.posExchangeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.posInstrumentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.posDirection = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.posVolumeAll = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.posPositionPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.posVolumeToday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.posVolumeYestoday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.posFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.positionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageCodes = new System.Windows.Forms.TabPage();
             this.dgvwInstruments = new System.Windows.Forms.DataGridView();
@@ -94,9 +109,6 @@ namespace ProgramTrade
             this.tbpanlBuySell = new System.Windows.Forms.TableLayoutPanel();
             this.rdoBuy = new System.Windows.Forms.RadioButton();
             this.rdoSell = new System.Windows.Forms.RadioButton();
-            this.tbInstrumentInfo = new System.Windows.Forms.TableLayoutPanel();
-            this.lbInstrumentName = new System.Windows.Forms.Label();
-            this.lbExchange = new System.Windows.Forms.Label();
             this.tbpanlSubOrder = new System.Windows.Forms.TableLayoutPanel();
             this.btnAddOpenOrder = new System.Windows.Forms.Button();
             this.btnAddOrder = new System.Windows.Forms.Button();
@@ -109,7 +121,6 @@ namespace ProgramTrade
             this.lbBottom = new System.Windows.Forms.Label();
             this.lbOpen = new System.Windows.Forms.Label();
             this.lbClose = new System.Windows.Forms.Label();
-            this.btnParellel = new System.Windows.Forms.Button();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.strplbTradeFrontSvr = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
@@ -124,7 +135,24 @@ namespace ProgramTrade
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.延时测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panlMain = new System.Windows.Forms.Panel();
-            this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instrumentIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instrumentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.latestPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.highestPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lowestPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.volumeDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.closePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exchangeIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.topLimitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bottomLimitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).BeginInit();
             this.splitMain.Panel1.SuspendLayout();
             this.splitMain.Panel2.SuspendLayout();
@@ -136,10 +164,12 @@ namespace ProgramTrade
             this.splitMarket.Panel2.SuspendLayout();
             this.splitMarket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvwMarket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marketsBindingSource)).BeginInit();
             this.tbpanlOrderInfo.SuspendLayout();
             this.tabOrders.SuspendLayout();
             this.tabPageAllOrders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvwOrders)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             this.tabPageHisOrders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvwPositions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource)).BeginInit();
@@ -152,13 +182,11 @@ namespace ProgramTrade
             ((System.ComponentModel.ISupportInitialize)(this.numVolume)).BeginInit();
             this.tbpanlOpenClose.SuspendLayout();
             this.tbpanlBuySell.SuspendLayout();
-            this.tbInstrumentInfo.SuspendLayout();
             this.tbpanlSubOrder.SuspendLayout();
             this.tbpanlInstrumentInfo.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.menuMain.SuspendLayout();
             this.panlMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitMain
@@ -220,11 +248,43 @@ namespace ProgramTrade
             // 
             // dgvwMarket
             // 
-            this.dgvwMarket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvwMarket.AllowUserToAddRows = false;
+            this.dgvwMarket.AllowUserToDeleteRows = false;
+            this.dgvwMarket.AllowUserToOrderColumns = true;
+            this.dgvwMarket.AutoGenerateColumns = false;
+            this.dgvwMarket.BackgroundColor = System.Drawing.SystemColors.WindowText;
+            this.dgvwMarket.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.instrumentIDDataGridViewTextBoxColumn1,
+            this.instrumentNameDataGridViewTextBoxColumn,
+            this.latestPriceDataGridViewTextBoxColumn,
+            this.openPriceDataGridViewTextBoxColumn,
+            this.highestPriceDataGridViewTextBoxColumn,
+            this.lowestPriceDataGridViewTextBoxColumn,
+            this.volumeDataGridViewTextBoxColumn3,
+            this.closePriceDataGridViewTextBoxColumn,
+            this.exchangeIDDataGridViewTextBoxColumn1,
+            this.topLimitPriceDataGridViewTextBoxColumn,
+            this.bottomLimitPriceDataGridViewTextBoxColumn});
+            this.dgvwMarket.DataSource = this.marketsBindingSource;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvwMarket.DefaultCellStyle = dataGridViewCellStyle1;
             resources.ApplyResources(this.dgvwMarket, "dgvwMarket");
             this.dgvwMarket.Name = "dgvwMarket";
             this.dgvwMarket.ReadOnly = true;
             this.dgvwMarket.RowTemplate.Height = 23;
+            this.dgvwMarket.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            // 
+            // marketsBindingSource
+            // 
+            this.marketsBindingSource.AllowNew = true;
+            this.marketsBindingSource.DataSource = typeof(ProgramTradeApi.MarketDetail);
+            this.marketsBindingSource.Sort = "";
             // 
             // tabPageDCE
             // 
@@ -275,7 +335,7 @@ namespace ProgramTrade
             // 
             // tabPageAllOrders
             // 
-            this.tabPageAllOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tabPageAllOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.tabPageAllOrders.Controls.Add(this.dgvwOrders);
             resources.ApplyResources(this.tabPageAllOrders, "tabPageAllOrders");
             this.tabPageAllOrders.Name = "tabPageAllOrders";
@@ -284,34 +344,145 @@ namespace ProgramTrade
             // 
             this.dgvwOrders.AllowUserToAddRows = false;
             this.dgvwOrders.AllowUserToDeleteRows = false;
+            this.dgvwOrders.AllowUserToOrderColumns = true;
             this.dgvwOrders.AutoGenerateColumns = false;
-            this.dgvwOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvwOrders.CausesValidation = false;
-            this.dgvwOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.dgvwOrders, "dgvwOrders");
             this.dgvwOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            odrExchangeIDColumn,
-            odrOrderSysIDColumn,
-            odrInvestorIDColumn,
-            odrUserIDColumn,
-            odrInstrumentIDColumn,
-            odrOrderLocalIDColumn,
-            odrOrderTypeColumn,
-            odrDirectionColumn,
-            odrFlagColumn,
-            odrLimitPriceColumn,
-            odrVolumeColumn
-            });
-            this.dgvwOrders.DataMember = "Value";
+            this.dataGridViewTextBoxColumn1,
+            this.orderStatusDataGridViewTextBoxColumn,
+            this.instrumentIDDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn6,
+            this.matchedPriceDataGridViewTextBoxColumn,
+            this.directionDataGridViewTextBoxColumn,
+            this.operationDataGridViewTextBoxColumn,
+            this.volumeDataGridViewTextBoxColumn,
+            this.matchedVolumeDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn5,
+            this.exchangeIDDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn4,
+            this.flagDataGridViewTextBoxColumn});
             this.dgvwOrders.DataSource = this.ordersBindingSource;
+            resources.ApplyResources(this.dgvwOrders, "dgvwOrders");
             this.dgvwOrders.Name = "dgvwOrders";
             this.dgvwOrders.ReadOnly = true;
             this.dgvwOrders.RowTemplate.Height = 23;
             this.dgvwOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "OrderSysID";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn1, "dataGridViewTextBoxColumn1");
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // orderStatusDataGridViewTextBoxColumn
+            // 
+            this.orderStatusDataGridViewTextBoxColumn.DataPropertyName = "OrderStatus";
+            resources.ApplyResources(this.orderStatusDataGridViewTextBoxColumn, "orderStatusDataGridViewTextBoxColumn");
+            this.orderStatusDataGridViewTextBoxColumn.Name = "orderStatusDataGridViewTextBoxColumn";
+            this.orderStatusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // instrumentIDDataGridViewTextBoxColumn
+            // 
+            this.instrumentIDDataGridViewTextBoxColumn.DataPropertyName = "InstrumentID";
+            resources.ApplyResources(this.instrumentIDDataGridViewTextBoxColumn, "instrumentIDDataGridViewTextBoxColumn");
+            this.instrumentIDDataGridViewTextBoxColumn.Name = "instrumentIDDataGridViewTextBoxColumn";
+            this.instrumentIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "LimitPrice";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn6, "dataGridViewTextBoxColumn6");
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // matchedPriceDataGridViewTextBoxColumn
+            // 
+            this.matchedPriceDataGridViewTextBoxColumn.DataPropertyName = "MatchedPrice";
+            resources.ApplyResources(this.matchedPriceDataGridViewTextBoxColumn, "matchedPriceDataGridViewTextBoxColumn");
+            this.matchedPriceDataGridViewTextBoxColumn.Name = "matchedPriceDataGridViewTextBoxColumn";
+            this.matchedPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // directionDataGridViewTextBoxColumn
+            // 
+            this.directionDataGridViewTextBoxColumn.DataPropertyName = "Direction";
+            resources.ApplyResources(this.directionDataGridViewTextBoxColumn, "directionDataGridViewTextBoxColumn");
+            this.directionDataGridViewTextBoxColumn.Name = "directionDataGridViewTextBoxColumn";
+            this.directionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // operationDataGridViewTextBoxColumn
+            // 
+            this.operationDataGridViewTextBoxColumn.DataPropertyName = "Operation";
+            resources.ApplyResources(this.operationDataGridViewTextBoxColumn, "operationDataGridViewTextBoxColumn");
+            this.operationDataGridViewTextBoxColumn.Name = "operationDataGridViewTextBoxColumn";
+            this.operationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // volumeDataGridViewTextBoxColumn
+            // 
+            this.volumeDataGridViewTextBoxColumn.DataPropertyName = "Volume";
+            resources.ApplyResources(this.volumeDataGridViewTextBoxColumn, "volumeDataGridViewTextBoxColumn");
+            this.volumeDataGridViewTextBoxColumn.Name = "volumeDataGridViewTextBoxColumn";
+            this.volumeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // matchedVolumeDataGridViewTextBoxColumn
+            // 
+            this.matchedVolumeDataGridViewTextBoxColumn.DataPropertyName = "MatchedVolume";
+            resources.ApplyResources(this.matchedVolumeDataGridViewTextBoxColumn, "matchedVolumeDataGridViewTextBoxColumn");
+            this.matchedVolumeDataGridViewTextBoxColumn.Name = "matchedVolumeDataGridViewTextBoxColumn";
+            this.matchedVolumeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "OrderType";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn5, "dataGridViewTextBoxColumn5");
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // exchangeIDDataGridViewTextBoxColumn
+            // 
+            this.exchangeIDDataGridViewTextBoxColumn.DataPropertyName = "ExchangeID";
+            resources.ApplyResources(this.exchangeIDDataGridViewTextBoxColumn, "exchangeIDDataGridViewTextBoxColumn");
+            this.exchangeIDDataGridViewTextBoxColumn.Name = "exchangeIDDataGridViewTextBoxColumn";
+            this.exchangeIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "UserID";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn3, "dataGridViewTextBoxColumn3");
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "InvestorID";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn2, "dataGridViewTextBoxColumn2");
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "OrderLocalID";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn4, "dataGridViewTextBoxColumn4");
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // flagDataGridViewTextBoxColumn
+            // 
+            this.flagDataGridViewTextBoxColumn.DataPropertyName = "Flag";
+            resources.ApplyResources(this.flagDataGridViewTextBoxColumn, "flagDataGridViewTextBoxColumn");
+            this.flagDataGridViewTextBoxColumn.Name = "flagDataGridViewTextBoxColumn";
+            this.flagDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ordersBindingSource
+            // 
+            this.ordersBindingSource.AllowNew = true;
+            this.ordersBindingSource.DataSource = typeof(ProgramTradeApi.OrderDetail);
+            // 
             // tabPageHisOrders
             // 
-            this.tabPageHisOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.tabPageHisOrders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.tabPageHisOrders.Controls.Add(this.dgvwPositions);
             resources.ApplyResources(this.tabPageHisOrders, "tabPageHisOrders");
             this.tabPageHisOrders.Name = "tabPageHisOrders";
@@ -320,148 +491,98 @@ namespace ProgramTrade
             // 
             this.dgvwPositions.AllowUserToAddRows = false;
             this.dgvwPositions.AllowUserToDeleteRows = false;
+            this.dgvwPositions.AllowUserToOrderColumns = true;
             this.dgvwPositions.AutoGenerateColumns = false;
-            this.dgvwPositions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvwPositions.CausesValidation = false;
-            this.dgvwPositions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvwPositions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.posExchangeIDColumn,
-            this.posInstrumentIDColumn,
-            this.posDirectionColumn,
-            this.posPositionPriceColumn,
-            this.posVolumeColumn,
-            this.posFlagColumn});
-            this.dgvwPositions.DataMember = "Value";
+            this.posExchangeID,
+            this.posInstrumentID,
+            this.posDirection,
+            this.posVolumeAll,
+            this.posPositionPrice,
+            this.posVolumeToday,
+            this.posVolumeYestoday,
+            this.posFlag});
             this.dgvwPositions.DataSource = this.positionsBindingSource;
             resources.ApplyResources(this.dgvwPositions, "dgvwPositions");
             this.dgvwPositions.Name = "dgvwPositions";
             this.dgvwPositions.ReadOnly = true;
             this.dgvwPositions.RowTemplate.Height = 23;
             this.dgvwPositions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvwPositions.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvwPositions_CellFormatting);
+            this.dgvwPositions.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvwPositions_MouseDoubleClick);
             // 
-            // exchangeIDDataGridViewTextBoxColumn
+            // posExchangeID
             // 
-            this.posExchangeIDColumn.DataPropertyName = "ExchangeID";
-            resources.ApplyResources(this.posExchangeIDColumn, "exchangeIDDataGridViewTextBoxColumn");
-            this.posExchangeIDColumn.Name = "exchangeIDDataGridViewTextBoxColumn";
-            this.posExchangeIDColumn.ReadOnly = true;
+            this.posExchangeID.DataPropertyName = "ExchangeID";
+            resources.ApplyResources(this.posExchangeID, "posExchangeID");
+            this.posExchangeID.Name = "posExchangeID";
+            this.posExchangeID.ReadOnly = true;
             // 
-            // instrumentIDDataGridViewTextBoxColumn
+            // posInstrumentID
             // 
-            this.posInstrumentIDColumn.DataPropertyName = "InstrumentID";
-            resources.ApplyResources(this.posInstrumentIDColumn, "instrumentIDDataGridViewTextBoxColumn");
-            this.posInstrumentIDColumn.Name = "instrumentIDDataGridViewTextBoxColumn";
-            this.posInstrumentIDColumn.ReadOnly = true;
+            this.posInstrumentID.DataPropertyName = "InstrumentID";
+            resources.ApplyResources(this.posInstrumentID, "posInstrumentID");
+            this.posInstrumentID.Name = "posInstrumentID";
+            this.posInstrumentID.ReadOnly = true;
             // 
-            // directionDataGridViewTextBoxColumn
+            // posDirection
             // 
-            this.posDirectionColumn.DataPropertyName = "Direction";
-            resources.ApplyResources(this.posDirectionColumn, "directionDataGridViewTextBoxColumn");
-            this.posDirectionColumn.Name = "directionDataGridViewTextBoxColumn";
-            this.posDirectionColumn.ReadOnly = true;
+            this.posDirection.DataPropertyName = "Direction";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            this.posDirection.DefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.posDirection, "posDirection");
+            this.posDirection.Name = "posDirection";
+            this.posDirection.ReadOnly = true;
             // 
-            // positionPriceDataGridViewTextBoxColumn
+            // posVolumeAll
             // 
-            this.posPositionPriceColumn.DataPropertyName = "PositionPrice";
-            resources.ApplyResources(this.posPositionPriceColumn, "positionPriceDataGridViewTextBoxColumn");
-            this.posPositionPriceColumn.Name = "positionPriceDataGridViewTextBoxColumn";
-            this.posPositionPriceColumn.ReadOnly = true;
+            this.posVolumeAll.DataPropertyName = "VolumeAll";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.posVolumeAll.DefaultCellStyle = dataGridViewCellStyle3;
+            resources.ApplyResources(this.posVolumeAll, "posVolumeAll");
+            this.posVolumeAll.Name = "posVolumeAll";
+            this.posVolumeAll.ReadOnly = true;
             // 
-            // volumeDataGridViewTextBoxColumn
+            // posPositionPrice
             // 
-            this.posVolumeColumn.DataPropertyName = "Volume";
-            resources.ApplyResources(this.posVolumeColumn, "volumeDataGridViewTextBoxColumn");
-            this.posVolumeColumn.Name = "volumeDataGridViewTextBoxColumn";
-            this.posVolumeColumn.ReadOnly = true;
+            this.posPositionPrice.DataPropertyName = "PositionPrice";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.posPositionPrice.DefaultCellStyle = dataGridViewCellStyle4;
+            resources.ApplyResources(this.posPositionPrice, "posPositionPrice");
+            this.posPositionPrice.Name = "posPositionPrice";
+            this.posPositionPrice.ReadOnly = true;
             // 
-            // flagDataGridViewTextBoxColumn
+            // posVolumeToday
             // 
-            this.posFlagColumn.DataPropertyName = "Flag";
-            resources.ApplyResources(this.posFlagColumn, "flagDataGridViewTextBoxColumn");
-            this.posFlagColumn.Name = "flagDataGridViewTextBoxColumn";
-            this.posFlagColumn.ReadOnly = true;
-            //
-            // odrExchangeIDColumn
-            //
-            this.odrExchangeIDColumn.DataPropertyName = "ExchangeID";
-            resources.ApplyResources(this.odrExchangeIDColumn, "odrExchangeIDColumn");
-            this.odrExchangeIDColumn.Name = "odrExchangeIDColumn";
-            this.odrExchangeIDColumn.ReadOnly = true;
-            //
-            // odrOrderSysIDColumn
-            //
-            this.odrOrderSysIDColumn.DataPropertyName = "OrderSysID";
-            resources.ApplyResources(this.odrOrderSysIDColumn, "odrOrderSysIDColumn");
-            this.odrOrderSysIDColumn.Name = "odrOrderSysIDColumn";
-            this.odrOrderSysIDColumn.ReadOnly = true;
-            //
-            // odrInvestorIDColumn
-            //
-            this.odrInvestorIDColumn.DataPropertyName = "InvestorID";
-            resources.ApplyResources(this.odrInvestorIDColumn, "odrInvestorIDColumn");
-            this.odrInvestorIDColumn.Name = "odrInvestorIDColumn";
-            this.odrInvestorIDColumn.ReadOnly = true;
-            //
-            // odrUserIDColumn
-            //
-            this.odrUserIDColumn.DataPropertyName = "UserID";
-            resources.ApplyResources(this.odrUserIDColumn, "odrUserIDColumn");
-            this.odrUserIDColumn.Name = "odrUserIDColumn";
-            this.odrUserIDColumn.ReadOnly = true;
-            //
-            // odrInstrumentIDColumn
+            this.posVolumeToday.DataPropertyName = "VolumeToday";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.posVolumeToday.DefaultCellStyle = dataGridViewCellStyle5;
+            resources.ApplyResources(this.posVolumeToday, "posVolumeToday");
+            this.posVolumeToday.Name = "posVolumeToday";
+            this.posVolumeToday.ReadOnly = true;
             // 
-            this.odrInstrumentIDColumn.DataPropertyName = "InstrumentID";
-            resources.ApplyResources(this.odrInstrumentIDColumn, "odrInstrumentIDColumn");
-            this.odrInstrumentIDColumn.Name = "odrInstrumentIDColumn";
-            this.odrInstrumentIDColumn.ReadOnly = true;
+            // posVolumeYestoday
             // 
-            // odrOrderLocalIDColumn
-            this.odrOrderLocalIDColumn.DataPropertyName = "OrderLocalID";
-            resources.ApplyResources(this.odrOrderLocalIDColumn, "odrOrderLocalIDColumn");
-            this.odrOrderLocalIDColumn.Name = "odrOrderLocalIDColumn";
-            this.odrOrderLocalIDColumn.ReadOnly = true;
-            //
-            // odrOrderTypeColumn
-            //
-            this.odrOrderTypeColumn.DataPropertyName = "OrderType";
-            resources.ApplyResources(this.odrOrderTypeColumn, "odrOrderTypeColumn");
-            this.odrOrderTypeColumn.Name = "odrOrderTypeColumn";
-            this.odrOrderTypeColumn.ReadOnly = true;
-            //
-            // odrDirectionColumn
+            this.posVolumeYestoday.DataPropertyName = "VolumeYestoday";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.posVolumeYestoday.DefaultCellStyle = dataGridViewCellStyle6;
+            resources.ApplyResources(this.posVolumeYestoday, "posVolumeYestoday");
+            this.posVolumeYestoday.Name = "posVolumeYestoday";
+            this.posVolumeYestoday.ReadOnly = true;
             // 
-            this.odrDirectionColumn.DataPropertyName = "Direction";
-            resources.ApplyResources(this.odrDirectionColumn, "odrDirectionColumn");
-            this.odrDirectionColumn.Name = "odrDirectionColumn";
-            this.odrDirectionColumn.ReadOnly = true;
-            //
-            // odrFlagColumn
-            //
-            this.odrFlagColumn.DataPropertyName = "Flag";
-            resources.ApplyResources(this.odrFlagColumn, "odrFlagColumn");
-            this.odrFlagColumn.Name = "odrFlagColumn";
-            this.odrFlagColumn.ReadOnly = true;
-            //
-            // odrLimitPriceColumn
-            //
-            this.odrLimitPriceColumn.DataPropertyName = "LimitPrice";
-            resources.ApplyResources(this.odrLimitPriceColumn, "odrLimitPriceColumn");
-            this.odrLimitPriceColumn.Name = "odrLimitPriceColumn";
-            this.odrLimitPriceColumn.ReadOnly = true;
-            //
-            // odrVolumeColumn
-            //
-            this.odrVolumeColumn.DataPropertyName = "Volume";
-            resources.ApplyResources(this.odrVolumeColumn, "odrVolumeColumn");
-            this.odrVolumeColumn.Name = "odrVolumeColumn";
-            this.odrVolumeColumn.ReadOnly = true;
+            // posFlag
+            // 
+            this.posFlag.DataPropertyName = "Flag";
+            resources.ApplyResources(this.posFlag, "posFlag");
+            this.posFlag.Name = "posFlag";
+            this.posFlag.ReadOnly = true;
             // 
             // positionsBindingSource
             // 
             this.positionsBindingSource.AllowNew = true;
-            this.positionsBindingSource.DataSource = typeof(System.Collections.Generic.KeyValuePair<string, ProgramTradeApi.PositionDetail>);
-            this.positionsBindingSource.Sort = "";
+            this.positionsBindingSource.DataSource = typeof(ProgramTradeApi.PositionDetail);
             // 
             // tabPageCodes
             // 
@@ -472,7 +593,6 @@ namespace ProgramTrade
             // 
             // dgvwInstruments
             // 
-            this.dgvwInstruments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             resources.ApplyResources(this.dgvwInstruments, "dgvwInstruments");
             this.dgvwInstruments.Name = "dgvwInstruments";
             this.dgvwInstruments.ReadOnly = true;
@@ -523,7 +643,6 @@ namespace ProgramTrade
             this.flpanlOrder.Controls.Add(this.tbpanlOrder);
             this.flpanlOrder.Controls.Add(this.tbpanlSubOrder);
             this.flpanlOrder.Controls.Add(this.tbpanlInstrumentInfo);
-            this.flpanlOrder.Controls.Add(this.btnParellel);
             this.flpanlOrder.Name = "flpanlOrder";
             // 
             // tbpanlOrder
@@ -539,7 +658,6 @@ namespace ProgramTrade
             this.tbpanlOrder.Controls.Add(this.numVolume, 1, 5);
             this.tbpanlOrder.Controls.Add(this.tbpanlOpenClose, 1, 3);
             this.tbpanlOrder.Controls.Add(this.tbpanlBuySell, 1, 2);
-            this.tbpanlOrder.Controls.Add(this.tbInstrumentInfo, 0, 0);
             this.tbpanlOrder.Name = "tbpanlOrder";
             // 
             // lbInstrument
@@ -640,24 +758,6 @@ namespace ProgramTrade
             this.rdoSell.Name = "rdoSell";
             this.rdoSell.UseVisualStyleBackColor = true;
             // 
-            // tbInstrumentInfo
-            // 
-            resources.ApplyResources(this.tbInstrumentInfo, "tbInstrumentInfo");
-            this.tbpanlOrder.SetColumnSpan(this.tbInstrumentInfo, 2);
-            this.tbInstrumentInfo.Controls.Add(this.lbInstrumentName, 1, 0);
-            this.tbInstrumentInfo.Controls.Add(this.lbExchange, 0, 0);
-            this.tbInstrumentInfo.Name = "tbInstrumentInfo";
-            // 
-            // lbInstrumentName
-            // 
-            resources.ApplyResources(this.lbInstrumentName, "lbInstrumentName");
-            this.lbInstrumentName.Name = "lbInstrumentName";
-            // 
-            // lbExchange
-            // 
-            resources.ApplyResources(this.lbExchange, "lbExchange");
-            this.lbExchange.Name = "lbExchange";
-            // 
             // tbpanlSubOrder
             // 
             resources.ApplyResources(this.tbpanlSubOrder, "tbpanlSubOrder");
@@ -731,12 +831,6 @@ namespace ProgramTrade
             // 
             resources.ApplyResources(this.lbClose, "lbClose");
             this.lbClose.Name = "lbClose";
-            // 
-            // btnParellel
-            // 
-            resources.ApplyResources(this.btnParellel, "btnParellel");
-            this.btnParellel.Name = "btnParellel";
-            this.btnParellel.UseVisualStyleBackColor = true;
             // 
             // statusStrip
             // 
@@ -828,11 +922,127 @@ namespace ProgramTrade
             resources.ApplyResources(this.panlMain, "panlMain");
             this.panlMain.Name = "panlMain";
             // 
-            // ordersBindingSource
+            // dataGridViewTextBoxColumn7
             // 
-            this.ordersBindingSource.AllowNew = true;
-            this.ordersBindingSource.DataSource = typeof(System.Collections.Generic.KeyValuePair<string, ProgramTradeApi.OrderDetail>);
-            this.ordersBindingSource.Sort = "";
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "ExchangeID";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn7, "dataGridViewTextBoxColumn7");
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "OrderType";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn8, "dataGridViewTextBoxColumn8");
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Direction";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn9, "dataGridViewTextBoxColumn9");
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Flag";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn10, "dataGridViewTextBoxColumn10");
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "ExchangeID";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn11, "dataGridViewTextBoxColumn11");
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Direction";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red;
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle7;
+            resources.ApplyResources(this.dataGridViewTextBoxColumn12, "dataGridViewTextBoxColumn12");
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Flag";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn13, "dataGridViewTextBoxColumn13");
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // instrumentIDDataGridViewTextBoxColumn1
+            // 
+            this.instrumentIDDataGridViewTextBoxColumn1.DataPropertyName = "InstrumentID";
+            resources.ApplyResources(this.instrumentIDDataGridViewTextBoxColumn1, "instrumentIDDataGridViewTextBoxColumn1");
+            this.instrumentIDDataGridViewTextBoxColumn1.Name = "instrumentIDDataGridViewTextBoxColumn1";
+            this.instrumentIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // instrumentNameDataGridViewTextBoxColumn
+            // 
+            this.instrumentNameDataGridViewTextBoxColumn.DataPropertyName = "InstrumentName";
+            resources.ApplyResources(this.instrumentNameDataGridViewTextBoxColumn, "instrumentNameDataGridViewTextBoxColumn");
+            this.instrumentNameDataGridViewTextBoxColumn.Name = "instrumentNameDataGridViewTextBoxColumn";
+            this.instrumentNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // latestPriceDataGridViewTextBoxColumn
+            // 
+            this.latestPriceDataGridViewTextBoxColumn.DataPropertyName = "LatestPrice";
+            resources.ApplyResources(this.latestPriceDataGridViewTextBoxColumn, "latestPriceDataGridViewTextBoxColumn");
+            this.latestPriceDataGridViewTextBoxColumn.Name = "latestPriceDataGridViewTextBoxColumn";
+            this.latestPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // openPriceDataGridViewTextBoxColumn
+            // 
+            this.openPriceDataGridViewTextBoxColumn.DataPropertyName = "OpenPrice";
+            resources.ApplyResources(this.openPriceDataGridViewTextBoxColumn, "openPriceDataGridViewTextBoxColumn");
+            this.openPriceDataGridViewTextBoxColumn.Name = "openPriceDataGridViewTextBoxColumn";
+            this.openPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // highestPriceDataGridViewTextBoxColumn
+            // 
+            this.highestPriceDataGridViewTextBoxColumn.DataPropertyName = "HighestPrice";
+            resources.ApplyResources(this.highestPriceDataGridViewTextBoxColumn, "highestPriceDataGridViewTextBoxColumn");
+            this.highestPriceDataGridViewTextBoxColumn.Name = "highestPriceDataGridViewTextBoxColumn";
+            this.highestPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lowestPriceDataGridViewTextBoxColumn
+            // 
+            this.lowestPriceDataGridViewTextBoxColumn.DataPropertyName = "LowestPrice";
+            resources.ApplyResources(this.lowestPriceDataGridViewTextBoxColumn, "lowestPriceDataGridViewTextBoxColumn");
+            this.lowestPriceDataGridViewTextBoxColumn.Name = "lowestPriceDataGridViewTextBoxColumn";
+            this.lowestPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // volumeDataGridViewTextBoxColumn3
+            // 
+            this.volumeDataGridViewTextBoxColumn3.DataPropertyName = "Volume";
+            resources.ApplyResources(this.volumeDataGridViewTextBoxColumn3, "volumeDataGridViewTextBoxColumn3");
+            this.volumeDataGridViewTextBoxColumn3.Name = "volumeDataGridViewTextBoxColumn3";
+            this.volumeDataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // closePriceDataGridViewTextBoxColumn
+            // 
+            this.closePriceDataGridViewTextBoxColumn.DataPropertyName = "ClosePrice";
+            resources.ApplyResources(this.closePriceDataGridViewTextBoxColumn, "closePriceDataGridViewTextBoxColumn");
+            this.closePriceDataGridViewTextBoxColumn.Name = "closePriceDataGridViewTextBoxColumn";
+            this.closePriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // exchangeIDDataGridViewTextBoxColumn1
+            // 
+            this.exchangeIDDataGridViewTextBoxColumn1.DataPropertyName = "ExchangeID";
+            resources.ApplyResources(this.exchangeIDDataGridViewTextBoxColumn1, "exchangeIDDataGridViewTextBoxColumn1");
+            this.exchangeIDDataGridViewTextBoxColumn1.Name = "exchangeIDDataGridViewTextBoxColumn1";
+            this.exchangeIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // topLimitPriceDataGridViewTextBoxColumn
+            // 
+            this.topLimitPriceDataGridViewTextBoxColumn.DataPropertyName = "TopLimitPrice";
+            resources.ApplyResources(this.topLimitPriceDataGridViewTextBoxColumn, "topLimitPriceDataGridViewTextBoxColumn");
+            this.topLimitPriceDataGridViewTextBoxColumn.Name = "topLimitPriceDataGridViewTextBoxColumn";
+            this.topLimitPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bottomLimitPriceDataGridViewTextBoxColumn
+            // 
+            this.bottomLimitPriceDataGridViewTextBoxColumn.DataPropertyName = "BottomLimitPrice";
+            resources.ApplyResources(this.bottomLimitPriceDataGridViewTextBoxColumn, "bottomLimitPriceDataGridViewTextBoxColumn");
+            this.bottomLimitPriceDataGridViewTextBoxColumn.Name = "bottomLimitPriceDataGridViewTextBoxColumn";
+            this.bottomLimitPriceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -859,11 +1069,13 @@ namespace ProgramTrade
             ((System.ComponentModel.ISupportInitialize)(this.splitMarket)).EndInit();
             this.splitMarket.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvwMarket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marketsBindingSource)).EndInit();
             this.tbpanlOrderInfo.ResumeLayout(false);
             this.tbpanlOrderInfo.PerformLayout();
             this.tabOrders.ResumeLayout(false);
             this.tabPageAllOrders.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvwOrders)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
             this.tabPageHisOrders.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvwPositions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.positionsBindingSource)).EndInit();
@@ -881,8 +1093,6 @@ namespace ProgramTrade
             this.tbpanlOpenClose.PerformLayout();
             this.tbpanlBuySell.ResumeLayout(false);
             this.tbpanlBuySell.PerformLayout();
-            this.tbInstrumentInfo.ResumeLayout(false);
-            this.tbInstrumentInfo.PerformLayout();
             this.tbpanlSubOrder.ResumeLayout(false);
             this.tbpanlInstrumentInfo.ResumeLayout(false);
             this.tbpanlInstrumentInfo.PerformLayout();
@@ -891,7 +1101,6 @@ namespace ProgramTrade
             this.menuMain.ResumeLayout(false);
             this.menuMain.PerformLayout();
             this.panlMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -924,7 +1133,6 @@ namespace ProgramTrade
         private System.Windows.Forms.TabControl tabOrders;
         private System.Windows.Forms.TabPage tabPageAllOrders;
         private System.Windows.Forms.TabPage tabPageHisOrders;
-        private System.Windows.Forms.DataGridView dgvwPositions;
         private System.Windows.Forms.TabPage tabPageCodes;
         private System.Windows.Forms.FlowLayoutPanel flpnelInfo;
         private System.Windows.Forms.Label lbAccountInfo;
@@ -948,9 +1156,6 @@ namespace ProgramTrade
         private System.Windows.Forms.TableLayoutPanel tbpanlBuySell;
         private System.Windows.Forms.RadioButton rdoBuy;
         private System.Windows.Forms.RadioButton rdoSell;
-        private System.Windows.Forms.TableLayoutPanel tbInstrumentInfo;
-        private System.Windows.Forms.Label lbInstrumentName;
-        private System.Windows.Forms.Label lbExchange;
         private System.Windows.Forms.TableLayoutPanel tbpanlSubOrder;
         private System.Windows.Forms.Button btnAddOpenOrder;
         private System.Windows.Forms.Button btnAddOrder;
@@ -963,34 +1168,69 @@ namespace ProgramTrade
         private System.Windows.Forms.Label lbBottom;
         private System.Windows.Forms.Label lbOpen;
         private System.Windows.Forms.Label lbClose;
-        private System.Windows.Forms.Button btnParellel;
         private System.Windows.Forms.Panel panlMain;
         private System.Windows.Forms.TabPage tabPageAll;
         private System.Windows.Forms.DataGridView dgvwOrders;
         private System.Windows.Forms.DataGridView dgvwInstruments;
         private System.Windows.Forms.SplitContainer splitMarket;
         private System.Windows.Forms.DataGridView dgvwMarket;
-        private System.Windows.Forms.DataGridViewTextBoxColumn posExchangeIDColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn posInstrumentIDColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn posDirectionColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn posPositionPriceColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn posVolumeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn posFlagColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn odrExchangeIDColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn odrOrderSysIDColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn odrInvestorIDColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn odrUserIDColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn odrInstrumentIDColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn odrOrderLocalIDColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn odrOrderTypeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn odrDirectionColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn odrFlagColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn odrLimitPriceColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn odrVolumeColumn;
         private System.Windows.Forms.BindingSource positionsBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn keyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource marketsBindingSource;
         private System.Windows.Forms.BindingSource ordersBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exchangeIDDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderSysIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn instrumentIDDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn directionDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn limitPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn volumeDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn flagDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderLocalIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn investorIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn volumeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn posExchangeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn posInstrumentID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn posDirection;
+        private System.Windows.Forms.DataGridViewTextBoxColumn posVolumeAll;
+        private System.Windows.Forms.DataGridViewTextBoxColumn posPositionPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn posVolumeToday;
+        private System.Windows.Forms.DataGridViewTextBoxColumn posVolumeYestoday;
+        private System.Windows.Forms.DataGridViewTextBoxColumn posFlag;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderStatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn instrumentIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn matchedPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn directionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn operationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn volumeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn matchedVolumeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exchangeIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn flagDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dgvwPositions;
+        private System.Windows.Forms.DataGridViewTextBoxColumn instrumentIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn instrumentNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn latestPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn openPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn highestPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lowestPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn volumeDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn closePriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exchangeIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn topLimitPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bottomLimitPriceDataGridViewTextBoxColumn;
     }
 }
 

@@ -164,7 +164,7 @@ namespace DFITCXSPEEDMDAPI
          */
         virtual int SubscribeForQuoteRsp(char * ppInstrumentID[], int nCount, int nRequestID) = 0;
 
-       /**
+        /**
          * 退订询价
          * @param ppInstrumentID[]:指针数组，每个指针指向一个合约。（*代表订阅退订所有询价，也可退订某交易所所有询价如DCE）
          * @param nCount:合约个数
