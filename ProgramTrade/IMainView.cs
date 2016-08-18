@@ -11,6 +11,7 @@ namespace ProgramTrade
     public interface IMainView : IDisposable, IMarketView, IPositionView, IOrderView
     {
         event EventHandler ViewLoad;
+        event EventHandler ViewShown;
         event EventHandler ViewClosing;
 
         bool ViewVisable { get; set; }

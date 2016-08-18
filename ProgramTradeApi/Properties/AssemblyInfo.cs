@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("ProgramTradeApi")]
-[assembly: AssemblyDescription("QDP API C#封装")]
+[assembly: AssemblyDescription("交易柜台系统API C#封装")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Quantdo")]
 [assembly: AssemblyProduct("ProgramTradeApi")]

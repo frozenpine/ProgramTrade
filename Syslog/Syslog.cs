@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
-using ProgramTradeApi;
 
 namespace SyslogServer
 {
@@ -49,8 +48,8 @@ namespace SyslogServer
             Debug                   ///Debug-level messages
         }
 
-        public Syslog() { }
-
-        public void Log(RspEventArgs msg) { }
+        public Syslog()
+        {
+        }
     }
 }

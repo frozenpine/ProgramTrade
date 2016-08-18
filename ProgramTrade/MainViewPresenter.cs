@@ -12,12 +12,7 @@ namespace ProgramTrade
         public IMainView MainView { get; private set; }
         public ITraderModel Trader { get; private set; }
 
-        private int orderBindStatus = 0;        // 0=not binded,1=data binded
-        private int positionBindStatus = 0;
-        private int marketBindStatus = 0;
-
-
-        public MainViewPresenter(IMainView mainFrm,ITraderModel trader)
+        public MainViewPresenter(IMainView mainFrm, ITraderModel trader)
         {
             MainView = mainFrm;
             Trader = trader;
@@ -31,13 +26,12 @@ namespace ProgramTrade
             #region Model Event
             Trader.eventPositionChanged += Trader_eventPositionChanged;
             Trader.eventOrderChanged += Trader_eventOrderChanged;
-            Trader.eventMarketChanged += Trader_eventMarketChanged;
             #endregion
         }
 
         private void Trader_eventMarketChanged(object sender, EventArgs e)
         {
-            //MainView.Markets = Trader.Markets.Values;
+            MainView.Markets = Trader.Markets.Values.AsParallel().OrderBy(v => v.InstrumentID);
         }
 
         Func<Direction, Direction> ReverseDirection = (d) =>
@@ -51,7 +45,7 @@ namespace ProgramTrade
             System.Windows.Forms.DataGridViewRow row = (sender as System.Windows.Forms.DataGridViewSelectedRowCollection)[0];
             if (row != null)
             {
-                MainView.ErrorMsg = "Mouse position : " + e.Location.ToString() + "\r\n" + row.Cells["posInstrumentID"].ToString() + "\r\n" + "平仓方向：" + row.Cells["posInstrumentID"].Value + " " + ReverseDirection((Direction)row.Cells["posDirection"].Value).ToString();
+                //MainView.ErrorMsg = "Mouse position : " + e.Location.ToString() + "\r\n" + row.Cells["instrumentIDDataGridViewTextBoxColumn3"].ToString() + "\r\n" + "平仓方向：" + row.Cells["instrumentIDDataGridViewTextBoxColumn3"].Value + " " + ReverseDirection((Direction)row.Cells["directionDataGridViewTextBoxColumn2"].Value).ToString();
             }
         }
 
@@ -115,25 +109,31 @@ namespace ProgramTrade
 
         private void Trader_eventOrderChanged(object sender, EventArgs e)
         {
-            MainView.Orders = Trader.Orders.Values.AsParallel().OrderByDescending(v => v.OrderSysID);
+            //MainView.Orders = Trader.Orders.Values.AsParallel().OrderByDescending(v => v.OrderSysID);
         }
 
         private void Trader_eventPositionChanged(object sender, EventArgs e)
         {
-            MainView.Positions = Trader.Positions.Values.AsParallel().OrderBy(v => v.InstrumentID);
+            //MainView.Positions = Trader.Positions.Values.AsParallel().OrderBy(v => v.InstrumentID);
+            //MainView.PositionCollection.Add(sender as PositionDetail);
         }
 
         private void MainForm_FormLoad(object sender, EventArgs e)
         {
             LoginViewPresenter login = new LoginViewPresenter(new LoginForm(), Trader);
             login.LoginView.ViewVisible = true;
-            if (Trader.TradeApi == null || !Trader.IsTradeLogined)
+            if (Trader.ITradeApi == null || !Trader.IsTradeLogined)
             {
                 MainView.ViewVisable = false;
             }
             else
             {
-                MainView.Markets = Trader.Markets.Values.AsParallel().OrderBy(v => v.InstrumentID);
+                //MainView.Markets = Trader.Markets.Values.AsParallel().OrderBy(v => v.InstrumentID);
+                //MainView.MarketDatasource = Trader.Markets.Values.AsParallel().OrderBy(v => v.InstrumentID).ToList();
+                //System.ComponentModel.BindingList<MarketDetail> bind = new System.ComponentModel.BindingList<MarketDetail>(Trader.Markets.Values.AsParallel().OrderBy(v => v.InstrumentID).ToList());
+                //MainView.MarketDatasource = bind;
+                //MainView.PositionDataSource = PositionDetailList;
+                //MainView.PositionCollection = new System.Collections.ObjectModel.ObservableCollection<PositionDetail>();
             }
         }
 

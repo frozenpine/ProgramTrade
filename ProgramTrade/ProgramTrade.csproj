@@ -11,6 +11,9 @@
     <AssemblyName>ProgramTrade</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -21,13 +24,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -62,6 +64,8 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
@@ -71,6 +75,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,6 +84,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ILoginView.cs" />
@@ -127,8 +135,25 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="app.config" />
-    <None Include="Instruments.csv" />
+    <None Include="Instruments.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Libs\DFITCMdApi.lib" />
+    <None Include="Libs\DFITCTraderApi.lib" />
+    <None Include="Libs\qdpmduserapi.lib" />
+    <None Include="Libs\qdptraderapi.lib" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ILoginView.datasource" />
+    <None Include="Properties\DataSources\IMainView.datasource" />
+    <None Include="Properties\DataSources\IMarketView.datasource" />
+    <None Include="Properties\DataSources\IOrderView.datasource" />
+    <None Include="Properties\DataSources\IPositionView.datasource" />
+    <None Include="Properties\DataSources\LoginForm.datasource" />
+    <None Include="Properties\DataSources\LoginViewPresenter.datasource" />
+    <None Include="Properties\DataSources\MainForm.datasource" />
+    <None Include="Properties\DataSources\MainViewPresenter.datasource" />
+    <None Include="Properties\DataSources\OpenOrderConfig.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
     <None Include="Properties\DataSources\ProgramTradeApi.Brokers.datasource" />
     <None Include="Properties\DataSources\ProgramTradeApi.CancelOrder.datasource" />
     <None Include="Properties\DataSources\ProgramTradeApi.FrontServer.datasource" />
@@ -197,7 +222,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Libs\" />
+    <Folder Include="Flow\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Libs\DFITCMdApi.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libs\DFITCTraderApi.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libs\qdpmduserapi.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libs\qdptraderapi.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.102.0\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.102.0\build\net40\System.Data.SQLite.Core.targets')" />

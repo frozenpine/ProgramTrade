@@ -80,14 +80,25 @@ namespace ProgramTrade
                     if (e.ErrorID == 0)
                     {
                         LoginView.MdFrontConnected = true;
-                        //LoginView.Username = "000200001740";
-                        //LoginView.Password = "123";
                     }
                     else
                     {
                         LoginView.MdFrontConnected = false;
                     }
                     LoginView.MarketFrontMsg = e.Message;
+                    break;
+                case "ProgramTradeApi.QTradeSpi":
+                    if (e.ErrorID == 0)
+                    {
+                        LoginView.TdFrontConnected = true;
+                        //LoginView.Username = "000200001740";
+                        //LoginView.Password = "123";
+                    }
+                    else
+                    {
+                        LoginView.TdFrontConnected = false;
+                    }
+                    LoginView.TradeFrontMsg = e.Message;
                     break;
             }
         }
@@ -107,7 +118,7 @@ namespace ProgramTrade
                         Trader.CreateTradeApi(Trader.Brokers.Current.BrokerType);
                         try
                         {
-                            Trader.TradeApi.Init(new Initiator(Trader.Brokers.SelectTradeFront));
+                            Trader.ITradeApi.Init(new Initiator(Trader.Brokers.SelectTradeFront));
                         }
                         catch (SocketException err)
                         {
@@ -138,7 +149,7 @@ namespace ProgramTrade
                         Trader.CreateMarketApi(Trader.Brokers.Current.BrokerType);
                         try
                         {
-                            Trader.MarketApi.Init(new Initiator(Trader.Brokers.SelectMarketFront));
+                            Trader.IMarketApi.Init(new Initiator(Trader.Brokers.SelectMarketFront));
                         }
                         catch (SocketException err)
                         {
@@ -185,11 +196,11 @@ namespace ProgramTrade
                 LoginView.UsernameInvalid = LoginView.PasswordInvalid = false;
                 if (Trader.IsTradeConnected)
                 {
-                    Trader.TradeApi.RequestUserLogin(LoginView.Username, LoginView.Password);
+                    Trader.ITradeApi.RequestUserLogin(LoginView.Username, LoginView.Password);
                 }
                 if(Trader.IsMarketConnected)
                 {
-                    Trader.MarketApi.RequestUserLogin(LoginView.Username, LoginView.Password);
+                    Trader.IMarketApi.RequestUserLogin(LoginView.Username, LoginView.Password);
                 }
             }
         }

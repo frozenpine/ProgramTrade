@@ -162,6 +162,9 @@
   <data name="splitMarket.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
+  <data name="splitMarket.Panel1.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="&gt;&gt;splitMarket.Panel1.Name" xml:space="preserve">
     <value>splitMarket.Panel1</value>
   </data>
@@ -174,42 +177,6 @@
   <data name="&gt;&gt;splitMarket.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="instrumentIDDataGridViewTextBoxColumn1.HeaderText" xml:space="preserve">
-    <value>InstrumentID</value>
-  </data>
-  <data name="instrumentNameDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>InstrumentName</value>
-  </data>
-  <data name="latestPriceDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>LatestPrice</value>
-  </data>
-  <data name="openPriceDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>OpenPrice</value>
-  </data>
-  <data name="highestPriceDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>HighestPrice</value>
-  </data>
-  <data name="lowestPriceDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>LowestPrice</value>
-  </data>
-  <data name="volumeDataGridViewTextBoxColumn3.HeaderText" xml:space="preserve">
-    <value>Volume</value>
-  </data>
-  <data name="closePriceDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>ClosePrice</value>
-  </data>
-  <data name="exchangeIDDataGridViewTextBoxColumn1.HeaderText" xml:space="preserve">
-    <value>ExchangeID</value>
-  </data>
-  <data name="topLimitPriceDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>TopLimitPrice</value>
-  </data>
-  <data name="bottomLimitPriceDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>BottomLimitPrice</value>
-  </data>
-  <metadata name="marketsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>601, 18</value>
-  </metadata>
   <data name="dgvwMarket.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -486,99 +453,6 @@
   <data name="tbpanlOrderInfo.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="dataGridViewTextBoxColumn1.HeaderText" xml:space="preserve">
-    <value>OrderSysID</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn1.Width" type="System.Int32, mscorlib">
-    <value>90</value>
-  </data>
-  <data name="orderStatusDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>OrderStatus</value>
-  </data>
-  <data name="orderStatusDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>96</value>
-  </data>
-  <data name="instrumentIDDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>InstrumentID</value>
-  </data>
-  <data name="instrumentIDDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>102</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn6.HeaderText" xml:space="preserve">
-    <value>LimitPrice</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn6.Width" type="System.Int32, mscorlib">
-    <value>90</value>
-  </data>
-  <data name="matchedPriceDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>MatchedPrice</value>
-  </data>
-  <data name="matchedPriceDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>102</value>
-  </data>
-  <data name="directionDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Direction</value>
-  </data>
-  <data name="directionDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>84</value>
-  </data>
-  <data name="operationDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Operation</value>
-  </data>
-  <data name="operationDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>84</value>
-  </data>
-  <data name="volumeDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Volume</value>
-  </data>
-  <data name="volumeDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>66</value>
-  </data>
-  <data name="matchedVolumeDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>MatchedVolume</value>
-  </data>
-  <data name="matchedVolumeDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>108</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn5.HeaderText" xml:space="preserve">
-    <value>OrderType</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn5.Width" type="System.Int32, mscorlib">
-    <value>84</value>
-  </data>
-  <data name="exchangeIDDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>ExchangeID</value>
-  </data>
-  <data name="exchangeIDDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>90</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn3.HeaderText" xml:space="preserve">
-    <value>UserID</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn3.Width" type="System.Int32, mscorlib">
-    <value>66</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
-    <value>InvestorID</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn2.Width" type="System.Int32, mscorlib">
-    <value>90</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn4.HeaderText" xml:space="preserve">
-    <value>OrderLocalID</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn4.Width" type="System.Int32, mscorlib">
-    <value>102</value>
-  </data>
-  <data name="flagDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Flag</value>
-  </data>
-  <data name="flagDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>54</value>
-  </data>
-  <metadata name="ordersBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>781, 15</value>
-  </metadata>
   <data name="dgvwOrders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -633,57 +507,6 @@
   <data name="&gt;&gt;tabPageAllOrders.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="posExchangeID.HeaderText" xml:space="preserve">
-    <value>ExchangeID</value>
-  </data>
-  <data name="posExchangeID.Width" type="System.Int32, mscorlib">
-    <value>90</value>
-  </data>
-  <data name="posInstrumentID.HeaderText" xml:space="preserve">
-    <value>InstrumentID</value>
-  </data>
-  <data name="posInstrumentID.Width" type="System.Int32, mscorlib">
-    <value>102</value>
-  </data>
-  <data name="posDirection.HeaderText" xml:space="preserve">
-    <value>Direction</value>
-  </data>
-  <data name="posDirection.Width" type="System.Int32, mscorlib">
-    <value>84</value>
-  </data>
-  <data name="posVolumeAll.HeaderText" xml:space="preserve">
-    <value>VolumeAll</value>
-  </data>
-  <data name="posVolumeAll.Width" type="System.Int32, mscorlib">
-    <value>84</value>
-  </data>
-  <data name="posPositionPrice.HeaderText" xml:space="preserve">
-    <value>PositionPrice</value>
-  </data>
-  <data name="posPositionPrice.Width" type="System.Int32, mscorlib">
-    <value>108</value>
-  </data>
-  <data name="posVolumeToday.HeaderText" xml:space="preserve">
-    <value>VolumeToday</value>
-  </data>
-  <data name="posVolumeToday.Width" type="System.Int32, mscorlib">
-    <value>96</value>
-  </data>
-  <data name="posVolumeYestoday.HeaderText" xml:space="preserve">
-    <value>VolumeYestoday</value>
-  </data>
-  <data name="posVolumeYestoday.Width" type="System.Int32, mscorlib">
-    <value>114</value>
-  </data>
-  <data name="posFlag.HeaderText" xml:space="preserve">
-    <value>Flag</value>
-  </data>
-  <data name="posFlag.Width" type="System.Int32, mscorlib">
-    <value>54</value>
-  </data>
-  <metadata name="positionsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>421, 16</value>
-  </metadata>
   <data name="dgvwPositions.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -2343,162 +2166,6 @@
   <data name="&gt;&gt;切换显示ToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;marketsBindingSource.Name" xml:space="preserve">
-    <value>marketsBindingSource</value>
-  </data>
-  <data name="&gt;&gt;marketsBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn1</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;orderStatusDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>orderStatusDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;orderStatusDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;instrumentIDDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>instrumentIDDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;instrumentIDDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn6.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn6</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;matchedPriceDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>matchedPriceDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;matchedPriceDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;directionDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>directionDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;directionDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;operationDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>operationDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;operationDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;volumeDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>volumeDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;volumeDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;matchedVolumeDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>matchedVolumeDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;matchedVolumeDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn5.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn5</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;exchangeIDDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>exchangeIDDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;exchangeIDDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn3.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn3</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn2</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn4.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn4</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;flagDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>flagDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;flagDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ordersBindingSource.Name" xml:space="preserve">
-    <value>ordersBindingSource</value>
-  </data>
-  <data name="&gt;&gt;ordersBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;posExchangeID.Name" xml:space="preserve">
-    <value>posExchangeID</value>
-  </data>
-  <data name="&gt;&gt;posExchangeID.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;posInstrumentID.Name" xml:space="preserve">
-    <value>posInstrumentID</value>
-  </data>
-  <data name="&gt;&gt;posInstrumentID.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;posDirection.Name" xml:space="preserve">
-    <value>posDirection</value>
-  </data>
-  <data name="&gt;&gt;posDirection.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;posVolumeAll.Name" xml:space="preserve">
-    <value>posVolumeAll</value>
-  </data>
-  <data name="&gt;&gt;posVolumeAll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;posPositionPrice.Name" xml:space="preserve">
-    <value>posPositionPrice</value>
-  </data>
-  <data name="&gt;&gt;posPositionPrice.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;posVolumeToday.Name" xml:space="preserve">
-    <value>posVolumeToday</value>
-  </data>
-  <data name="&gt;&gt;posVolumeToday.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;posVolumeYestoday.Name" xml:space="preserve">
-    <value>posVolumeYestoday</value>
-  </data>
-  <data name="&gt;&gt;posVolumeYestoday.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;posFlag.Name" xml:space="preserve">
-    <value>posFlag</value>
-  </data>
-  <data name="&gt;&gt;posFlag.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;positionsBindingSource.Name" xml:space="preserve">
-    <value>positionsBindingSource</value>
-  </data>
-  <data name="&gt;&gt;positionsBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;strplbTradeFrontSvr.Name" xml:space="preserve">
     <value>strplbTradeFrontSvr</value>
   </data>
@@ -2605,72 +2272,6 @@
     <value>dataGridViewTextBoxColumn13</value>
   </data>
   <data name="&gt;&gt;dataGridViewTextBoxColumn13.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;instrumentIDDataGridViewTextBoxColumn1.Name" xml:space="preserve">
-    <value>instrumentIDDataGridViewTextBoxColumn1</value>
-  </data>
-  <data name="&gt;&gt;instrumentIDDataGridViewTextBoxColumn1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;instrumentNameDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>instrumentNameDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;instrumentNameDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;latestPriceDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>latestPriceDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;latestPriceDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;openPriceDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>openPriceDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;openPriceDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;highestPriceDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>highestPriceDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;highestPriceDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lowestPriceDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>lowestPriceDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;lowestPriceDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;volumeDataGridViewTextBoxColumn3.Name" xml:space="preserve">
-    <value>volumeDataGridViewTextBoxColumn3</value>
-  </data>
-  <data name="&gt;&gt;volumeDataGridViewTextBoxColumn3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;closePriceDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>closePriceDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;closePriceDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;exchangeIDDataGridViewTextBoxColumn1.Name" xml:space="preserve">
-    <value>exchangeIDDataGridViewTextBoxColumn1</value>
-  </data>
-  <data name="&gt;&gt;exchangeIDDataGridViewTextBoxColumn1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;topLimitPriceDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>topLimitPriceDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;topLimitPriceDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bottomLimitPriceDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>bottomLimitPriceDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;bottomLimitPriceDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

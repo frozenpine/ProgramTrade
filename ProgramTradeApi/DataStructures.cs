@@ -11,6 +11,7 @@ using System.Collections.Concurrent;
 using CLRXspeedApi;
 using CLRQdpApi;
 using System.ComponentModel;
+using System.Collections.Specialized;
 
 namespace ProgramTradeApi
 {
@@ -345,14 +346,21 @@ namespace ProgramTradeApi
         public ExchangeID ExchangeID
         {
             get { return exchangeID; }
-            set { exchangeID = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ExchangeID")); }
+            set { exchangeID = value; /*PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ExchangeID"));*/ }
         }
 
         string instrumentID;
         public string InstrumentID
         {
             get { return instrumentID; }
-            set { instrumentID = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("InstrumentID")); }
+            set
+            {
+                if (instrumentID != value)
+                {
+                    instrumentID = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("InstrumentID"));
+                }
+            }
         }
 
         Direction direction;
@@ -1018,7 +1026,7 @@ namespace ProgramTradeApi
 
         public event PropertyChangedEventHandler PropertyChanged;
     }
-    public class OrderList : ConcurrentDictionary<int, OrderDetail>
+    public class OrderList : ConcurrentDictionary<int, OrderDetail>,INotifyPropertyChanged,INotifyCollectionChanged
     {
         public OrderList this[ExchangeID exchange]
         {
@@ -1027,5 +1035,8 @@ namespace ProgramTradeApi
                 return (OrderList)this.Where(item => item.Value.ExchangeID == exchange);         
             }
         }
+
+        public event NotifyCollectionChangedEventHandler CollectionChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

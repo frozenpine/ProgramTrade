@@ -49,18 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clock.cs" />
     <Compile Include="Syslog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="syslog\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProgramTradeApi\ProgramTradeApi.csproj">
-      <Project>{8731c13d-e285-4553-badb-feaab57acc5d}</Project>
-      <Name>ProgramTradeApi</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

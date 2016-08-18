@@ -7,8 +7,8 @@ namespace ProgramTradeApi
 {
     public interface ITraderModel:IDisposable
     {
-        ITradeApi TradeApi { get; }
-        IMarketApi MarketApi { get; }
+        ITradeApi ITradeApi { get; }
+        IMarketApi IMarketApi { get; }
 
         Brokers Brokers { get; }
         PositionList Positions { get; }
@@ -28,5 +28,8 @@ namespace ProgramTradeApi
 
         void CreateTradeApi(BrokerType type);
         void CreateMarketApi(BrokerType type);
+
+        Brokers CreateBrokersFromConf(string path="");
+        MarketList CreateMarketsFromConf(string path = "");
     }
 }

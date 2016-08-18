@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections.ObjectModel;
 
 namespace ProgramTrade
 {
@@ -36,7 +37,7 @@ namespace ProgramTrade
         {
             set
             {
-                Action<IEnumerable<PositionDetail>> set = (source) => { positionsBindingSource.DataSource = source; };
+                Action<IEnumerable<PositionDetail>> set = (source) => { ; };
                 if(InvokeRequired)
                 {
                     Invoke(set, new object[] { value });
@@ -52,7 +53,7 @@ namespace ProgramTrade
         {
             set
             {
-                Action<IEnumerable<OrderDetail>> set = (source) => { ordersBindingSource.DataSource = source; };
+                Action<IEnumerable<OrderDetail>> set = (source) => { ; };
                 if (InvokeRequired)
                 {
                     Invoke(set, new object[] { value });
@@ -162,7 +163,7 @@ namespace ProgramTrade
         {
             set
             {
-                Action<IEnumerable<MarketDetail>> set = (source) => { marketsBindingSource.DataSource = source; };
+                Action<IEnumerable<MarketDetail>> set = (source) => { ; };
                 if (InvokeRequired)
                 {
                     Invoke(set, new object[] { value });
@@ -180,6 +181,7 @@ namespace ProgramTrade
         public event EventHandler<MouseEventArgs> PositionViewDoubleClick;
         public event EventHandler SubmitOrder;
         public event EventHandler EmbeddedOrder;
+        public event EventHandler ViewShown;
 
         #region Class Functions
         public MainForm()
@@ -233,6 +235,11 @@ namespace ProgramTrade
         private void dgvwPositions_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             PositionViewDoubleClick?.Invoke(dgvwPositions.SelectedRows, e);
+        }
+
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            ViewShown?.Invoke(sender, e);
         }
     }
 }

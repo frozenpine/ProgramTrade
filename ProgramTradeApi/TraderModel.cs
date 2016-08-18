@@ -6,13 +6,14 @@ using System.Text;
 using CLRQdpApi;
 using CLRXspeedApi;
 using System.Runtime.CompilerServices;
+using System.Threading;
 
 namespace ProgramTradeApi
 {
     public sealed class TraderModel : ITraderModel,IDisposable
     {
-        public IMarketApi MarketApi { get; private set; }
-        public ITradeApi TradeApi { get; private set; }
+        public IMarketApi IMarketApi { get; private set; }
+        public ITradeApi ITradeApi { get; private set; }
 
         public Brokers Brokers { get; private set; }
         public PositionList Positions { get; private set; }
@@ -33,18 +34,14 @@ namespace ProgramTradeApi
         public event EventHandler eventOrderChanged;
         public event EventHandler eventMarketChanged;
 
+        //private static AutoResetEvent PositionDone = new AutoResetEvent(false);
+
         public TraderModel()
         {
-            Brokers = new Brokers();
-            Brokers.Add("XSpeed测试服务器群", new FrontServers(BrokerType.XSpeed));
-            Brokers.Add("QDP测试服务器群", new FrontServers(BrokerType.QDP));
-            Brokers["XSpeed测试服务器群"].Add(new FrontServer("XSpeed交易前置测试", "203.187.171.250", 10910, ServerType.TradeFrontSvr));
-            Brokers["XSpeed测试服务器群"].Add(new FrontServer("XSpeed行情前置测试", "203.187.171.250", 10915, ServerType.MarketFrontSvr));
-            Brokers["QDP测试服务器群"].Add(new FrontServer("QDP交易前置内网测试", "192.168.89.6", 30005, ServerType.TradeFrontSvr));
-
+            Brokers = CreateBrokersFromConf();
             Positions = new PositionList();
             Orders = new OrderList();
-            Markets = CreateMarkets();
+            Markets = CreateMarketsFromConf();
 
             IsTradeConnected = IsTradeLogined = false;
             IsMarketConnected = IsMarketLogined = false;
@@ -55,10 +52,10 @@ namespace ProgramTradeApi
             switch(type)
             {
                 case BrokerType.XSpeed:
-                    TradeApi = new XTradeApi();
+                    ITradeApi = new XTradeApi();
                     break;
                 case BrokerType.QDP:
-                    TradeApi = new QTradeApi();
+                    ITradeApi = new QTradeApi();
                     break;
                 default:
                     throw new NotImplementedException();
@@ -77,7 +74,7 @@ namespace ProgramTradeApi
             switch (type)
             {
                 case BrokerType.XSpeed:
-                    MarketApi = new XMduserApi();
+                    IMarketApi = new XMduserApi();
                     break;
                 case BrokerType.QDP:
                     //MarketApi = 
@@ -90,22 +87,49 @@ namespace ProgramTradeApi
 
         public void Dispose()
         {
-            if (TradeApi != null)
+            if (ITradeApi != null)
             {
-                TradeApi.Dispose();
+                ITradeApi.Dispose();
             }
-            if (MarketApi != null)
+            if (IMarketApi != null)
             {
-                MarketApi.Dispose();
+                IMarketApi.Dispose();
             }
         }
 
-        private MarketList CreateMarkets()
+        public MarketList CreateMarketsFromConf(string path="")
         {
             MarketList list = new MarketList();
-            list.TryAdd("a1607", MarketDetail.CreateMarketDetail("大连", "a1607", "黄大豆1号"));
-            list.TryAdd("a1609", MarketDetail.CreateMarketDetail("大连", "a1609", "黄大豆1号"));
-            list.TryAdd("a1611", MarketDetail.CreateMarketDetail("大连", "a1611", "黄大豆1号"));
+            //list.TryAdd("a1607", MarketDetail.CreateMarketDetail("大连", "a1607", "黄大豆1号"));
+            //list.TryAdd("a1609", MarketDetail.CreateMarketDetail("大连", "a1609", "黄大豆1号"));
+            //list.TryAdd("a1611", MarketDetail.CreateMarketDetail("大连", "a1611", "黄大豆1号"));
+            System.IO.FileStream fs = null;
+            System.IO.StreamReader rd = null;
+            try
+            {
+                fs = new System.IO.FileStream(@"Instruments.csv", System.IO.FileMode.Open, System.IO.FileAccess.Read);
+                rd = new System.IO.StreamReader(fs, Encoding.Default);
+                rd.ReadLine();
+                string line = "";
+                while ((line = rd.ReadLine()) != null)
+                {
+                    string[] items = line.Split(',');
+                    list.TryAdd(items[1], MarketDetail.CreateMarketDetail(items[0], items[1], items[2]));
+                }
+            }
+            catch(System.IO.FileNotFoundException)
+            {
+                // do something here
+                fs = null;
+                rd = null;
+            }
+            finally
+            {
+                if (fs != null)
+                    fs.Close();
+                if (rd != null)
+                    rd.Close();
+            }
             return list;
         }
 
@@ -146,8 +170,8 @@ namespace ProgramTradeApi
                     if (e.ErrorID == 0)
                     {
                         IsTradeLogined = true;
-                        TradeApi.RequestUserPosition();
-                        TradeApi.RequestQueryOrders();
+                        ITradeApi.RequestUserPosition();
+                        ITradeApi.RequestQueryOrders();
                     }
                     else
                     {
@@ -159,8 +183,9 @@ namespace ProgramTradeApi
                     if (e.ErrorID == 0)
                     {
                         IsMarketLogined = true;
-                        HashSet<string> instruments = new HashSet<string>() { "a1607", "a1609", "a1611" };
-                        MarketApi.SubMarketData(instruments); 
+                        //HashSet<string> instruments = new HashSet<string>() { "a1607", "a1609", "a1611" };
+                        HashSet<string> instruments = new HashSet<string>() { "*" };
+                        IMarketApi.SubMarketData(instruments); 
                     }
                     else
                     {
@@ -181,10 +206,12 @@ namespace ProgramTradeApi
                         if (pos.InstrumentID != "")
                         {
                             Positions.AddOrUpdate(pos.InstrumentID + pos.Direction, pos, (k, v) => v);
-                            if (e.IsLast)
+                            /*if (e.IsLast)
                             {
+                                Thread.Sleep(500);
                                 eventPositionChanged?.Invoke(this, null);
-                            }
+                            }*/
+                            eventPositionChanged?.Invoke(pos, null);
                         }
                     }
                     else
@@ -257,6 +284,18 @@ namespace ProgramTradeApi
                     //eventMarketChanged?.Invoke(this, null);
                     break;
             }
+        }
+
+        public Brokers CreateBrokersFromConf(string path = "")
+        {
+            Brokers brokers = new Brokers();
+            brokers.Add("XSpeed测试服务器群", new FrontServers(BrokerType.XSpeed));
+            brokers.Add("QDP测试服务器群", new FrontServers(BrokerType.QDP));
+            brokers["XSpeed测试服务器群"].Add(new FrontServer("XSpeed交易前置测试", "203.187.171.250", 10910, ServerType.TradeFrontSvr));
+            brokers["XSpeed测试服务器群"].Add(new FrontServer("XSpeed行情前置测试", "203.187.171.250", 10915, ServerType.MarketFrontSvr));
+            brokers["QDP测试服务器群"].Add(new FrontServer("QDP交易前置测试", "211.147.74.221", 30005, ServerType.TradeFrontSvr));
+            brokers["QDP测试服务器群"].Add(new FrontServer("QDP行情前置测试", "211.147.74.221", 30007, ServerType.TradeFrontSvr));
+            return brokers;
         }
         #endregion
     }
